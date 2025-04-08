@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (彭志远)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Prof. Yuan Luo].
+**Zhiyuan Peng (彭志远)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by Prof. Yuan Luo.
 
 My research interest includes **Large Language Model, Software Testing, and Software Security**. I have published papers at the top international conferences such as **FSE/ISSTA/ICSE/CVPR**. I developed a few well-known approaches including:
 - [SVulD](https://github.com/vinci-grape/SVulD) and [MVulD](https://github.com/vinci-grape/MVulD): Vulnerability Detection
