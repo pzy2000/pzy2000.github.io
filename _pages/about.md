@@ -53,16 +53,21 @@ My research interest includes **Large Language Model, Software Testing, and Soft
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 </div>
 </div> -->
+
+
 ## Preprints
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), Zhiyuan Peng, <span style="color: blue;">**Xin Yin\#**</span>, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, **Arxiv**
 - [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation](https://arxiv.org/pdf/2502.18793), Zhiyuan Peng, <span style="color: blue;">**Xin Yin\#**</span>, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo, **Arxiv**
 
+# ✨ Projects
 
-[//]: # (# 🎖 Honors and Awards)
+- **MindSpore Contributor** (Huawei's domestic deep learning framework) - [Project Link](https://gitee.com/mindspore/models)  
+- **YimMenu Contributor** (Open-source project with 1,600+ ⭐ on GitHub) - [Repository](https://github.com/YimMenu/YimMenu)
 
-[//]: # (- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. )
+# 🎖 Honors and Awards
 
-[//]: # (- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. )
+- *2021.10* First Prize in the National College Student English Competition Final
+
 
 # 📖 Educations
 - *2024.09 - Present*, Ph.D. student, Shanghai Jiao Tong University.
