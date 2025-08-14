@@ -17,42 +17,39 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (彭志远)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by Prof. Yuan Luo.
+**Zhiyuan Peng (彭志远/Lucius Peng)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by Dr. Xin Yin and Prof. Yuan Luo.
 
-My research interest includes **Large Language Model, Software Testing, and Software Security**. I have published papers at the top international conferences such as **FSE/ISSTA/ICSE/CVPR**. I developed a few well-known approaches including:
+My research interest includes **Large Language Model, Software Testing, and Software Security**. I have published papers at the top international conferences such as **ASE**. I developed a few well-known approaches including:
 - [SVulD](https://github.com/vinci-grape/SVulD) and [MVulD](https://github.com/vinci-grape/MVulD): Vulnerability Detection
 - [CodeGPTSensor+](https://github.com/vinci-grape/CodeGPTSensor-plus): LLM-generated Code Detection
 - [ThinkRepair](https://github.com/vinci-grape/ThinkRepair): Program Repair
 - [Rectifier](https://github.com/vinci-grape/Rectifier): Code Translation
 - [AUGER](https://github.com/vinci-grape/AUGER) and [RATester](): Unit Test Generation
 
+In 2025, I will lead or participate in the following research topics:
+- Software Testing: Unit Test Generation
+- Large Language Models (LLMs): Agent
+
 # 🔥 News
-- *2025.04*: &nbsp;🎉 One paper was accepted by TOSEM 2025!
-- *2025.02*: &nbsp;🎉 One paper was accepted by CVPR 2025!
+- *2025.08*: &nbsp;🎉 One paper was accepted by ASE 2025!
+<!-- - *2025.02*: &nbsp;🎉 One paper was accepted by CVPR 2025! -->
 <!-- - *2024.09*: &nbsp;🎉 One paper was accepted by APSEC 2024! -->
-- *2024.10*: &nbsp;🎉 One paper was accepted by ICSE 2025!
+<!-- - *2024.10*: &nbsp;🎉 One paper was accepted by ICSE 2025! -->
 <!-- - *2024.09*: &nbsp;🎉 One paper was accepted by TPAMI 2024! -->
-- *2024.09*: &nbsp;🎉 One paper was accepted by TSE 2024!
-- *2024.07*: &nbsp;🎉 One paper was accepted by ISSTA 2024!
+<!-- - *2024.09*: &nbsp;🎉 One paper was accepted by TSE 2024! -->
+<!-- - *2024.07*: &nbsp;🎉 One paper was accepted by ISSTA 2024! -->
 <!-- - *2023.09*: &nbsp;🎉 One paper was accepted by EMNLP 2023! -->
-- *2023.05*: &nbsp;🎉 One paper was accepted by FSE 2023! 
+<!-- - *2023.05*: &nbsp;🎉 One paper was accepted by FSE 2023!  -->
 <!-- - *2023.03*: &nbsp;🎉 One paper was accepted by ICPC 2023! -->
 <!-- - *2022.11*: &nbsp;🎉 One paper was accepted by ISPA 2022! -->
 
 # 📝 Selected Publications
+
+- [PrefGen: A Preference-Driven Methodology for Secure Yet Gas-Efficient Smart Contract Generation.]()<br>
+  Zhiyuan Peng, <span style="color: blue;">**Xin Yin\#**</span>, Zijie Zhou, Chenhao Ying, Chao Ni, Yuan Luo.<br>
+  In *Proceedings of the 40th IEEE/ACM Automated Software Engineering Conference (ASE'25)*. (<span style="color:red">CCF-A</span>)
+
 **\# denotes co-first author or first student author**
-
-<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div> -->
 
 
 ## Preprints
@@ -80,6 +77,6 @@ My research interest includes **Large Language Model, Software Testing, and Soft
 
 [//]: # (- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]]&#40;https://github.com/&#41;)
 
-[//]: # (# 💻 Internships)
+# 💻 Internships
 
-[//]: # (- *2019.05 - 2020.02*, [Lorem]&#40;https://github.com/&#41;, China.)
+- *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
