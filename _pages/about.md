@@ -77,6 +77,6 @@ In 2025, I will lead or participate in the following research topics:
 
 [//]: # (- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]]&#40;https://github.com/&#41;)
 
-# 💻 Internships
+<!-- # 💻 Internships -->
 
-- *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
+<!-- - *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent -->
