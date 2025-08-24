@@ -20,25 +20,22 @@ redirect_from:
 **Zhiyuan Peng (彭志远/Lucius Peng)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by Dr. Xin Yin, Prof. Chenhao Ying and Prof. Yuan Luo.
 
 My research interest includes **Large Language Model, Software Testing, and Software Security**. I have published papers at the top international conferences such as **ASE**. I developed a few well-known approaches including:
-- [SVulD](https://github.com/vinci-grape/SVulD) and [MVulD](https://github.com/vinci-grape/MVulD): Vulnerability Detection
-- [CodeGPTSensor+](https://github.com/vinci-grape/CodeGPTSensor-plus): LLM-generated Code Detection
-- [ThinkRepair](https://github.com/vinci-grape/ThinkRepair): Program Repair
-- [Rectifier](https://github.com/vinci-grape/Rectifier): Code Translation
-- [AUGER](https://github.com/vinci-grape/AUGER) and [RATester](): Unit Test Generation
+- [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Smart Contract Generation
 
 In 2025, I will lead or participate in the following research topics:
 - Software Testing: Unit Test Generation
 - Large Language Models (LLMs): Agent
 
 # 🔥 News
+- *2025.08*: &nbsp;🎉 One paper was accepted by EMNLP 2025 Main!
 - *2025.08*: &nbsp;🎉 One paper was accepted by ASE 2025!
+
 <!-- - *2025.02*: &nbsp;🎉 One paper was accepted by CVPR 2025! -->
 <!-- - *2024.09*: &nbsp;🎉 One paper was accepted by APSEC 2024! -->
 <!-- - *2024.10*: &nbsp;🎉 One paper was accepted by ICSE 2025! -->
 <!-- - *2024.09*: &nbsp;🎉 One paper was accepted by TPAMI 2024! -->
 <!-- - *2024.09*: &nbsp;🎉 One paper was accepted by TSE 2024! -->
 <!-- - *2024.07*: &nbsp;🎉 One paper was accepted by ISSTA 2024! -->
-<!-- - *2023.09*: &nbsp;🎉 One paper was accepted by EMNLP 2023! -->
 <!-- - *2023.05*: &nbsp;🎉 One paper was accepted by FSE 2023!  -->
 <!-- - *2023.03*: &nbsp;🎉 One paper was accepted by ICPC 2023! -->
 <!-- - *2022.11*: &nbsp;🎉 One paper was accepted by ISPA 2022! -->
@@ -48,12 +45,12 @@ In 2025, I will lead or participate in the following research topics:
 - [PrefGen: A Preference-Driven Methodology for Secure Yet Gas-Efficient Smart Contract Generation.](https://arxiv.org/abs/2506.03006)<br>
   Zhiyuan Peng, <span style="color: blue;">**Xin Yin\#**</span>, Zijie Zhou, Chenhao Ying, Chao Ni, Yuan Luo.<br>
   In *Proceedings of the 40th IEEE/ACM Automated Software Engineering Conference (ASE'25)*. (<span style="color:red">CCF-A</span>)
+- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation](https://arxiv.org/pdf/2502.18793), <span style="color: blue;">Zhiyuan Peng</span>, **Xin Yin\#**, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo, In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (TH-CPL-A)
 
 **\# denotes co-first author author**
 
 
 # 📝 Preprints
-- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation](https://arxiv.org/pdf/2502.18793), <span style="color: blue;">Zhiyuan Peng</span>, **Xin Yin\#**, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo, **Arxiv**
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">Zhiyuan Peng</span>, **Xin Yin\#**, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, **Arxiv**
 
 
