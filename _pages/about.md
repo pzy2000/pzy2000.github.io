@@ -23,8 +23,9 @@ My research interest includes **Code Generation, Large Language Model, and Softw
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
 In 2025, I will lead or participate in the following research topics:
-- Code Generation
-- Large Language Models (LLMs): Agent
+- Code Generation : Game Geneneration
+- Large Language Models (LLMs): Agent, GUI-Testing
+- Code Migration
 
 # 🔥 News
 - *2025.08*: &nbsp;🎉 One paper was accepted by EMNLP 2025 Main!
