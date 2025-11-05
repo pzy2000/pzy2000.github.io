@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (彭志远/Lucius Peng)** is the first-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=464) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=87). I was grateful to intern or collaborate at Tencent LIGHTNING Group.
+**Zhiyuan Peng (彭志远/Lucius Peng)** is the second-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=464) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=87). I was grateful to intern at Tencent LIGHTNING Group.
 
 My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ASE** and **EMNLP**. I developed a few well-known approaches including:
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
