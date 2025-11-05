@@ -23,9 +23,9 @@ My research interest includes *Code Generation, Large Language Model, and Softwa
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
 In 2025, I will lead or participate in the following research topics:
-- Code Generation : Game Geneneration
+- Code Generation : Agentic Code Gen
 - Large Language Models (LLMs): Agent, GUI-Testing
-- Code Migration
+- Code Translation
 
 # 🔥 News
 - *2025.08*: &nbsp;🎉 One paper was accepted by EMNLP 2025 Main!
@@ -58,6 +58,7 @@ In 2025, I will lead or participate in the following research topics:
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, ASEJ Under Review. (CCF-B)
 
+- [RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation.](http://arxiv.org/pdf/2508.17720), Ziqi Guan, Xin Yin\#, <span style="color: blue;">**Zhiyuan Peng**</span>, Chao Ni, **Arxiv**
 
 # ✨ Projects
 
