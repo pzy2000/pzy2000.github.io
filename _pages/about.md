@@ -46,13 +46,17 @@ In 2025, I will lead or participate in the following research topics:
 - [PrefGen: A Preference-Driven Methodology for Secure Yet Gas-Efficient Smart Contract Generation.](https://arxiv.org/abs/2506.03006)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Zijie Zhou, Chenhao Ying, Chao Ni, Yuan Luo.<br>
   In *Proceedings of the 40th IEEE/ACM Automated Software Engineering Conference (ASE'25)*. (<span style="color:red">CCF-A</span>)
-- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation](https://arxiv.org/pdf/2502.18793), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo, In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (<span style="color:red">TH-CPL-A</span>)
+- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation。](https://arxiv.org/pdf/2502.18793)<br>
+  <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo.<br> 
+  In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (<span style="color:red">TH-CPL-A</span>)
 
-**\# denotes co-first author author**
+**\# denotes co-first author**
 
 
 # 📝 Preprints
-- [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, **Arxiv**
+- Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Under Review. (<span style="color:red">CCF-A</span>)
+
+- [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, ASEJ Under Review. (CCF-B)
 
 
 # ✨ Projects
