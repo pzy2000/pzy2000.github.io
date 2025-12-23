@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (彭志远/Lucius Peng)** is the second-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=464) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=87). I was grateful to intern at Tencent LIGHTNING Studios and MSRA.
+**Zhiyuan Peng (彭志远/Lucius Peng)** is the second-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=464) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/PeopleDetail.aspx?id=87). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA.
 
 My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ASE** and **EMNLP**. I developed a few well-known approaches including:
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
@@ -53,7 +53,7 @@ In 2025, I will lead or participate in the following research topics:
 
 
 # 📝 Preprints
-- Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Under Review. (<span style="color:red">CCF-A</span>)
+<!-- - Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Under Review. (<span style="color:red">CCF-A</span>) -->
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, ASEJ Under Review. (CCF-B)
 
