@@ -23,7 +23,7 @@ My research interest includes *Code Generation, Large Language Model, and Softwa
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
 In 2025, I will lead or participate in the following research topics:
-- Code Generation : Agentic Code Gen, Smart Contract
+- Code Generation: Agentic Code Gen, Smart Contract
 - Large Language Models (LLMs): Agent, GUI-Testing
 
 # 🔥 News
