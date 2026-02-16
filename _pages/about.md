@@ -53,8 +53,9 @@ In 2025, I will lead or participate in the following research topics:
 
 
 # 📝 Preprints
-<!-- - Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Under Review. (<span style="color:red">CCF-A</span>) -->
-- [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang. **Arxiv**.<br>
+- Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Under Review. (<span style="color:red">CCF-A</span>)
+
+- [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, **ACL'26** Under Review. (<span style="color:red">CCF-A</span>)
 
 <!-- - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, ASEJ Under Review. (CCF-B) -->
 
