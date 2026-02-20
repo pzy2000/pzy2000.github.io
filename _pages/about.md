@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (Lucius Peng)** is the second-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA.
+**Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA.
 
 My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ASE** and **EMNLP**. I developed a few well-known approaches including:
 - [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation
