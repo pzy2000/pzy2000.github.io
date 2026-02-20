@@ -41,7 +41,7 @@ In 2025, I will lead or participate in the following research topics:
 <!-- - *2023.03*: &nbsp;🎉 One paper was accepted by ICPC 2023! -->
 <!-- - *2022.11*: &nbsp;🎉 One paper was accepted by ISPA 2022! -->
 
-# 📝 Selected Publications
+# 📝 Publications
 
 - [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation.](https://arxiv.org/pdf/2502.18793)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo.<br> 
