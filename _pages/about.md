@@ -67,8 +67,9 @@ In 2025, I will lead or participate in the following research topics:
 
 # ✨ Projects
 
-- **MindSpore Contributor** (Huawei's domestic deep learning framework) - [Project Link](https://gitee.com/mindspore/models)  
 - **YimMenu Contributor** (Open-source project with 1,600+ ⭐ on GitHub) - [Repository](https://github.com/YimMenu/YimMenu)
+- **MindSpore Contributor** (Huawei's domestic deep learning framework) - [Project Link](https://gitee.com/mindspore/models)  
+
 
 # 🎖 Honors and Awards
 
