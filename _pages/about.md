@@ -28,6 +28,7 @@ In 2025, I will lead or participate in the following research topics:
 - Large Language Models (LLMs): Agent, GUI-Testing
 
 # 🔥 News
+- *2026.04*: &nbsp;🎉 One paper was accepted by FSE 2026!
 - *2025.08*: &nbsp;🎉 One paper was accepted by EMNLP 2025 Main!
 - *2025.08*: &nbsp;🎉 One paper was accepted by ASE 2025!
 
@@ -61,7 +62,7 @@ In 2025, I will lead or participate in the following research topics:
 
 # 📝 Preprints
 
-<!-- - [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, *ACL'26* (Score: 4.5 4 4). (<span style="color:red">CCF-A</span>) -->
+<!-- - [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, *ACL'26* (Score: 4.5 4.0 4.0, Meta-review 4.0). (<span style="color:red">CCF-A</span>) -->
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, Arxiv.
 
@@ -91,5 +92,5 @@ In 2025, I will lead or participate in the following research topics:
 
 <!-- # 💻 Internships -->
 
-- *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
-- *2025.09 - 2025.10*, ByteDance -->
+<!-- - *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
+- *2025.09 - 2025.10*, ByteDance --> -->
