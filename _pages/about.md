@@ -93,4 +93,4 @@ In 2025, I will lead or participate in the following research topics:
 <!-- # 💻 Internships -->
 
 <!-- - *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
-- *2025.09 - 2025.10*, ByteDance
+- *2025.09 - 2025.10*, ByteDance -->
