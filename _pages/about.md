@@ -17,10 +17,10 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA.
+**Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios, MSRA, ByteDance and Hithink Research (AIME Talent Plan).
 
 My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **EMNLP** and **ASE**. I developed a few well-known approaches including:
-- [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation
+<!-- - [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation -->
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
 In 2025, I will lead or participate in the following research topics:
@@ -43,23 +43,25 @@ In 2025, I will lead or participate in the following research topics:
 
 # 📝 Publications
 
+- [Making LLM-Generated GUI Code Playable: From Evaluation to Refinement.](https://conf.researchr.org/home/fse-2026)<br>
+  <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao\#, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo.<br>
+  In *Proceedings of the ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE'26)*. (<span style="color:red">CCF-A</span>)
 - [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation.](https://arxiv.org/pdf/2502.18793)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo.<br> 
   In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (<span style="color:red">TH-CPL-A</span>)
 - [PrefGen: A Preference-Driven Methodology for Secure Yet Gas-Efficient Smart Contract Generation.](https://arxiv.org/abs/2506.03006)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Zijie Zhou, Chenhao Ying, Chao Ni, Yuan Luo.<br>
   In *Proceedings of the 40th IEEE/ACM Automated Software Engineering Conference (ASE'25)*. (<span style="color:red">CCF-A</span>)
-
+- [A Preference-Driven Methodology for Efficient Code Generation.](https://ieeexplore.ieee.org/document/11273185)<br>
+  Yuqi Li, Zijie Zhou, <span style="color: blue;">**Zhiyuan Peng**</span>, Junhao Dong, Haochen You, Renye Yan.<br>
+  *IEEE Transactions on Artificial Intelligence*. (<span style="color:red">JCR-Q1</span>)
 
 **\# denotes co-first author**
 
 
 # 📝 Preprints
-- Making LLM-Generated GUI Code Playable: From Evaluation to Refinement, <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao\#, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo, **FSE'26** Major Revision. (<span style="color:red">CCF-A</span>)
 
-- [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, *ACL'26* (Score: 4.5 4 4). (<span style="color:red">CCF-A</span>)
-
-- [A Preference-Driven Methodology for Efficient Code Generation](https://ieeexplore.ieee.org/document/11273185), Yuqi Li, Zijie Zhou, <span style="color: blue;">**Zhiyuan Peng**</span>, Junhao Dong, Haochen You, Renye Yan, *IEEE Transactions on Artificial Intelligence*. (<span style="color:red">JCR-Q1</span>)
+<!-- - [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, *ACL'26* (Score: 4.5 4 4). (<span style="color:red">CCF-A</span>) -->
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, Arxiv.
 
@@ -89,4 +91,5 @@ In 2025, I will lead or participate in the following research topics:
 
 <!-- # 💻 Internships -->
 
-<!-- - *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent -->
+- *2025.05 - 2025.08*, LIGHTSPEED STUDIOS in Tencent
+- *2025.09 - 2025.10*, ByteDance -->
