@@ -28,6 +28,7 @@ In 2025, I will lead or participate in the following research topics:
 - Large Language Models (LLMs): Agent, GUI-Testing
 
 # 🔥 News
+- *2026.04*: &nbsp;🎉 One paper was accepted by ACL 2026!
 - *2026.04*: &nbsp;🎉 One paper was accepted by FSE 2026!
 - *2025.08*: &nbsp;🎉 One paper was accepted by EMNLP 2025 Main!
 - *2025.08*: &nbsp;🎉 One paper was accepted by ASE 2025!
@@ -44,6 +45,9 @@ In 2025, I will lead or participate in the following research topics:
 
 # 📝 Publications
 
+- [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943)<br>
+  <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang.<br>
+  In *Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL'26)*. (<span style="color:red">CCF-A</span>)
 - [PlayCoder: Making LLM-Generated GUI Code Playable.](https://conf.researchr.org/home/fse-2026)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao\#, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo.<br>
   In *Proceedings of the ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE'26)*. (<span style="color:red">CCF-A</span>)
@@ -61,8 +65,6 @@ In 2025, I will lead or participate in the following research topics:
 
 
 # 📝 Preprints
-
-- [RepoGenesis: Benchmarking End-to-End Microservice Generation from Readme to Repository.](https://arxiv.org/abs/2601.13943), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Pu Zhao, Fangkai Yang, Lu Wang, Ran Jia, Xu Chen, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, *ACL'26* (Score: 4.5 4.0 4.0, Meta-review 4.0). (<span style="color:red">CCF-A</span>)
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, Arxiv.
 
