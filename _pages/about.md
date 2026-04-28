@@ -63,17 +63,20 @@ In 2025, I will lead or participate in the following research topics:
 
 **\# denotes co-first author**
 
+# ✨ Projects
+
+- **YimMenu Contributor** (Open-source project with 1,600+ ⭐ on GitHub) - [Repository](https://github.com/YimMenu/YimMenu)
+- **MindSpore Contributor** (Huawei's domestic deep learning framework) - [Project Link](https://gitee.com/mindspore/models)  
+
+# 💬 Academic Services
+- Journal Reviewer: IEEE Transactions on Software Engineering (TSE), ACM Transactions on Software Engineering and Methodology (TOSEM), Automated Software Engineering (ASE)
+- Conference Reviewer: NeurIPS 2026
 
 # 📝 Preprints
 
 - [MulChain: Enabling Advanced Cross-Modal Queries in Hybrid-Storage Blockchains](https://arxiv.org/pdf/2502.18258), <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Gang Wang, Chenhao Ying, Wei Chen, Xikun Jiang, Yibin Xu, Yuan Luo, Arxiv.
 
 - [RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation.](http://arxiv.org/pdf/2508.17720), Ziqi Guan, Xin Yin\#, <span style="color: blue;">**Zhiyuan Peng**</span>, Chao Ni, Arxiv.
-
-# ✨ Projects
-
-- **YimMenu Contributor** (Open-source project with 1,600+ ⭐ on GitHub) - [Repository](https://github.com/YimMenu/YimMenu)
-- **MindSpore Contributor** (Huawei's domestic deep learning framework) - [Project Link](https://gitee.com/mindspore/models)  
 
 
 # 🎖 Honors and Awards
