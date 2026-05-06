@@ -19,13 +19,13 @@ redirect_from:
 
 **Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios, MSRA, ByteDance and Hithink Research (AIME Talent Plan).
 
-My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **EMNLP**, **FSE** and **ASE**. I developed a few well-known approaches including:
+My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ACL**, **EMNLP**, **FSE**, and **ASE**. I developed a few well-known approaches including:
+- [PlayCoder](https://conf.researchr.org/home/fse-2026): Game Code Generation
 - [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
-In 2025, I will lead or participate in the following research topics:
-- Code Generation: Agentic Code Gen, Smart Contract
-- Large Language Models (LLMs): Agent, GUI-Testing
+In 2026, I will lead or participate in the following research topics:
+- Code Generation: Coding Model, Coding Agent, GUI-Testing
 
 # 🔥 News
 - *2026.04*: &nbsp;🎉 One paper was accepted by ACL 2026!
