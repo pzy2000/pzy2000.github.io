@@ -52,11 +52,7 @@ lang: zh-CN
 
 - **YimMenu Contributor**（GitHub 1,600+ ⭐ 开源项目）- [代码仓库](https://github.com/YimMenu/YimMenu)
 - **MindSpore Contributor**（华为国产深度学习框架）- [项目链接](https://gitee.com/mindspore/models)
-<!-- 
-# 💬 学术服务 {#academic-services}
-- 期刊审稿人：IEEE Transactions on Software Engineering (TSE), ACM Transactions on Software Engineering and Methodology (TOSEM), Automated Software Engineering (ASE)
-- 会议审稿人：NeurIPS 2026
- -->
+
 # 📝 预印本 {#preprints}
 
 - [RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation.](http://arxiv.org/pdf/2508.17720), Ziqi Guan, Xin Yin\#, <span style="color: blue;">**Zhiyuan Peng**</span>, Chao Ni, Arxiv.
