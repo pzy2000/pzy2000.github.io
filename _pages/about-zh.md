@@ -55,8 +55,8 @@ lang: zh-CN
 <!-- 
 # 💬 学术服务 {#academic-services}
 - 期刊审稿人：IEEE Transactions on Software Engineering (TSE), ACM Transactions on Software Engineering and Methodology (TOSEM), Automated Software Engineering (ASE)
-- 会议审稿人：NeurIPS 2026 -->
-
+- 会议审稿人：NeurIPS 2026
+ -->
 # 📝 预印本 {#preprints}
 
 - [RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation.](http://arxiv.org/pdf/2508.17720), Ziqi Guan, Xin Yin\#, <span style="color: blue;">**Zhiyuan Peng**</span>, Chao Ni, Arxiv.
