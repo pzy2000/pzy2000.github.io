@@ -107,3 +107,14 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.language-switch {
+    margin-top: -0.25em;
+    margin-bottom: 0.75em;
+    text-align: right;
+    font-size: 0.9em;
+
+    p {
+        margin-bottom: 0;
+    }
+}
