@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-[中文版本](/zh/)
+<p style="text-align: right; margin: 0;">[中文版本](/zh/)</p>
 
 **Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios, MSRA, ByteDance.
 

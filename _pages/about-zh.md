@@ -3,11 +3,14 @@ permalink: /zh/
 title: ""
 excerpt: ""
 author_profile: true
+redirect_from:
+  - /zh/about/
+  - /zh/about.html
 ---
 
 <span class='anchor' id='about-me'></span>
 
-[English Version](/)
+<p style="text-align: right; margin: 0;">[English Version](/)</p>
 
 **彭志远（Lucius Peng）** 是 [上海交通大学](https://www.sjtu.edu.cn/) 二年级博士生，导师为 [殷鑫老师](https://vinci-grape.github.io/)、[应臣浩老师](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) 和 [骆源老师](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html)。我曾在腾讯光子工作室群、微软亚洲研究院（MSRA）和字节跳动实习。
 
