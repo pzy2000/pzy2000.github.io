@@ -15,7 +15,7 @@ lang: zh-CN
 **彭志远（Lucius Peng）** 是[上海交通大学](https://www.sjtu.edu.cn/)二年级博士研究生，师从[殷鑫博士](https://vinci-grape.github.io/)、[应臣浩教授](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html)和[骆源教授](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html)。我曾有幸在腾讯光子工作室群、微软亚洲研究院和字节跳动实习。
 
 我的研究兴趣包括*代码生成、大语言模型和软件测试*。我已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并开发了一些有代表性的工作：
-- [PlayCoder](https://conf.researchr.org/home/fse-2026)：游戏代码生成
+- [PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)：游戏代码生成
 - [RepoGenesis](https://arxiv.org/abs/2601.13943)：从零到一的代码仓库生成
 - [SolEval](https://github.com/pzy2000/SolEval) 和 [PrefGen](https://github.com/pzy2000/PrefGen)：Solidity 代码生成
 

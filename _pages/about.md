@@ -24,7 +24,7 @@ redirect_from:
 **Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), supervised by [Dr. Xin Yin](https://vinci-grape.github.io/), [Prof. Chenhao Ying](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) and [Prof. Yuan Luo](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html). I was grateful to intern at Tencent LIGHTSPEED Studios, MSRA, ByteDance.
 
 My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ACL**, **EMNLP**, **FSE**, and **ASE**. I developed a few well-known approaches including:
-- [PlayCoder](https://conf.researchr.org/home/fse-2026): Game Code Generation
+- [PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable): Game Code Generation
 - [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
 
