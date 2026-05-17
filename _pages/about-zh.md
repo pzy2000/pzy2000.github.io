@@ -9,7 +9,7 @@ author_profile: true
 
 [English Version](/)
 
-**彭志远（Lucius Peng）** 是 [上海交通大学](https://www.sjtu.edu.cn/) 二年级博士生，导师为 [殷昕老师](https://vinci-grape.github.io/)、[应晨昊老师](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) 和 [骆源老师](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html)。我曾在腾讯光子工作室群、微软亚洲研究院（MSRA）和字节跳动实习。
+**彭志远（Lucius Peng）** 是 [上海交通大学](https://www.sjtu.edu.cn/) 二年级博士生，导师为 [殷鑫老师](https://vinci-grape.github.io/)、[应臣浩老师](https://www.cs.sjtu.edu.cn/jiaoshiml/yingchenhao.html) 和 [骆源老师](https://www.cs.sjtu.edu.cn/jiaoshiml/luoyuan.html)。我曾在腾讯光子工作室群、微软亚洲研究院（MSRA）和字节跳动实习。
 
 我的研究兴趣包括 *代码生成、大语言模型和软件测试*。目前已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并主导或参与了以下代表性工作：
 - [PlayCoder](https://conf.researchr.org/home/fse-2026)：游戏代码生成
@@ -17,7 +17,7 @@ author_profile: true
 - [SolEval](https://github.com/pzy2000/SolEval) 和 [PrefGen](https://github.com/pzy2000/PrefGen)：Solidity 代码生成
 
 2026 年，我将主要参与以下研究方向：
-- 代码生成：Coding Model
+- 代码生成：代码模型训练
 
 # 🔥 新闻
 - *2026.04*: &nbsp;🎉 一篇论文被 ACL 2026 接收！
