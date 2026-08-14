@@ -1,8 +1,11 @@
 ---
 permalink: /
-title: ""
+title: "Zhiyuan Peng（彭志远）"
+seo_title: "Zhiyuan Peng（彭志远）| Ph.D. Student, Shanghai Jiao Tong University"
+description: "Zhiyuan Peng (彭志远), Ph.D. student at the School of Computer Science, Shanghai Jiao Tong University, working on code generation, large language models, and software testing."
 excerpt: ""
 author_profile: true
+lang: en
 redirect_from: 
   - /about/
   - /about.html
@@ -21,7 +24,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA. My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ACL**, **EMNLP**, **FSE**, and **ASE**. I developed a few well-known approaches including:
+# Zhiyuan Peng（彭志远）
+{: .site-headline}
+
+<div class="site-tagline">Ph.D. Student, School of Computer Science, Shanghai Jiao Tong University</div>
+
+**Zhiyuan Peng (Lucius Peng)** is the 2nd-year Ph.D. student at the School of Computer Science, [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/). I was grateful to intern at Tencent LIGHTSPEED Studios and MSRA. My research interest includes *Code Generation, Large Language Model, and Software Testing*. I have published serveral papers at the top international conferences such as **ACL**, **EMNLP**, **FSE**, and **ASE**. I developed a few well-known approaches including:
 - [PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable): Game Code Generation
 - [RepoGenesis](https://arxiv.org/abs/2601.13943): Zero2One Code Generation
 - [SolEval](https://github.com/pzy2000/SolEval) and [PrefGen](https://github.com/pzy2000/PrefGen): Solidity Code Generation
@@ -130,6 +138,6 @@ In 2026, I will lead or participate in the following research topics:
 
 
 # 📖 Educations
-- *2024.09 - Present*, Ph.D. student, Shanghai Jiao Tong University.
+- *2024.09 - Present*, Ph.D. student, School of Computer Science, Shanghai Jiao Tong University.
 - *2022.09 - 2024.06*, Master, Nanjing University.
 - *2018.09 - 2022.06*, Bachelor, Hohai University.

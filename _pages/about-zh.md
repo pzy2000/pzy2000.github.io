@@ -1,6 +1,8 @@
 ---
 permalink: /zh/
-title: ""
+title: "彭志远（Zhiyuan Peng）"
+seo_title: "彭志远（Zhiyuan Peng）| 上海交通大学计算机学院博士研究生"
+description: "彭志远（Zhiyuan Peng），上海交通大学计算机学院博士研究生，研究方向为代码智能、大语言模型与软件测试，在 ACL、EMNLP、FSE、ASE 等国际顶级会议发表论文。"
 excerpt: ""
 author_profile: true
 lang: zh-CN
@@ -12,7 +14,12 @@ lang: zh-CN
 
 <span class='anchor' id='about-me'></span>
 
-**彭志远（Lucius Peng）** 是[上海交通大学](https://www.sjtu.edu.cn/)二年级博士研究生。我曾有幸在腾讯光子工作室群（青云计划）和微软亚洲研究院（MSRA）实习。我的研究兴趣包括*代码智能、大语言模型、软件测试*。我已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并开发了一些有代表性的工作：
+# 彭志远（Zhiyuan Peng）
+{: .site-headline}
+
+<div class="site-tagline">上海交通大学 计算机学院 · 博士研究生</div>
+
+**彭志远（Lucius Peng）** 是[上海交通大学](https://www.sjtu.edu.cn/)计算机学院二年级博士研究生。我曾有幸在腾讯光子工作室群（青云计划）和微软亚洲研究院（MSRA）实习。我的研究兴趣包括*代码智能、大语言模型、软件测试*。我已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并开发了一些有代表性的工作：
 - [PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)：游戏代码生成
 - [RepoGenesis](https://arxiv.org/abs/2601.13943)：从零到一的代码仓库生成
 - [SolEval](https://github.com/pzy2000/SolEval) 和 [PrefGen](https://github.com/pzy2000/PrefGen)：Solidity 代码生成
@@ -103,6 +110,6 @@ lang: zh-CN
 - *2021.10* 全国大学生英语竞赛决赛一等奖
 
 # 📖 教育经历 {#education}
-- *2024.09 - 至今*，博士研究生，上海交通大学。
+- *2024.09 - 至今*，博士研究生，上海交通大学 计算机学院。
 - *2022.09 - 2024.06*，硕士，南京大学。
 - *2018.09 - 2022.06*，本科，河海大学。

@@ -66,6 +66,19 @@
     border-bottom: 1px solid $border-color;
   }
 
+  /* name heading at the very top of the page: no section rule above the tagline */
+  h1.site-headline {
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .site-tagline {
+    margin: 0 0 1.5em;
+    color: #666;
+  }
+
   p, li, dl {
     font-size: 1em;
   }

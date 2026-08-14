@@ -4,13 +4,37 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if site.url %}
-  {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
+{% assign canonical_url = page.url | replace: "index.html", "" | prepend: seo_url %}
+
+{% comment %} Chinese pages need their own title, description and locale so that
+queries such as "上海交通大学 彭志远" can match the title tag. {% endcomment %}
+{% if page.lang == "zh-CN" %}
+  {% assign seo_site_title = site.title_zh | default: site.title %}
+  {% assign seo_default_title = "彭志远（Zhiyuan Peng）| 上海交通大学计算机学院博士研究生" %}
+  {% assign seo_default_description = site.description_zh | default: site.description %}
+  {% assign seo_keywords = site.keywords_zh | default: site.keywords %}
+  {% assign og_locale = "zh_CN" %}
+  {% assign og_locale_alternate = "en_US" %}
+{% else %}
+  {% assign seo_site_title = site.title %}
+  {% assign seo_default_title = "Zhiyuan Peng（彭志远）| Ph.D. Student, Shanghai Jiao Tong University" %}
+  {% assign seo_default_description = site.description %}
+  {% assign seo_keywords = site.keywords %}
+  {% assign og_locale = "en_US" %}
+  {% assign og_locale_alternate = "zh_CN" %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+{% if page.seo_title and page.seo_title != "" %}
+  {% assign seo_title = page.seo_title %}
+{% elsif page.title and page.title != "" %}
+  {% assign seo_title = page.title | append: " | " | append: seo_site_title %}
+{% else %}
+  {% assign seo_title = seo_default_title %}
+{% endif %}
+{% comment %} Not run through markdownify: the "|" separator would be parsed as a table. {% endcomment %}
+{% assign seo_title = seo_title | strip_html | strip_newlines | escape_once %}
 
-{% assign seo_description = page.description | default: page.excerpt | default: site.description %}
+{% assign seo_description = page.description | default: page.excerpt | default: seo_default_description %}
 {% if seo_description %}
   {% assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once %}
 {% endif %}
@@ -29,24 +53,43 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.title }}">
+<title>{{ seo_title }}</title>
+
+<meta name="description" content="{{ seo_description }}">
+{% if seo_keywords %}<meta name="keywords" content="{{ seo_keywords }}">{% endif %}
+<meta name="author" content="Zhiyuan Peng 彭志远">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:locale" content="{{ og_locale }}">
+<meta property="og:locale:alternate" content="{{ og_locale_alternate }}">
+<meta property="og:site_name" content="{{ seo_site_title }}">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:description" content="{{ seo_description }}">
+<meta property="og:image" content="{{ '/images/android-chrome-192x192.png' | absolute_url }}">
+<meta property="profile:first_name" content="Zhiyuan">
+<meta property="profile:last_name" content="Peng">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ seo_title }}">
+<meta name="twitter:description" content="{{ seo_description }}">
+<meta name="twitter:image" content="{{ '/images/android-chrome-192x192.png' | absolute_url }}">
 
 {% if seo_url %}
-  <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
-  <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta name="twitter:url" content="{{ canonical_url }}">
 {% endif %}
 
-{% if page.excerpt %}
-  <meta property="og:description" content="{{ seo_description }}">
+{% comment %} The site has exactly two language versions of the homepage. {% endcomment %}
+{% if page.url == "/" or page.url == "/zh/" %}
+  <link rel="alternate" hreflang="en" href="{{ '/' | absolute_url }}">
+  <link rel="alternate" hreflang="zh-CN" href="{{ '/zh/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
 {% endif %}
 
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
-  <meta name="twitter:description" content="{{ seo_description }}">
-  <meta name="twitter:url" content="{{ canonical_url }}">
 
   {% if seo_author_twitter %}
     <meta name="twitter:creator" content="@{{ seo_author_twitter }}">
@@ -71,5 +114,63 @@
 {% endif %}
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}" />
+{% endif %}
+
+{% comment %} Person schema ties the Chinese name, the English name and the
+affiliation together as a single entity for search engines. {% endcomment %}
+{% if page.url == "/" or page.url == "/zh/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhiyuan Peng",
+  "alternateName": ["彭志远", "Lucius Peng"],
+  "jobTitle": "Ph.D. Student",
+  "description": {{ seo_default_description | jsonify }},
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shanghai Jiao Tong University",
+    "alternateName": "上海交通大学",
+    "url": "https://www.sjtu.edu.cn/",
+    "department": {
+      "@type": "Organization",
+      "name": "School of Computer Science",
+      "alternateName": "上海交通大学计算机学院"
+    }
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Nanjing University",
+      "alternateName": "南京大学"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Hohai University",
+      "alternateName": "河海大学"
+    }
+  ],
+  "url": {{ '/' | absolute_url | jsonify }},
+  "image": {{ '/images/android-chrome-192x192.png' | absolute_url | jsonify }},
+  "email": {{ site.author.email | jsonify }},
+  "workLocation": {
+    "@type": "Place",
+    "name": "Shanghai, China"
+  },
+  "sameAs": [
+    {{ site.author.orcid | jsonify }},
+    {{ site.author.googlescholar | jsonify }},
+    "https://github.com/pzy2000"
+  ],
+  "knowsAbout": [
+    "Code Generation",
+    "Large Language Models",
+    "Software Testing",
+    "代码智能",
+    "大语言模型",
+    "软件测试"
+  ]
+}
+</script>
 {% endif %}
 <!-- end SEO -->

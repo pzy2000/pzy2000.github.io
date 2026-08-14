@@ -6,25 +6,39 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
+url                      : "https://pzy2000.github.io"
+baseurl                  : ""
+lang                     : "en"
 title                    : "Zhiyuan Peng"
-description              : "Ph.D. student at Shanghai Jiao Tong University."
-repository               : "pzy2000/pzy.github.io"
+title_zh                 : "彭志远"
+description              : "Zhiyuan Peng (彭志远), Ph.D. student at the School of Computer Science, Shanghai Jiao Tong University, working on code generation, large language models, and software testing."
+description_zh           : "彭志远（Zhiyuan Peng），上海交通大学计算机学院博士研究生，研究方向为代码智能、大语言模型与软件测试，在 ACL、EMNLP、FSE、ASE 等国际顶级会议发表论文。"
+keywords                 : "Zhiyuan Peng, Lucius Peng, Shanghai Jiao Tong University, SJTU, code generation, large language model, software testing"
+keywords_zh              : "彭志远, 上海交通大学, 上海交通大学计算机学院, 上海交大, SJTU, 博士研究生, 代码智能, 大语言模型, 软件测试, 个人主页"
+# short blurb shown in the sidebar (kept separate from the SEO description)
+tagline                  : "Ph.D. student at Shanghai Jiao Tong University."
+tagline_zh               : "博士研究生，研究方向为代码智能、大语言模型与软件测试。"
+repository               : "pzy2000/pzy2000.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
 
 # SEO Related
+# Google ownership is verified with the file /google493962243089a10e.html, so no meta tag is needed here.
 google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
+bing_site_verification   :  # Bing is imported from Search Console, so no token is needed
 baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
 
 # Site Author
 author:
   name             : "Zhiyuan Peng"
+  name_zh          : "彭志远"
   avatar           : "images/android-chrome-192x192.png"
   bio              : "Shanghai Jiao Tong University"
+  bio_zh           : "上海交通大学 计算机学院"
   location         : "Shanghai, China"
+  location_zh      : "中国 上海"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=kfiyUgIAAAAJ"
@@ -46,7 +60,7 @@ author:
   lastfm           :
   linkedin         : # e.g., "linkedin username"
   dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
+  orcid            : "https://orcid.org/0009-0003-6560-733X"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -127,6 +141,11 @@ defaults:
     values:
       layout: default
       author_profile: true
+  # keep the Search Console ownership file out of the sitemap
+  - scope:
+      path: "google493962243089a10e.html"
+    values:
+      sitemap: false
 
 
 # Sass/SCSS

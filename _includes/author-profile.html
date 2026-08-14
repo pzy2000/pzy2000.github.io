@@ -2,25 +2,37 @@
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
 
-<div itemscope itemtype="http://schema.org/Person" class="profile_box">
+{% if page.lang == "zh-CN" %}
+  {% assign author_name = author.name_zh | default: author.name %}
+  {% assign author_bio = author.bio_zh | default: author.bio %}
+  {% assign author_location = author.location_zh | default: author.location %}
+  {% assign author_tagline = site.tagline_zh | default: site.description_zh %}
+{% else %}
+  {% assign author_name = author.name %}
+  {% assign author_bio = author.bio %}
+  {% assign author_location = author.location %}
+  {% assign author_tagline = site.tagline | default: site.description %}
+{% endif %}
+
+<div itemscope itemtype="https://schema.org/Person" class="profile_box">
 
   <div class="author__avatar">
-    <img src="{{ author.avatar | relative_url }}" class="author__avatar" alt="{{ author.name }}">
+    <img src="{{ author.avatar | relative_url }}" class="author__avatar" alt="{{ author_name }}">
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    <h3 class="author__name" itemprop="name">{{ author_name }}</h3>
+    {% if author_bio %}<p class="author__bio" itemprop="affiliation">{{ author_bio }}</p>{% endif %}
   </div>
 
   <div class="author__urls-wrapper">
     <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
     <ul class="author__urls social-icons">
-      {% if site.description %}
-        <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
+      {% if author_tagline %}
+        <li><div style="white-space: normal; margin-bottom: 1em;">{{ author_tagline }}</div></li>
       {% endif %}
-      {% if author.location %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
+      {% if author_location %}
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author_location }}</li>
       {% endif %}
       {% if author.employer %}
         <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.employer }}</li>
