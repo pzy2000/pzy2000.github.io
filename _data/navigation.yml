@@ -6,11 +6,14 @@ main:
   - title: "Experience"
     url: "/#experience"
 
-  - title: "News"
-    url: "/#-news"
+  - title: "Agent Systems"
+    url: "/#agent-systems"
 
   - title: "Publications"
     url: "/#-publications"
+
+  - title: "News"
+    url: "/#-news"
 
   - title: "Honors and Awards"
     url: "/#-honors-and-awards"
@@ -25,11 +28,14 @@ main_zh:
   - title: "经历"
     url: "/zh/#experience"
 
-  - title: "最新动态"
-    url: "/zh/#news"
+  - title: "智能体系统"
+    url: "/zh/#agent-systems"
 
   - title: "论文发表"
     url: "/zh/#publications"
+
+  - title: "最新动态"
+    url: "/zh/#news"
 
   - title: "荣誉奖励"
     url: "/zh/#honors"
