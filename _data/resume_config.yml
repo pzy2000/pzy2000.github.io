@@ -1,0 +1,123 @@
+# 简历生成配置：只放主页 _pages/about-zh.md 上没有的简历专属字段
+# 论文、经历、智能体项目、技术栈、教育、荣誉的正文由脚本自动从 about-zh.md 解析，
+# 这里只补充主页不适合展示、但简历需要的信息。
+# 生成命令：python3 scripts/build_resume.py
+
+profile:
+  name: "彭志远"
+  name_en: "Zhiyuan Peng"
+  phone: "+86 189 1571 8136"
+  email: "pzy2000@sjtu.edu.cn"
+  homepage: "pzy2000.github.io"
+  homepage_url: "https://pzy2000.github.io"
+  headline: "上海交通大学 计算机学院 博士研究生 2028 届"
+  # 证件照。文件不存在时脚本会提示并渲染占位框，把照片放到该路径后重跑即可。
+  photo: "images/photo.jpg"
+
+# 输出文件名（相对仓库根目录），也可用 --out 覆盖
+output: "彭志远-简历.pdf"
+
+# 章节顺序与开关，删掉某行即可隐藏该章节
+sections:
+  - education
+  - summary
+  - experience
+  - agents
+  - research
+  - publications
+  - stack
+  - honors
+
+section_titles:
+  education: "教育背景"
+  summary: "简要介绍"
+  experience: "工作经历"
+  agents: "Agent 系统与开源"
+  research: "科研成果"
+  stack: "技术栈"
+
+# 简要介绍：主页首段偏叙事，简历需要更紧凑的版本。留空则回退到主页首段。
+summary: >-
+  研究方向为**大模型智能体（Agent）**与 **Agentic Coding**：让 Agent 在真实执行环境中规划、调用工具并采取行动——
+  从单个交付可运行仓库的 Coding Agent，到可治理的角色化**多智能体**团队，并把执行轨迹沉淀为可复用 Skill
+  与长期记忆以实现**自进化**。主导的基准与平台一律以「跑得起来」为验收标准：在沙箱内真实构建、启动并调用生成物，而非静态检查代码。
+
+# 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub}，由解析结果自动填数。
+highlights:
+  - "{ccfa} 篇一作 CCF-A 论文"
+  - "{thcpl} 篇一作 TH-CPL-A 论文"
+  - "ACL 2026 Main 录用前 15%"
+  - "腾讯青云计划 · MSRA 研究实习"
+
+# 教育经历补充（按学校名匹配主页 `# 📖 教育经历` 中的条目）
+education_extra:
+  上海交通大学:
+    school_detail: "计算机学院"
+    major: "计算机科学与技术"
+    advisor: "骆源"          # TODO 请核对导师姓名
+  南京大学:
+    major: "计算机技术"
+  河海大学:
+    major: "计算机科学与技术"
+
+# 工作经历补充（按公司关键词匹配主页 `# 💼 经历` 中的条目）
+experience_extra:
+  腾讯:
+    date: ""                # TODO 填写起止时间，例如 2025.03-2025.09
+    bullets:
+      - "设计感知-决策-控制闭环的 GUI Agent，像真实玩家一样操作运行中的游戏客户端，把「可玩性」从静态代码检查变为交互式判定。"
+  微软亚洲研究院:
+    date: ""                # TODO 填写起止时间，例如 2024.09-2025.02
+    bullets:
+      - "在 Docker 沙箱中真实构建、启动并调用生成的多语言 Web 微服务，覆盖 11 个框架与 18 个应用领域，形成端到端可验证的仓库生成基准。"
+
+# Agent 项目在简历中的一句话版本（留空则自动取主页描述的第一句）
+project_summaries:
+  OpenHire: "数字员工编排平台：control agent 拆解模糊目标并分发给容器化的角色化 worker agent，每个 worker 拥有隔离工作区与权限边界；可插拔 adapter 接入任意镜像化 agent，支持 CLI / OpenAI 兼容 API / 飞书渠道；成功运行沉淀为可复用 skill 与长期记忆。"
+  SoulBanner: "多人格 `.skill` monorepo：把表达风格与判断框架蒸馏为可调用、可组合的 agent skill 模块，含 6 分类路由入口，已被 OpenHire 的 Skill Catalog 直接接入。"
+  RepoGenesis: "端到端基准：从 README 生成可部署的多语言 Web 微服务仓库，在 Docker 沙箱中真实构建、启动、调用以验证可运行性，覆盖 11 个框架与 18 个应用领域。"
+  YimMenu: "Auto Drive agent：感知-决策-控制闭环，沿道路导航至地图路径点、无目标时自主漫游，支持控制冲突检测与人工接管让行，经约 2,000 公里长程驾驶验证。"
+
+# 科研成果矩阵。items 可以是论文名（自动匹配主页论文并带出会议年份）、
+# Agent 项目名，或 "名称|标注" 形式的自定义 chip。
+research_matrix:
+  - id: "Q1"
+    question: "如何让 Agent 在真实执行环境中交付可运行的代码？"
+    tone: "blue"
+    rows:
+      - label: "仓库生成"
+        items: ["RepoGenesis"]
+      - label: "GUI 交互"
+        items: ["PlayCoder"]
+  - id: "Q2"
+    question: "如何让模型在垂直领域可靠地生成代码？"
+    tone: "green"
+    rows:
+      - label: "合约生成"
+        items: ["SolEval"]
+      - label: "偏好对齐"
+        items: ["PrefGen"]
+  - id: "Q3"
+    question: "如何让 Agent 自进化并可被治理？"
+    tone: "amber"
+    rows:
+      - label: "智能体编排"
+        items: ["OpenHire", "SoulBanner"]
+      - label: "长程自主"
+        items: ["YimMenu"]
+
+# 会议名简写（用于矩阵中的 chip 标注）
+venue_aliases:
+  "ESEC/FSE": "FSE"
+  "EMNLP’25 Main": "EMNLP'25"
+  "EMNLP'25 Main": "EMNLP'25"
+
+# 论文条目下是否附一句话贡献说明（主页有，简历里默认关掉以省版面）
+publication_notes: false
+
+# 单页自适应参数
+layout:
+  base_font_pt: 10.0
+  min_font_pt: 8.4
+  step_pt: 0.2
+  max_pages: 1

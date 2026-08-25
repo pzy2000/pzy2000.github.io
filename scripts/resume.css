@@ -1,0 +1,381 @@
+/* 简历样式。基准字号由 build_resume.py 通过 --base 注入以适配单页。 */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sheet {
+  width: 210mm;
+  padding: 9mm 12mm 7mm;
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-size: var(--base);
+  line-height: 1.42;
+  color: #1a1a1a;
+}
+
+b,
+strong,
+.sans {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "STHeiti", sans-serif;
+  font-weight: 600;
+}
+
+code {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+}
+
+em {
+  font-style: normal;
+}
+
+/* ---------- 页眉 ---------- */
+
+.hdr {
+  position: relative;
+  text-align: center;
+  padding-bottom: 2pt;
+}
+
+.hdr h1 {
+  margin: 0 0 3pt;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-size: 2.05em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hdr-line {
+  font-size: 0.94em;
+  color: #333;
+  line-height: 1.55;
+}
+
+.photo {
+  position: absolute;
+  top: -1mm;
+  right: 0;
+  width: 22mm;
+  height: 29mm;
+  overflow: hidden;
+  border-radius: 1pt;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.8pt dashed #bbb;
+  color: #bbb;
+  font-size: 0.85em;
+}
+
+/* ---------- 章节标题 ---------- */
+
+.sec {
+  margin: 5pt 0 3.5pt;
+  padding: 1.6pt 7pt;
+  background: linear-gradient(to right, #f6eded, #fbf7f7 65%, #fff);
+  border-left: 2.6pt solid #c00000;
+  border-bottom: 0.6pt solid #e2c6c6;
+  color: #c00000;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-size: 1.02em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+section > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 三角项目符号列表 ---------- */
+
+.tri {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tri > li {
+  position: relative;
+  padding-left: 10pt;
+  margin-bottom: 1.6pt;
+  text-align: justify;
+}
+
+.tri > li::before {
+  content: "\25B6";
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  font-size: 0.62em;
+  color: #555;
+}
+
+/* ---------- 教育背景 ---------- */
+
+.edu > li {
+  margin-bottom: 1pt;
+}
+
+.edu .period {
+  display: inline-block;
+  min-width: 5.6em;
+  font-family: "Times New Roman", serif;
+}
+
+.edu .edu-body b {
+  color: #111;
+}
+
+/* ---------- 简要介绍 ---------- */
+
+.summary {
+  margin: 0 0 2.5pt;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.summary .kw {
+  color: #c00000;
+}
+
+.hl-row {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12pt;
+  row-gap: 1pt;
+}
+
+.hl {
+  white-space: nowrap;
+}
+
+.hl::before {
+  content: "\25CF";
+  margin-right: 4pt;
+  font-size: 0.72em;
+  color: #c00000;
+  vertical-align: 0.08em;
+}
+
+.hl .num {
+  color: #c00000;
+  font-family: "Times New Roman", serif;
+  font-size: 1.05em;
+}
+
+/* ---------- 工作经历 ---------- */
+
+.exp {
+  margin-bottom: 3pt;
+}
+
+.exp-hd {
+  display: flex;
+  align-items: center;
+  gap: 6pt;
+  margin-bottom: 1pt;
+}
+
+.exp-hd .logo {
+  height: 1.15em;
+  max-width: 18mm;
+  object-fit: contain;
+}
+
+.exp-title {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-weight: 600;
+  color: #c00000;
+}
+
+.exp-sum {
+  text-align: justify;
+}
+
+/* ---------- Agent 项目 ---------- */
+
+.proj .proj-name {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-weight: 600;
+  color: #10336b;
+}
+
+.proj .role {
+  margin-left: 3pt;
+  padding: 0 3pt;
+  border-radius: 2pt;
+  background: #eef2f8;
+  color: #4a6591;
+  font-size: 0.82em;
+  vertical-align: 0.1em;
+}
+
+.proj .repo {
+  margin-left: 4pt;
+  color: #999;
+  font-size: 0.82em;
+  font-family: "Times New Roman", serif;
+}
+
+.proj .proj-desc::before {
+  content: "　";
+}
+
+/* ---------- 科研成果矩阵 ---------- */
+
+.qgroup {
+  display: flex;
+  align-items: center;
+  gap: 6pt;
+  margin-bottom: 2.5pt;
+}
+
+.qcell {
+  flex: 0 0 38%;
+  padding: 3pt 8pt;
+  border-radius: 9pt;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-size: 0.94em;
+  font-weight: 600;
+}
+
+.qlines {
+  flex: 1;
+  min-width: 0;
+}
+
+.qline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3.5pt;
+  margin-bottom: 2pt;
+}
+
+.qline:last-child {
+  margin-bottom: 0;
+}
+
+.rlabel {
+  flex: 0 0 auto;
+  min-width: 5.4em;
+  text-align: center;
+  padding: 0.8pt 4pt;
+  border-radius: 2.5pt;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+.chip {
+  padding: 0.8pt 5pt;
+  border: 0.6pt solid #dcdcdc;
+  border-radius: 2.5pt;
+  background: #fcfcfc;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.chip b {
+  color: #1a1a1a;
+}
+
+.chip i {
+  margin-left: 3.5pt;
+  color: #999;
+  font-style: normal;
+  font-size: 0.86em;
+  font-family: "Times New Roman", serif;
+}
+
+.tone-blue {
+  background: #e9f0fa;
+  color: #21518f;
+}
+
+.tone-green {
+  background: #e9f5ec;
+  color: #256d45;
+}
+
+.tone-amber {
+  background: #fbf1e2;
+  color: #9a6512;
+}
+
+/* ---------- 论文发表 ---------- */
+
+.pub .pub-key {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-weight: 600;
+}
+
+.pub .pub-key::after {
+  content: ": ";
+  font-weight: 400;
+}
+
+.pub .pub-title {
+  font-family: "Times New Roman", serif;
+  font-size: 0.97em;
+}
+
+.pub .venue {
+  margin-left: 5pt;
+  color: #666;
+  font-family: "Times New Roman", serif;
+  font-size: 0.92em;
+  white-space: nowrap;
+}
+
+.pub .tier {
+  margin-left: 4pt;
+  padding: 0 3pt;
+  border-radius: 2pt;
+  background: #fbeaea;
+  color: #c00000;
+  font-size: 0.8em;
+  vertical-align: 0.1em;
+  white-space: nowrap;
+}
+
+.pub .pub-note {
+  display: block;
+  color: #666;
+  font-size: 0.92em;
+}
+
+/* ---------- 技术栈 ---------- */
+
+.stack {
+  font-size: 0.96em;
+}
+
+.stack > li b {
+  color: #10336b;
+}
