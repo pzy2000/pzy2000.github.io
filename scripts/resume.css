@@ -74,6 +74,7 @@ em {
   width: 22mm;
   height: 29mm;
   overflow: hidden;
+  border: 0.4pt solid #e0e0e0;
   border-radius: 1pt;
 }
 

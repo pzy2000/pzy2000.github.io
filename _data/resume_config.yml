@@ -11,8 +11,9 @@ profile:
   homepage: "pzy2000.github.io"
   homepage_url: "https://pzy2000.github.io"
   headline: "上海交通大学 计算机学院 博士研究生 2028 届"
-  # 证件照。文件不存在时脚本会提示并渲染占位框，把照片放到该路径后重跑即可。
-  photo: "images/photo.jpg"
+  # 证件照。放在 _data/ 下不会被 Jekyll 发布到网站上，只参与简历生成。
+  # 文件不存在时脚本会提示并渲染占位框。
+  photo: "_data/portrait.jpg"
 
 # 输出文件名（相对仓库根目录），也可用 --out 覆盖
 output: "彭志远-简历.pdf"
@@ -57,6 +58,7 @@ education_extra:
     advisor: "骆源"          # TODO 请核对导师姓名
   南京大学:
     major: "计算机技术"
+    advisor: "陈振宇"
   河海大学:
     major: "计算机科学与技术"
 
