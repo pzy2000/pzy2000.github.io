@@ -48,7 +48,6 @@ summary: >-
 highlights:
   - "{n_pub} 篇一作 CCF-A / TH-CPL-A"
   - "120 谷歌学术引用"
-  - "ACL'26 录用前 1%"
   - "开源项目累计 1.8K stars"
 
 # 教育经历补充（按学校名匹配主页 `# 📖 教育经历` 中的条目）
@@ -115,7 +114,7 @@ paper_results:
 
 # 论文的额外标注（会议档次、录用率、奖项），显示在会议/等级标签之后。按论文 key 匹配。
 paper_badges:
-  RepoGenesis: ["Main Conference", "Top 1%", "Best Paper Award Nomination"]
+  RepoGenesis: ["Main Conference"]
   SolEval: ["Main Conference"]
 
 # 技术栈：主页那份是平台工程的分类法，简历面向基模团队要换成环境/反馈/轨迹的语言。
