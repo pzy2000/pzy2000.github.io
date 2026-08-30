@@ -50,7 +50,8 @@ def md_inline(text: str, kw_class: str = "kw") -> str:
     text = strip_badges(text)
     text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
     text = text.replace("\\#", "#")
-    out = html.escape(text)
+    # quote=False：输出只用于元素内容，转义引号会让后续的数字高亮正则打断 &#x27; 实体
+    out = html.escape(text, quote=False)
     out = re.sub(r"\*\*(.+?)\*\*", rf'<strong class="{kw_class}">\1</strong>', out)
     out = re.sub(r"`(.+?)`", r"<code>\1</code>", out)
     out = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", out)
@@ -102,6 +103,7 @@ class Project:
     role: str = ""
     url: str = ""
     description: str = ""
+    stars: str = ""
 
 
 @dataclass
@@ -337,9 +339,21 @@ def merge_extras(page: Homepage, cfg: dict, warn) -> None:
             warn(f"经历「{exp.company}」缺少起止时间，请在 _data/resume_config.yml 的 experience_extra 中填写")
 
     overrides = cfg.get("project_summaries") or {}
+    stars = cfg.get("project_stars") or {}
     for proj in page.projects:
         override = next((v for k, v in overrides.items() if k in proj.name), None)
         proj.description = override or first_sentence(proj.description)
+        proj.stars = next((v for k, v in stars.items() if k in proj.name), "")
+
+    order = cfg.get("project_order") or []
+
+    def rank(proj: Project) -> int:
+        for i, key in enumerate(order):
+            if key in proj.name:
+                return i
+        return len(order)
+
+    page.projects.sort(key=rank)
 
 
 def count_tiers(pubs: list[Publication]) -> dict[str, int]:
@@ -351,21 +365,14 @@ def count_tiers(pubs: list[Publication]) -> dict[str, int]:
     return counts
 
 
-def resolve_chip(item: str, page: Homepage) -> tuple[str, str] | None:
-    """把矩阵条目解析成 (名称, 标注)。"""
-    if "|" in item:
-        name, _, tag = item.partition("|")
-        return name.strip(), tag.strip()
+def find_publication(key: str, page: Homepage) -> Publication | None:
+    """按论文 key（或标题子串）找已发表（非 commented）的论文。"""
     for pub in page.publications:
-        if pub.key == item or item.lower() in pub.title.lower():
-            tag = pub.venue_short or ""
-            if pub.commented and not tag:
-                tag = pub.venue
-            return pub.key, tag
-    for proj in page.projects:
-        if item in proj.name:
-            return item, "GitHub 开源"
-    return item, ""
+        if pub.commented:
+            continue
+        if pub.key == key or key.lower() in pub.title.lower():
+            return pub
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -468,65 +475,58 @@ def render_projects(page: Homepage, cfg: dict) -> str:
     rows = []
     for proj in page.projects:
         role = f'<span class="role">{html.escape(proj.role)}</span>' if proj.role else ""
+        star = f'<span class="stars">{html.escape(proj.stars)}\u2605</span>' if proj.stars else ""
         link = ""
         if proj.url:
             link = f'<span class="repo">{html.escape(proj.url.replace("https://", ""))}</span>'
         rows.append(
-            f'<li><span class="proj-name">{md_inline(proj.name)}</span>{role}{link}'
+            f'<li><span class="proj-name">{md_inline(proj.name)}</span>{role}{star}{link}'
             f'<span class="proj-desc">{md_inline(proj.description)}</span></li>'
         )
     return f'<ul class="tri proj">{"".join(rows)}</ul>'
 
 
 def render_research(page: Homepage, cfg: dict) -> str:
+    """按研究问题分组渲染论文条目，每篇附一行核心实验结果（来自 cfg['paper_results']）。"""
+    results = cfg.get("paper_results") or {}
+    badges_cfg = cfg.get("paper_badges") or {}
     groups = []
     for group in cfg.get("research_matrix") or []:
         tone = group.get("tone", "blue")
-        lines = []
-        for row in group.get("rows") or []:
-            chips = []
-            for item in row.get("items") or []:
-                resolved = resolve_chip(item, page)
-                if not resolved:
-                    continue
-                name, tag = resolved
-                tag_html = f'<i>{html.escape(tag)}</i>' if tag else ""
-                chips.append(f'<span class="chip"><b>{html.escape(name)}</b>{tag_html}</span>')
-            lines.append(
-                f'<div class="qline"><span class="rlabel tone-{tone}">'
-                f'{html.escape(row.get("label", ""))}</span>{"".join(chips)}</div>'
+        entries = []
+        for key in group.get("papers") or []:
+            pub = find_publication(key, page)
+            if not pub:
+                continue
+            venue = pub.venue_short or pub.venue
+            tier = f'<span class="tier">{html.escape(pub.tier)}</span>' if pub.tier else ""
+            badges = badges_cfg.get(pub.key) or []
+            badge_html = (
+                f'<span class="badge">{html.escape(" · ".join(badges))}</span>' if badges else ""
+            )
+            rest = pub.title[len(pub.key):].lstrip(":：").strip()
+            result = results.get(pub.key, "")
+            result_html = f'<div class="pub-result">{md_inline(result)}</div>' if result else ""
+            entries.append(
+                f'<li><span class="pub-key">{html.escape(pub.key)}</span>'
+                f'<span class="pub-title">{html.escape(rest)}</span>'
+                f'<span class="venue">{html.escape(venue)}</span>{tier}{badge_html}'
+                f'{result_html}</li>'
             )
         groups.append(
             f'<div class="qgroup">'
-            f'<div class="qcell tone-{tone}">{html.escape(group.get("id", ""))}：'
+            f'<div class="qbar tone-{tone}">{html.escape(group.get("id", ""))}：'
             f'{html.escape(group.get("question", ""))}</div>'
-            f'<div class="qlines">{"".join(lines)}</div></div>'
+            f'<ul class="tri pub qpapers">{"".join(entries)}</ul></div>'
         )
     return "".join(groups)
 
 
-def render_publications(page: Homepage, cfg: dict) -> str:
-    show_notes = bool(cfg.get("publication_notes", False))
-    rows = []
-    for pub in page.publications:
-        if pub.commented:
-            continue
-        venue = pub.venue_short or pub.venue
-        tier = f'<span class="tier">{html.escape(pub.tier)}</span>' if pub.tier else ""
-        note = f'<span class="pub-note">{md_inline(pub.note)}</span>' if show_notes and pub.note else ""
-        rest = pub.title[len(pub.key):].lstrip(":：").strip()
-        rows.append(
-            f'<li><span class="pub-key">{html.escape(pub.key)}</span>'
-            f'<span class="pub-title">{html.escape(rest)}</span>'
-            f'<span class="venue">{html.escape(venue)}</span>{tier}{note}</li>'
-        )
-    return f'<ul class="tri pub">{"".join(rows)}</ul>'
-
-
 def render_stack(page: Homepage, cfg: dict) -> str:
+    items = [tuple(pair) for pair in (cfg.get("stack_override") or [])] or page.stack
     rows = [
         f'<li><b>{html.escape(label)}</b>：{md_inline(value)}</li>'
-        for label, value in page.stack
+        for label, value in items
     ]
     return f'<ul class="tri stack">{"".join(rows)}</ul>'
 
@@ -542,7 +542,6 @@ SECTION_RENDERERS = {
     "experience": render_experience,
     "agents": render_projects,
     "research": render_research,
-    "publications": render_publications,
     "stack": render_stack,
     "honors": render_honors,
 }
@@ -553,7 +552,6 @@ DEFAULT_TITLES = {
     "experience": "工作经历",
     "agents": "Agent 系统与开源",
     "research": "科研成果",
-    "publications": "论文发表",
     "stack": "技术栈",
     "honors": "荣誉奖励",
 }

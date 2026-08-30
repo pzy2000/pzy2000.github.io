@@ -241,6 +241,17 @@ section > *:last-child {
   vertical-align: 0.1em;
 }
 
+.proj .stars {
+  margin-left: 3pt;
+  padding: 0 3pt;
+  border-radius: 2pt;
+  background: #fdf3e3;
+  color: #a2690f;
+  font-size: 0.82em;
+  font-family: "Times New Roman", serif;
+  vertical-align: 0.1em;
+}
+
 .proj .repo {
   margin-left: 4pt;
   color: #999;
@@ -252,71 +263,24 @@ section > *:last-child {
   content: "　";
 }
 
-/* ---------- 科研成果矩阵 ---------- */
+/* ---------- 科研成果：按问题分组的论文列表 ---------- */
 
 .qgroup {
-  display: flex;
-  align-items: center;
-  gap: 6pt;
-  margin-bottom: 2.5pt;
+  margin-bottom: 3pt;
 }
 
-.qcell {
-  flex: 0 0 38%;
-  padding: 3pt 8pt;
-  border-radius: 9pt;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
-  font-size: 0.94em;
-  font-weight: 600;
-}
-
-.qlines {
-  flex: 1;
-  min-width: 0;
-}
-
-.qline {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 3.5pt;
-  margin-bottom: 2pt;
-}
-
-.qline:last-child {
+.qgroup:last-child {
   margin-bottom: 0;
 }
 
-.rlabel {
-  flex: 0 0 auto;
-  min-width: 5.4em;
-  text-align: center;
-  padding: 0.8pt 4pt;
-  border-radius: 2.5pt;
+.qbar {
+  display: inline-block;
+  padding: 1.2pt 7pt;
+  border-radius: 3pt;
+  margin-bottom: 1.6pt;
   font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
-  font-size: 0.88em;
+  font-size: 0.92em;
   font-weight: 600;
-}
-
-.chip {
-  padding: 0.8pt 5pt;
-  border: 0.6pt solid #dcdcdc;
-  border-radius: 2.5pt;
-  background: #fcfcfc;
-  font-size: 0.9em;
-  white-space: nowrap;
-}
-
-.chip b {
-  color: #1a1a1a;
-}
-
-.chip i {
-  margin-left: 3.5pt;
-  color: #999;
-  font-style: normal;
-  font-size: 0.86em;
-  font-family: "Times New Roman", serif;
 }
 
 .tone-blue {
@@ -334,7 +298,13 @@ section > *:last-child {
   color: #9a6512;
 }
 
-/* ---------- 论文发表 ---------- */
+.qpapers > li {
+  margin-bottom: 2.5pt;
+}
+
+.qpapers > li:last-child {
+  margin-bottom: 0;
+}
 
 .pub .pub-key {
   font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
@@ -370,9 +340,15 @@ section > *:last-child {
   white-space: nowrap;
 }
 
-.pub .pub-note {
-  display: block;
-  color: #666;
+.pub .badge {
+  margin-left: 5pt;
+  color: #a2690f;
+  font-size: 0.86em;
+  font-style: italic;
+}
+
+.pub .pub-result {
+  color: #555;
   font-size: 0.92em;
 }
 
