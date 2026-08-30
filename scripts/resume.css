@@ -152,6 +152,11 @@ section > *:last-child {
   color: #111;
 }
 
+.edu .school-note {
+  color: #a33;
+  font-size: 0.9em;
+}
+
 /* ---------- 简要介绍 ---------- */
 
 .summary {

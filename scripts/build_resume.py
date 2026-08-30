@@ -110,6 +110,7 @@ class Education:
     degree: str
     school: str
     school_detail: str = ""
+    school_note: str = ""
     major: str = ""
     advisor: str = ""
 
@@ -320,6 +321,7 @@ def merge_extras(page: Homepage, cfg: dict, warn) -> None:
     for edu in page.educations:
         extra = (cfg.get("education_extra") or {}).get(edu.school) or {}
         edu.school_detail = extra.get("school_detail", edu.school_detail)
+        edu.school_note = extra.get("school_note", "")
         edu.major = extra.get("major", "")
         edu.advisor = extra.get("advisor", "")
 
@@ -403,6 +405,8 @@ def render_education(page: Homepage, cfg: dict) -> str:
         years = re.findall(r"(\d{4})", edu.period)
         period = f"{years[0]}-{years[1]}" if len(years) > 1 else f"{years[0]}-至今" if years else edu.period
         school = html.escape(edu.school)
+        if edu.school_note:
+            school += f'<span class="school-note">（{html.escape(edu.school_note)}）</span>'
         if edu.school_detail:
             school += f"｜{html.escape(edu.school_detail)}"
         cells = [f'<b>{html.escape(edu.degree)}</b>：{school}']
@@ -584,6 +588,32 @@ def build_html(page: Homepage, cfg: dict, font_pt: float, warn) -> str:
 # 出 PDF
 # --------------------------------------------------------------------------
 
+INSTALL_HINT = """无法启动 Chromium。请先安装 Playwright 自带的浏览器：
+
+    python3 -m playwright install chromium
+
+官方 CDN 在国内可能极慢，也可以从镜像手动装（版本号见 playwright 的 browsers.json）：
+
+    curl -LO https://cdn.npmmirror.com/binaries/chrome-for-testing/<版本>/mac-arm64/chrome-headless-shell-mac-arm64.zip
+    unzip -q chrome-headless-shell-mac-arm64.zip -d ~/Library/Caches/ms-playwright/chromium_headless_shell-<revision>/
+
+注意不要改用系统装的 Edge / Chrome：macOS 上它们的无头模式取不到中文字体，
+导出的 PDF 会整段丢字。"""
+
+
+def launch_browser(pw):
+    """只用 Playwright 自带的 Chromium，避免系统浏览器的中文字体问题。"""
+    from playwright.sync_api import Error as PlaywrightError
+
+    last_error: Exception | None = None
+    for options in ({}, {"channel": "chromium"}):
+        try:
+            return pw.chromium.launch(**options)
+        except PlaywrightError as exc:
+            last_error = exc
+    raise SystemExit(f"{INSTALL_HINT}\n\n原始错误：{last_error}")
+
+
 def build_pdf(page: Homepage, cfg: dict, out_pdf: Path, html_out: Path | None,
               fit: bool, warn) -> None:
     from playwright.sync_api import sync_playwright
@@ -596,7 +626,7 @@ def build_pdf(page: Homepage, cfg: dict, out_pdf: Path, html_out: Path | None,
     limit = PAGE_H_PX * max_pages - 2
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch()
+        browser = launch_browser(pw)
         tab = browser.new_page(viewport={"width": round(PAGE_W_PX), "height": round(PAGE_H_PX)})
         font_pt = base
         markup = build_html(page, cfg, font_pt, warn)

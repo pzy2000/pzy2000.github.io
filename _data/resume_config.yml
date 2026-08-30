@@ -60,6 +60,7 @@ education_extra:
     major: "计算机技术"
     advisor: "陈振宇"
   河海大学:
+    school_note: "211"
     major: "计算机科学与技术"
 
 # 工作经历补充（按公司关键词匹配主页 `# 💼 经历` 中的条目）
