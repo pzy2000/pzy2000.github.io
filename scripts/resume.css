@@ -169,6 +169,12 @@ section > *:last-child {
   color: #c00000;
 }
 
+a.link {
+  color: #a33;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .hl-row {
   display: flex;
   flex-wrap: wrap;
@@ -360,4 +366,10 @@ section > *:last-child {
 
 .stack > li b {
   color: #10336b;
+}
+
+.stack .stack-ref {
+  color: #a2690f;
+  font-size: 0.86em;
+  font-style: italic;
 }

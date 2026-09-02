@@ -94,7 +94,7 @@ In 2026, I will lead or participate in the following research topics:
   <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao\#, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo.<br>
   In *Proceedings of the ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE'26)*. (<span style="color:red">CCF-A</span>)<br>
   <span style="color:#666;font-size:0.92em;">A GUI agent plays the generated game the way a user would, so playability is judged by interacting with the live program instead of by inspecting static code.</span>
-- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation.](https://arxiv.org/pdf/2502.18793)<br>
+- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Code Generation.](https://arxiv.org/pdf/2502.18793)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo.<br> 
   In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (<span style="color:red">TH-CPL-A</span>)<br>
   <span style="color:#666;font-size:0.92em;">Repository-level generation with compilation and on-chain test execution in the loop, forcing the model to resolve cross-contract dependencies before its output can run.</span>

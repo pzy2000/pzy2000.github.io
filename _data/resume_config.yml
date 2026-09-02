@@ -33,21 +33,23 @@ section_titles:
   education: "教育背景"
   summary: "简要介绍"
   experience: "工作经历"
-  agents: "Agent 系统与开源"
+  agents: "开源项目"
   research: "科研成果"
   stack: "技术栈"
 
 # 简要介绍：主页首段偏叙事，简历需要更紧凑的版本。留空则回退到主页首段。
 summary: >-
-  研究方向为 **Agentic Coding** 与**可自动验证的执行环境**：仓库级微服务（沙箱内构建-启动-调用）、GUI 游戏
-  （真实交互判定可玩性）、智能合约（编译 + 链上测试）、安全与 Gas 双目标偏好反馈——四类环境构成
-  **Agentic RL 的执行反馈来源**。基于这些环境的执行反馈做 SFT 与多目标 DPO 后训练，Qwen-7B 上
-  Pass@5 由 16.7% 提升至 66.7%，微调的 8B 模型在仓库级生成任务上追平 GPT-5 mini。
+  我是上海交通大学计算机科学学院博士 3 年级学生。我很荣幸曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）
+  实习。我的研究兴趣包括 **LLM 智能体**、**Agentic Coding** 以及**多智能体系统**。我构建的智能体能够在真实的
+  执行环境中进行规划、调用工具并采取行动，其范围涵盖从能够发布可运行代码库的单个 Coding Agent
+  （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable) /
+  [RepoGenesis](https://arxiv.org/abs/2601.13943)），到由基于角色的智能体组成的受控智能体集群
+  （[OpenHire](https://github.com/pzy2000/OpenHire)）。我的多篇论文已在 ACL、EMNLP、FSE 和 ASE 等顶级国际会议上发表。
 
 # 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub}，由解析结果自动填数。
 highlights:
   - "{n_pub} 篇一作 CCF-A / TH-CPL-A"
-  - "120 谷歌学术引用"
+  - "122 谷歌学术引用"
   - "开源项目累计 1.8K stars"
 
 # 教育经历补充（按学校名匹配主页 `# 📖 教育经历` 中的条目）
@@ -59,11 +61,13 @@ education_extra:
     advisor: "骆源"          # TODO 请核对导师姓名
   南京大学:
     school_note: "华五"
+    school_detail: "软件工程学院"
     major: "计算机技术"
     advisor: "陈振宇"
   河海大学:
     school_note: "211"
-    major: "计算机科学与技术"
+    school_detail: "物联网工程学院"
+    major: "物联网工程"
 
 # 工作经历补充（按公司关键词匹配主页 `# 💼 经历` 中的条目）
 experience_extra:
@@ -89,7 +93,7 @@ project_stars:
 # 写法原则：不列功能清单，只说规模、验证方式和它支撑了什么可验证的结果。
 project_summaries:
   OpenHire: "多智能体执行与评测基础设施：control agent 拆解任务后并行分发到容器化 worker，每个 worker 独立沙箱与权限边界，支持批量 rollout 与执行轨迹全量留存；轨迹经筛选沉淀为可复用 skill 与长期记忆，构成自进化的数据闭环。适配层可接入任意镜像化 agent。"
-  YimMenu: "长程自主驾驶 agent：感知-决策-控制闭环，沿道路导航至地图路径点、无目标时自主漫游，含控制冲突检测与人工接管让行，经约 2,000 公里连续驾驶验证。"
+  YimMenu: "长程自动驾驶模块：基于规则的感知-决策-控制闭环，沿道路导航至地图路径点、无目标时自主漫游，含控制冲突检测与人工接管让行，经约 2,000 公里连续驾驶验证。"
   SoulBanner: "Agent Skill 库：把表达风格与判断框架蒸馏为可调用、可组合的 skill 模块，6 分类路由入口，已接入 OpenHire 的 Skill Catalog。"
   RepoGenesis: "ACL'26 基准的开源实现：README → 可部署多语言微服务仓库，在 Docker 沙箱内以构建、启动、调用三步自动判定成败，覆盖 11 框架 / 18 领域。"
 
@@ -107,10 +111,10 @@ research_matrix:
 
 # 每篇论文的核心实验结果，显示在标题行下方。按论文 key 匹配。
 paper_results:
-  RepoGenesis: "106 个多语言微服务仓库的 Benchmark。覆盖 11 框架 18 领域、2,335 测试用例；SOTA 系统 DSR 达 100% 但 Pass@1 仅 23.7%，微调后的 GenesisAgent-8B 在 Pass@1 追平 GPT-5 mini。"
-  PlayCoder: "43 个 GUI 应用基准，提出 Play@k 与自动判定 agent PlayTester；10 个 SOTA 模型 Play@3 近乎为 0，多智能体生成-评测-修复闭环达 20.3% Play@3。"
-  SolEval: "首个仓库级 Solidity 基准，1,507 样本 / 28 仓库，引入 Gas@k 与 Vul@k；16 个模型最佳仅 26.3% Pass@10，SFT 后 Pass@5 由 16.7% 升至 58.3%。"
-  PrefGen: "将 Gas 与安全设计为可量化奖励扩展 DPO；Qwen-7B 上 Pass@5 16.7%→66.7%、Gas@5 0%→58.9%、Secure@5 11.8%→62.5%。"
+  RepoGenesis: "106 个多语言微服务仓库的 Benchmark。覆盖 11 框架 18 领域、2,335 测试用例；SOTA 系统 DSR 达 100% 但 Pass@1 仅 23.7%。"
+  PlayCoder: "覆盖 43 个 GUI 应用，提出 Play@k 与自动判定 agent；10 个 SOTA 模型 Play@3 全为个位数，多智能体生成-评测-修复达 20.3% Play@3。"
+  SolEval: "首个 Solidity Coding 基准，1,507 任务 / 28 仓库；在 16 个模型上最佳仅 26.3% Pass@10，SFT 后 Pass@5 由 16.7% 升至 58.3%。"
+  PrefGen: "将 Gas 与安全设计为可量化奖励扩展 DPO；Qwen2.5-7B 上 Pass@5 16.7%→66.7%、Gas@5 0%→58.9%、Secure@5 11.8%→62.5%。"
 
 # 论文的额外标注（会议档次、录用率、奖项），显示在会议/等级标签之后。按论文 key 匹配。
 paper_badges:
@@ -120,10 +124,10 @@ paper_badges:
 # 技术栈：主页那份是平台工程的分类法，简历面向基模团队要换成环境/反馈/轨迹的语言。
 # 留空则回退到主页 `# 🛠 技术栈` 的原文。
 stack_override:
-  - ["环境与反馈", "可自动验证的沙箱环境构建、执行反馈信号设计、多语言构建-运行-调用闭环、链上与 GUI 等异构判定"]
-  - ["智能体", "规划与工具调用（tool use / function calling）、GUI 交互、多智能体并行协作与交叉校验"]
-  - ["数据与记忆", "执行轨迹采集与筛选、skill 抽取复用、长期记忆合并及 diff 与安全回滚"]
-  - ["工程", "容器化隔离与权限边界、批量 rollout 调度、轨迹留存与执行链路审查"]
+  - ["Benchmark 构建", "任务与执行环境设计、自动化正确性判定（构建-启动-调用/编译-链上测试）、评测指标设计（Pass@k、Gas@k、Vul@k、Play@k）、多语言多领域基准构造", "RepoGenesis、SolEval、PlayCoder"]
+  - ["智能体", "规划与工具调用（tool use / function calling）、GUI 交互、多智能体并行协作与交叉校验", "PlayCoder、OpenHire"]
+  - ["数据与记忆", "执行轨迹采集与筛选、skill 抽取复用、长期记忆合并及 diff 与安全回滚", "RepoGenesis、SolEval、PlayCoder、SoulBanner"]
+  - ["工程", "容器化隔离与权限边界、批量 rollout 调度、轨迹留存与执行链路审查", "OpenHire、RepoGenesis"]
 
 # 会议名简写（用于论文条目的会议标注）
 venue_aliases:

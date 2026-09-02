@@ -45,16 +45,27 @@ def strip_badges(text: str) -> str:
     return re.sub(r"\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)", "", text)
 
 
-def md_inline(text: str, kw_class: str = "kw") -> str:
-    """把纯文本里的行内 markdown 转成 HTML，链接只保留文字。"""
+def md_inline(text: str, kw_class: str = "kw", keep_links: bool = False) -> str:
+    """把纯文本里的行内 markdown 转成 HTML。默认链接只保留文字；keep_links=True 时渲染为真实超链接。"""
     text = strip_badges(text)
-    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
+    links: list[tuple[str, str]] = []
+    if keep_links:
+        def _stash(m: re.Match) -> str:
+            links.append((m.group(1), m.group(2)))
+            return f"\x00LINK{len(links) - 1}\x00"
+
+        text = re.sub(r"\[([^\]]+)\]\(([^)]*)\)", _stash, text)
+    else:
+        text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
     text = text.replace("\\#", "#")
     # quote=False：输出只用于元素内容，转义引号会让后续的数字高亮正则打断 &#x27; 实体
     out = html.escape(text, quote=False)
     out = re.sub(r"\*\*(.+?)\*\*", rf'<strong class="{kw_class}">\1</strong>', out)
     out = re.sub(r"`(.+?)`", r"<code>\1</code>", out)
     out = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", out)
+    for i, (label, url) in enumerate(links):
+        anchor = f'<a class="link" href="{html.escape(url, quote=True)}">{html.escape(label, quote=False)}</a>'
+        out = out.replace(f"\x00LINK{i}\x00", anchor)
     return out
 
 
@@ -387,7 +398,10 @@ def render_header(cfg: dict, warn) -> str:
     if p.get("email"):
         contacts.append(f"邮箱：{html.escape(p['email'])}")
     if p.get("homepage"):
-        contacts.append(f"主页：{html.escape(p['homepage'])}")
+        homepage_text = html.escape(p["homepage"])
+        if p.get("homepage_url"):
+            homepage_text = f'<a class="link" href="{html.escape(p["homepage_url"], quote=True)}">{homepage_text}</a>'
+        contacts.append(f"主页：{homepage_text}")
 
     photo_html = ""
     if p.get("photo"):
@@ -448,7 +462,7 @@ def render_summary(page: Homepage, cfg: dict) -> str:
         filled = re.sub(r"(\d+)", r'<b class="num">\1</b>', md_inline(filled))
         bullets.append(f'<span class="hl">{filled}</span>')
     hl = f'<div class="hl-row">{"".join(bullets)}</div>' if bullets else ""
-    return f'<p class="summary">{md_inline(text)}</p>{hl}'
+    return f'<p class="summary">{md_inline(text, keep_links=True)}</p>{hl}'
 
 
 def render_experience(page: Homepage, cfg: dict) -> str:
@@ -478,7 +492,8 @@ def render_projects(page: Homepage, cfg: dict) -> str:
         star = f'<span class="stars">{html.escape(proj.stars)}\u2605</span>' if proj.stars else ""
         link = ""
         if proj.url:
-            link = f'<span class="repo">{html.escape(proj.url.replace("https://", ""))}</span>'
+            link_text = html.escape(proj.url.replace("https://", ""))
+            link = f'<a class="link repo" href="{html.escape(proj.url, quote=True)}">{link_text}</a>'
         rows.append(
             f'<li><span class="proj-name">{md_inline(proj.name)}</span>{role}{star}{link}'
             f'<span class="proj-desc">{md_inline(proj.description)}</span></li>'
@@ -523,11 +538,19 @@ def render_research(page: Homepage, cfg: dict) -> str:
 
 
 def render_stack(page: Homepage, cfg: dict) -> str:
-    items = [tuple(pair) for pair in (cfg.get("stack_override") or [])] or page.stack
-    rows = [
-        f'<li><b>{html.escape(label)}</b>：{md_inline(value)}</li>'
-        for label, value in items
-    ]
+    override = cfg.get("stack_override") or []
+    if override:
+        rows = []
+        for item in override:
+            label, value = item[0], item[1]
+            refs = item[2] if len(item) > 2 else ""
+            ref_html = f'<span class="stack-ref">（{html.escape(refs)}）</span>' if refs else ""
+            rows.append(f'<li><b>{html.escape(label)}</b>{ref_html}：{md_inline(value)}</li>')
+    else:
+        rows = [
+            f'<li><b>{html.escape(label)}</b>：{md_inline(value)}</li>'
+            for label, value in page.stack
+        ]
     return f'<ul class="tri stack">{"".join(rows)}</ul>'
 
 

@@ -48,7 +48,7 @@ lang: zh-CN
     </div>
     <div>
       <div style="font-weight:600;">微软亚洲研究院（MSRA）· 研究实习生</div>
-      <div style="color:#666;font-size:0.92em;margin-top:3px;">构建从 README 到沙箱内可部署可验证服务的端到端仓库生成基准，产出 RepoGenesis（<span style="color:red">CCF-A, ACL</span>）。</div>
+      <div style="color:#666;font-size:0.92em;margin-top:3px;">构建从 README 到代码仓库生成基准（NL→Repo），产出 RepoGenesis（<span style="color:red">CCF-A, ACL</span>）。</div>
     </div>
   </div>
 </div>
@@ -62,7 +62,7 @@ lang: zh-CN
 - **RepoGenesis**（作者）[![Stars](https://img.shields.io/github/stars/pzy2000/RepoGenesis?style=flat&logo=github&label=stars&color=orange)](https://github.com/pzy2000/RepoGenesis) 
   端到端的基准：从一份 README 出发生成可部署的多语言 Web 微服务仓库，并在 Docker 沙箱中真实构建、启动并调用该服务以验证其可运行性，覆盖 11 个框架与 18 个应用领域。论文被 ACL 2026 Main 接收（录用论文前 15%）。
 - **YimMenu**（贡献者）[![Stars](https://img.shields.io/github/stars/YimMenu/YimMenu?style=flat&logo=github&label=stars&color=orange)](https://github.com/YimMenu/YimMenu) 
-  我实现了 Auto Drive agent：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。
+  我实现了基于规则的 Auto Drive 模块：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。
 <!-- - **MindSpore Contributor**（华为国产深度学习框架）- [项目链接](https://gitee.com/mindspore/models) -->
 
 # 🛠 技术栈 {#agent-stack}
@@ -84,7 +84,7 @@ lang: zh-CN
   <span style="color: blue;">**Zhiyuan Peng**</span>, Wei Tao\#, Xin Yin, Chenhao Ying, Yuan Luo, Yiwen Guo.<br>
   In *Proceedings of the ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE'26)*. (<span style="color:red">CCF-A</span>)<br>
   <span style="color:#666;font-size:0.92em;">GUI Agent 像真实玩家一样操作生成的游戏，可玩性由与运行中程序的交互判定，而非静态代码检查。</span>
-- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Smart Contract Generation.](https://arxiv.org/pdf/2502.18793)<br>
+- [SolEval: Benchmarking Large Language Models for Repository-level Solidity Code Generation.](https://arxiv.org/pdf/2502.18793)<br>
   <span style="color: blue;">**Zhiyuan Peng**</span>, Xin Yin\#, Rui Qian, Peiqin Lin, Yongkang Liu, Chenhao Ying, Yuan Luo.<br> 
   In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP’25 Main)*. (<span style="color:red">TH-CPL-A</span>)<br>
   <span style="color:#666;font-size:0.92em;">仓库级生成需闭环经过编译与链上测试执行，模型必须先解决跨合约依赖，产出才可能真正跑起来。</span>
