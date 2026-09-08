@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""从个人主页生成简历 PDF。
+"""从个人主页生成简历 PDF 与网页版简历。
 
 内容主要解析自 _pages/about-zh.md，简历专属字段（联系方式、导师、实习时间、
 科研成果矩阵等）来自 _data/resume_config.yml。
 
-    python3 scripts/build_resume.py
+    python3 scripts/build_resume.py            # PDF + 网页版 resume/index.html
+    python3 scripts/build_resume.py --web-only # 只更新网页版
     python3 scripts/build_resume.py --html-only
     python3 scripts/build_resume.py --out /tmp/foo.pdf --no-fit
 """
@@ -26,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE_MD = ROOT / "_pages" / "about-zh.md"
 RESUME_YML = ROOT / "_data" / "resume_config.yml"
 CSS_FILE = Path(__file__).resolve().parent / "resume.css"
+WEB_CSS_FILE = Path(__file__).resolve().parent / "resume_web.css"
 
 # A4 在 96dpi 下的 CSS 像素尺寸，Chromium 打印时按此换算
 PAGE_W_PX = 210 / 25.4 * 96
@@ -390,7 +392,7 @@ def find_publication(key: str, page: Homepage) -> Publication | None:
 # HTML 渲染
 # --------------------------------------------------------------------------
 
-def render_header(cfg: dict, warn) -> str:
+def render_header(cfg: dict, warn, with_photo: bool = True) -> str:
     p = cfg.get("profile") or {}
     contacts = []
     if p.get("phone"):
@@ -404,7 +406,7 @@ def render_header(cfg: dict, warn) -> str:
         contacts.append(f"主页：{homepage_text}")
 
     photo_html = ""
-    if p.get("photo"):
+    if with_photo and p.get("photo"):
         uri = data_uri(ROOT / str(p["photo"]).lstrip("/"))
         if uri:
             photo_html = f'<div class="photo"><img src="{uri}" alt="photo"></div>'
@@ -580,9 +582,9 @@ DEFAULT_TITLES = {
 }
 
 
-def build_html(page: Homepage, cfg: dict, font_pt: float, warn) -> str:
+def render_sheet(page: Homepage, cfg: dict, warn, with_photo: bool = True) -> str:
     titles = {**DEFAULT_TITLES, **(cfg.get("section_titles") or {})}
-    parts = [render_header(cfg, warn)]
+    parts = [render_header(cfg, warn, with_photo=with_photo)]
     for name in cfg.get("sections") or list(DEFAULT_TITLES):
         renderer = SECTION_RENDERERS.get(name)
         if renderer is None:
@@ -595,14 +597,59 @@ def build_html(page: Homepage, cfg: dict, font_pt: float, warn) -> str:
             f'<section class="sec-{name}">'
             f'<h2 class="sec">{html.escape(titles.get(name, name))}</h2>{body}</section>'
         )
+    return f'<div class="sheet">{"".join(parts)}</div>'
 
+
+def build_html(page: Homepage, cfg: dict, font_pt: float, warn) -> str:
     css = CSS_FILE.read_text(encoding="utf-8")
     return f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <title>{html.escape((cfg.get('profile') or {}).get('name', 'resume'))}</title>
 <style>:root {{ --base: {font_pt}pt; }}
 {css}</style></head>
-<body><div class="sheet">{''.join(parts)}</div></body></html>"""
+<body>{render_sheet(page, cfg, warn)}</body></html>"""
+
+
+# --------------------------------------------------------------------------
+# 网页版简历（站点上的 /resume/）
+# --------------------------------------------------------------------------
+
+def build_web_page(page: Homepage, cfg: dict, warn) -> str:
+    """生成站点上的静态简历页。
+
+    刻意不带 Jekyll front matter：没有 front matter 的文件会被原样拷贝到 _site，
+    页面里的 CSS 大括号也就不会被 Liquid 误解析。
+    """
+    web = cfg.get("web") or {}
+    profile = cfg.get("profile") or {}
+    name = profile.get("name", "resume")
+    font_pt = float(web.get("font_pt", (cfg.get("layout") or {}).get("base_font_pt", 10.0)))
+
+    links = []
+    for label, url in web.get("links") or []:
+        links.append(f'<a class="tb-btn" href="{html.escape(str(url), quote=True)}">{html.escape(str(label))}</a>')
+    links.append('<button class="tb-btn" type="button" onclick="window.print()">'
+                 f'{html.escape(web.get("print_label", "打印 / 存为 PDF"))}</button>')
+
+    css = CSS_FILE.read_text(encoding="utf-8") + "\n" + WEB_CSS_FILE.read_text(encoding="utf-8")
+    sheet = render_sheet(page, cfg, warn, with_photo=bool(web.get("photo", False)))
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(web.get("title") or f"{name} 简历")}</title>
+<meta name="description" content="{html.escape(web.get("description") or "", quote=True)}">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<style>:root {{ --base: {font_pt}pt; }}
+{css}</style>
+</head>
+<body>
+<nav class="toolbar">{"".join(links)}</nav>
+{sheet}
+</body>
+</html>
+"""
 
 
 # --------------------------------------------------------------------------
@@ -674,6 +721,8 @@ def main() -> int:
     ap.add_argument("--out", help="输出 PDF 路径（默认取 _data/resume_config.yml 的 output）")
     ap.add_argument("--html", help="同时导出 HTML 的路径")
     ap.add_argument("--html-only", action="store_true", help="只导出 HTML，不生成 PDF")
+    ap.add_argument("--web-only", action="store_true", help="只更新站点上的网页版简历")
+    ap.add_argument("--no-web", action="store_true", help="跳过站点上的网页版简历")
     ap.add_argument("--no-fit", action="store_true", help="关闭单页字号自适应")
     args = ap.parse_args()
 
@@ -693,7 +742,9 @@ def main() -> int:
         out_pdf.with_suffix(".html") if args.html_only else None
     )
 
-    if args.html_only:
+    if args.web_only:
+        pass
+    elif args.html_only:
         markup = build_html(page, cfg, float((cfg.get("layout") or {}).get("base_font_pt", 10.0)), warn)
         html_out.write_text(markup, encoding="utf-8")
         print(f"已生成 {html_out}")
@@ -701,6 +752,12 @@ def main() -> int:
         out_pdf.parent.mkdir(parents=True, exist_ok=True)
         build_pdf(page, cfg, out_pdf, html_out, fit=not args.no_fit, warn=warn)
         print(f"已生成 {out_pdf}")
+
+    if not args.no_web:
+        web_out = ROOT / ((cfg.get("web") or {}).get("output") or "resume/index.html")
+        web_out.parent.mkdir(parents=True, exist_ok=True)
+        web_out.write_text(build_web_page(page, cfg, warn), encoding="utf-8")
+        print(f"已生成 {web_out}")
 
     print(f"解析结果：论文 {len(page.publications)}、经历 {len(page.experiences)}、"
           f"项目 {len(page.projects)}、教育 {len(page.educations)}")

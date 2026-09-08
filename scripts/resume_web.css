@@ -1,0 +1,85 @@
+/* 网页版简历（/resume/）的额外样式，追加在 resume.css 之后。
+   只覆盖屏幕阅读相关的部分，纸张内的排版仍由 resume.css 决定。 */
+
+body {
+  background: #e9eaec;
+  padding: 22px 10px 60px;
+}
+
+.sheet {
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- 顶部工具条 ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto 14px;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.tb-btn {
+  padding: 5px 13px;
+  border: 1px solid #d3d5d9;
+  border-radius: 4px;
+  background: #fff;
+  color: #444;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tb-btn:hover {
+  border-color: #c00000;
+  color: #c00000;
+}
+
+/* ---------- 窄屏 ---------- */
+
+@media (max-width: 760px) {
+  body {
+    padding: 12px 0 40px;
+  }
+
+  .sheet {
+    padding: 7mm 6mm 6mm;
+    font-size: calc(var(--base) * 1.12);
+  }
+
+  .toolbar {
+    padding: 0 10px;
+  }
+
+  /* 证件照在窄屏上会压掉页眉，改为跟随文档流 */
+  .photo {
+    position: static;
+    margin: 0 auto 4pt;
+  }
+}
+
+/* ---------- 打印 / 另存为 PDF ---------- */
+
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .sheet {
+    max-width: none;
+    box-shadow: none;
+  }
+
+  .toolbar {
+    display: none;
+  }
+}

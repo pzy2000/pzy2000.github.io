@@ -18,6 +18,21 @@ profile:
 # 输出文件名（相对仓库根目录），也可用 --out 覆盖
 output: "彭志远-简历.pdf"
 
+# 网页版简历：站点上的 /resume/，排版与 PDF 同源，只换掉屏幕阅读相关的样式。
+# PDF 被 .gitignore 排除、不会发布，所以主页左下角的链接指向这个页面。
+web:
+  output: "resume/index.html"
+  title: "彭志远 简历｜上海交通大学计算机学院博士研究生"
+  description: "彭志远（Zhiyuan Peng）的简历：上海交通大学计算机学院博士研究生，研究方向为大模型智能体、Agentic Coding 与多智能体系统。"
+  # 网页版不需要压进一页，字号可以比 PDF 大一点
+  font_pt: 10.4
+  # 证件照默认不发布到网站（_data/portrait.jpg 只参与 PDF 生成），改成 true 即可显示
+  photo: false
+  print_label: "打印 / 存为 PDF"
+  links:
+    - ["← 返回主页", "/zh/"]
+    - ["English homepage", "/"]
+
 # 章节顺序与开关，删掉某行即可隐藏该章节
 # 「科研成果」已把论文列表并入自身，不再有单独的「论文发表」章节
 sections:

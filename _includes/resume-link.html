@@ -1,0 +1,12 @@
+{% comment %}
+  固定在页面左下角的简历入口。指向静态页 /resume/（由 scripts/build_resume.py 生成）。
+  某个页面不想显示时，在 front matter 里写 hide_resume_link: true。
+{% endcomment %}
+{% comment %}
+  target 写死：head.html 里有 <base target="_blank">，不显式声明就会继承它。
+{% endcomment %}
+{% unless page.hide_resume_link %}
+  <a class="resume-link" href="{{ '/resume/' | relative_url }}" target="_blank" rel="noopener">
+    {%- if page.lang contains 'zh' -%}简历{%- else -%}Resume{%- endif -%}
+  </a>
+{% endunless %}
