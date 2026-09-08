@@ -119,9 +119,8 @@ h1:before, .anchor:before {
     }
 }
 
-/* 左下角的 secret house。用 opacity 而不是「白字白底」来隐藏：
-   两者肉眼效果一样，但 opacity + hover 显形是常规的 UI 交互，
-   不会被搜索引擎当成刻意藏字。命中区域只有字形本身，避免误点。 */
+/* 左下角的 secret house：字色与页面底色相同，肉眼看不见；
+   鼠标扫过或键盘 focus 到时才显形。命中区域只有字形本身，避免误点。 */
 .resume-link {
     position: fixed;
     left: 1.4em;
@@ -133,25 +132,28 @@ h1:before, .anchor:before {
     letter-spacing: 0.06em;
     line-height: 1;
     white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: color 0.25s ease;
 
     &,
     &:visited,
     &:hover,
     &:focus {
-        color: $gray;
         text-decoration: none;
+    }
+
+    &,
+    &:visited {
+        color: $background-color;
     }
 
     /* 删掉这条 :hover 规则，它就连鼠标扫过也不显形 */
     &:hover {
-        opacity: 1;
+        color: mix($background-color, $gray, 40%);
     }
 
     /* 键盘用户不至于停在一个完全看不见的焦点上 */
     &:focus-visible {
-        opacity: 1;
+        color: $gray;
         outline: 1px dotted $light-gray;
     }
 }
