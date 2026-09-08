@@ -55,8 +55,7 @@ section_titles:
 # 简要介绍：主页首段偏叙事，简历需要更紧凑的版本。留空则回退到主页首段。
 summary: >-
   我是上海交通大学计算机科学学院博士 3 年级学生。我很荣幸曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）
-  实习。我的研究兴趣包括 **LLM 智能体**、**Agentic Coding** 以及**多智能体系统**。我构建的智能体能够在真实的
-  执行环境中进行规划、调用工具并采取行动，其范围涵盖从能够发布可运行代码库的单个 Coding Agent
+  实习。我的研究兴趣包括 **LLM 智能体**、**Agentic Coding** 以及**多智能体系统**。我构建的智能体能够在真实的执行环境中进行规划、调用工具并采取行动，其范围涵盖从能够发布可运行代码库的单个 Coding Agent
   （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable) /
   [RepoGenesis](https://arxiv.org/abs/2601.13943)），到由基于角色的智能体组成的受控智能体集群
   （[OpenHire](https://github.com/pzy2000/OpenHire)）。我的多篇论文已在 ACL、EMNLP、FSE 和 ASE 等顶级国际会议上发表。
