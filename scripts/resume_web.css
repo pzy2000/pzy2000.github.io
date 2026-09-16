@@ -64,6 +64,58 @@ body {
     position: static;
     margin: 0 auto 4pt;
   }
+
+  /* 科研矩阵：窄屏下问题胶囊放到分支上方，只保留分支侧的树状连线 */
+  .rq-row {
+    display: block;
+  }
+
+  .rq-q {
+    display: inline-block;
+    margin-bottom: 2pt;
+    white-space: normal;
+  }
+
+  .rq-q::after {
+    display: none;
+  }
+
+  .rq-branches {
+    margin-left: 6pt;
+  }
+
+  /* 分支内改为行内流式排版，chip 跟在标签后自然换行；连线对齐首行中点 */
+  .rq-branch {
+    display: block;
+    --rq-mid: 0.85em;
+  }
+
+  .rq-branch::before {
+    top: var(--rq-mid);
+  }
+
+  .rq-branch:first-child::after {
+    top: var(--rq-mid);
+  }
+
+  .rq-branch:last-child::after {
+    bottom: calc(100% - var(--rq-mid));
+  }
+
+  .rq-label {
+    display: inline-block;
+    margin: 1pt 3pt 1pt 0;
+    vertical-align: middle;
+  }
+
+  .rq-chips {
+    display: inline;
+  }
+
+  .chip {
+    margin: 1pt 3pt 1pt 0;
+    vertical-align: middle;
+  }
 }
 
 /* ---------- 打印 / 另存为 PDF ---------- */

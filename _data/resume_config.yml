@@ -111,17 +111,39 @@ project_summaries:
   SoulBanner: "Agent Skill 库：把表达风格与判断框架蒸馏为可调用、可组合的 skill 模块，6 分类路由入口，已接入 OpenHire 的 Skill Catalog。"
   RepoGenesis: "ACL'26 基准的开源实现：README → 可部署多语言微服务仓库，在 Docker 沙箱内以构建、启动、调用三步自动判定成败，覆盖 11 框架 / 18 领域。"
 
-# 科研成果矩阵：按研究问题分组，每组下直接列完整论文条目（含结果行）。
-# 只放经同行评议的论文，不混入 GitHub 项目——否则会把论文拉到和项目同一等级。
+# 科研成果矩阵：树状总览。每行一个研究问题（Q1/Q2/Q3），向右分出若干子方向（branches），
+# 每个子方向后横排若干 chip（items）。item 先按论文 key 匹配主页论文列表，匹配不到再按
+# 开源项目名匹配；论文 chip 显示会议缩写，项目 chip 显示 project_source_label（GitHub）以示区分。
+# 矩阵下方的详细列表只包含矩阵里出现过的同行评议论文（去重、按首次出现顺序），带结果行。
+# tone 可选 blue / green / amber。
 research_matrix:
   - id: "Q1"
-    question: "如何构建能自动判定成败的代码执行环境？"
+    question: "为模型构造可验证的执行环境"
     tone: "blue"
-    papers: ["RepoGenesis", "PlayCoder"]
+    branches:
+      - label: "仓库级判定"
+        items: ["RepoGenesis", "SolEval"]
+      - label: "交互式判定"
+        items: ["PlayCoder"]
   - id: "Q2"
-    question: "如何用执行与偏好反馈提升生成质量？"
+    question: "把执行与偏好反馈转为可优化目标"
     tone: "green"
-    papers: ["SolEval", "PrefGen"]
+    branches:
+      - label: "监督微调"
+        items: ["SolEval"]
+      - label: "偏好优化"
+        items: ["PrefGen"]
+  - id: "Q3"
+    question: "将 Agent 扩展到长程多智能体任务"
+    tone: "amber"
+    branches:
+      - label: "编排与执行"
+        items: ["OpenHire", "YimMenu"]
+      - label: "技能与记忆"
+        items: ["SoulBanner"]
+
+# 开源项目 chip 的来源标注（论文 chip 显示会议缩写，项目 chip 显示这个）
+project_source_label: "GitHub"
 
 # 每篇论文的核心实验结果，显示在标题行下方。按论文 key 匹配。
 paper_results:

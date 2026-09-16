@@ -269,24 +269,45 @@ a.link {
   content: "　";
 }
 
-/* ---------- 科研成果：按问题分组的论文列表 ---------- */
+/* ---------- 科研成果：研究问题 → 子方向 → chip 的树状矩阵 ---------- */
 
-.qgroup {
+.rq {
+  --rq-line: #c8c8c8;
+  --rq-w: 0.6pt;
+  --rq-gap: 10pt;
+  margin-bottom: 4pt;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+}
+
+.rq-row {
+  display: flex;
+  align-items: center;
   margin-bottom: 3pt;
 }
 
-.qgroup:last-child {
+.rq-row:last-child {
   margin-bottom: 0;
 }
 
-.qbar {
-  display: inline-block;
-  padding: 1.2pt 7pt;
-  border-radius: 3pt;
-  margin-bottom: 1.6pt;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", sans-serif;
+.rq-q {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 1.6pt 8pt;
+  border-radius: 999pt;
   font-size: 0.92em;
   font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* 问题胶囊 → 主干的短横线 */
+.rq-q::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: var(--rq-gap);
+  border-top: var(--rq-w) solid var(--rq-line);
 }
 
 .tone-blue {
@@ -304,11 +325,110 @@ a.link {
   color: #9a6512;
 }
 
-.qpapers > li {
+.rq-branches {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: var(--rq-gap);
+  padding-left: var(--rq-gap);
+}
+
+.rq-branch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2pt 3pt;
+  padding: 1pt 0;
+}
+
+/* 每个子方向的横向连线 */
+.rq-branch::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--rq-gap));
+  top: 50%;
+  width: var(--rq-gap);
+  border-top: var(--rq-w) solid var(--rq-line);
+}
+
+/* 竖向主干：首尾分支只画一半，形成分叉 */
+.rq-branch::after {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--rq-gap));
+  top: 0;
+  bottom: 0;
+  border-left: var(--rq-w) solid var(--rq-line);
+}
+
+.rq-branch:first-child::after {
+  top: 50%;
+}
+
+.rq-branch:last-child::after {
+  bottom: 50%;
+}
+
+.rq-branch:only-child::after {
+  display: none;
+}
+
+.rq-label {
+  flex: 0 0 auto;
+  padding: 0.6pt 6pt;
+  border: 0.6pt solid #c9c9c9;
+  border-radius: 999pt;
+  background: #fff;
+  color: #333;
+  font-size: 0.88em;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.rq-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2pt 3pt;
+  min-width: 0;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.4pt 5.5pt;
+  border: 0.6pt solid #dcdcdc;
+  border-radius: 999pt;
+  background: #fafafa;
+  font-family: "Times New Roman", serif;
+  font-size: 0.88em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.chip b {
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.chip i {
+  margin-left: 3pt;
+  font-style: normal;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.chip-proj i {
+  color: #a2690f;
+}
+
+/* ---------- 科研成果：矩阵下方的论文详细条目 ---------- */
+
+.pub > li {
   margin-bottom: 2.5pt;
 }
 
-.qpapers > li:last-child {
+.pub > li:last-child {
   margin-bottom: 0;
 }
 

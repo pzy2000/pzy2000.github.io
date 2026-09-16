@@ -388,6 +388,14 @@ def find_publication(key: str, page: Homepage) -> Publication | None:
     return None
 
 
+def find_project(name: str, page: Homepage) -> Project | None:
+    """按项目名（或名称子串）找开源项目，用于科研成果矩阵里的项目 chip。"""
+    for proj in page.projects:
+        if proj.name == name or name.lower() in proj.name.lower():
+            return proj
+    return None
+
+
 # --------------------------------------------------------------------------
 # HTML 渲染
 # --------------------------------------------------------------------------
@@ -503,40 +511,85 @@ def render_projects(page: Homepage, cfg: dict) -> str:
     return f'<ul class="tri proj">{"".join(rows)}</ul>'
 
 
-def render_research(page: Homepage, cfg: dict) -> str:
-    """按研究问题分组渲染论文条目，每篇附一行核心实验结果（来自 cfg['paper_results']）。"""
+def render_pub_entry(pub: Publication, cfg: dict) -> str:
+    """单条论文：key + 标题 + 会议 + 等级 + 额外标注，下方一行核心实验结果。"""
     results = cfg.get("paper_results") or {}
     badges_cfg = cfg.get("paper_badges") or {}
-    groups = []
+    venue = pub.venue_short or pub.venue
+    tier = f'<span class="tier">{html.escape(pub.tier)}</span>' if pub.tier else ""
+    badges = badges_cfg.get(pub.key) or []
+    badge_html = (
+        f'<span class="badge">{html.escape(" · ".join(badges))}</span>' if badges else ""
+    )
+    rest = pub.title[len(pub.key):].lstrip(":：").strip()
+    result = results.get(pub.key, "")
+    result_html = f'<div class="pub-result">{md_inline(result)}</div>' if result else ""
+    return (
+        f'<li><span class="pub-key">{html.escape(pub.key)}</span>'
+        f'<span class="pub-title">{html.escape(rest)}</span>'
+        f'<span class="venue">{html.escape(venue)}</span>{tier}{badge_html}'
+        f'{result_html}</li>'
+    )
+
+
+def render_research(page: Homepage, cfg: dict) -> str:
+    """科研成果：上方是「研究问题 → 子方向 → chip」的树状矩阵，下方是矩阵中论文的详细条目。
+
+    matrix item 先按论文 key 匹配，再按开源项目名匹配。论文 chip 标会议缩写，
+    项目 chip 标 cfg['project_source_label']（默认 GitHub）。
+    """
+    source_label = str(cfg.get("project_source_label") or "GitHub")
+    rows: list[str] = []
+    listed: list[Publication] = []
+
+    def chip_for(item: str) -> str:
+        pub = find_publication(item, page)
+        if pub:
+            if pub not in listed:
+                listed.append(pub)
+            src = pub.venue_short or pub.venue
+            return (
+                f'<span class="chip"><b>{html.escape(pub.key)}</b>'
+                f'<i>{html.escape(src)}</i></span>'
+            )
+        proj = find_project(item, page)
+        if proj:
+            return (
+                f'<span class="chip chip-proj"><b>{html.escape(item)}</b>'
+                f'<i>{html.escape(source_label)}</i></span>'
+            )
+        return ""
+
     for group in cfg.get("research_matrix") or []:
         tone = group.get("tone", "blue")
-        entries = []
-        for key in group.get("papers") or []:
-            pub = find_publication(key, page)
-            if not pub:
+        branches = group.get("branches")
+        if not branches:
+            # 兼容旧格式：只有 papers 列表时当作单一无标签分支
+            branches = [{"label": "", "items": group.get("papers") or []}]
+        branch_html = []
+        for br in branches:
+            chips = [c for c in (chip_for(str(k)) for k in br.get("items") or []) if c]
+            if not chips:
                 continue
-            venue = pub.venue_short or pub.venue
-            tier = f'<span class="tier">{html.escape(pub.tier)}</span>' if pub.tier else ""
-            badges = badges_cfg.get(pub.key) or []
-            badge_html = (
-                f'<span class="badge">{html.escape(" · ".join(badges))}</span>' if badges else ""
+            label = (br.get("label") or "").strip()
+            label_html = f'<span class="rq-label">{html.escape(label)}</span>' if label else ""
+            branch_html.append(
+                f'<div class="rq-branch">{label_html}'
+                f'<span class="rq-chips">{"".join(chips)}</span></div>'
             )
-            rest = pub.title[len(pub.key):].lstrip(":：").strip()
-            result = results.get(pub.key, "")
-            result_html = f'<div class="pub-result">{md_inline(result)}</div>' if result else ""
-            entries.append(
-                f'<li><span class="pub-key">{html.escape(pub.key)}</span>'
-                f'<span class="pub-title">{html.escape(rest)}</span>'
-                f'<span class="venue">{html.escape(venue)}</span>{tier}{badge_html}'
-                f'{result_html}</li>'
-            )
-        groups.append(
-            f'<div class="qgroup">'
-            f'<div class="qbar tone-{tone}">{html.escape(group.get("id", ""))}：'
+        if not branch_html:
+            continue
+        rows.append(
+            f'<div class="rq-row">'
+            f'<div class="rq-q tone-{tone}">{html.escape(group.get("id", ""))}：'
             f'{html.escape(group.get("question", ""))}</div>'
-            f'<ul class="tri pub qpapers">{"".join(entries)}</ul></div>'
+            f'<div class="rq-branches">{"".join(branch_html)}</div></div>'
         )
-    return "".join(groups)
+
+    matrix = f'<div class="rq">{"".join(rows)}</div>' if rows else ""
+    entries = "".join(render_pub_entry(pub, cfg) for pub in listed)
+    pubs = f'<ul class="tri pub">{entries}</ul>' if entries else ""
+    return matrix + pubs
 
 
 def render_stack(page: Homepage, cfg: dict) -> str:
