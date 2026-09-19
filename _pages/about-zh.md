@@ -61,6 +61,10 @@ lang: zh-CN
   一个多人格 `.skill` monorepo，把稳定的表达风格与判断框架蒸馏为可调用、可组合的 agent skill 模块，提供覆盖 6 个分类的路由入口 skill 与统一编写模板，便于社区持续提 PR 扩充。该 skill 库已被 OpenHire 的 Skill Catalog 直接接入——我发布的 skill 就是我的 agent 实际调用的 skill。
 - **RepoGenesis**（作者）[![Stars](https://img.shields.io/github/stars/pzy2000/RepoGenesis?style=flat&logo=github&label=stars&color=orange)](https://github.com/pzy2000/RepoGenesis) 
   端到端的基准：从一份 README 出发生成可部署的多语言 Web 微服务仓库，并在 Docker 沙箱中真实构建、启动并调用该服务以验证其可运行性，覆盖 11 个框架与 18 个应用领域。论文被 ACL 2026 Main 接收（录用论文前 15%）。
+- **GOF2_remake**（作者）[![Stars](https://img.shields.io/github/stars/pzy2000/GOF2_remake?style=flat&logo=github&label=stars&color=orange)](https://github.com/pzy2000/GOF2_remake) 
+  由 Agent 从零到一自动开发的可运行 WebGL 太空战斗/交易游戏，经 136 次提交的多轮长程迭代成型：六大星系加 PTD 母港、九款可玩舰船、13 章主线任务链，以及带 REST + SSE 的权威经济服务端。美术与音频资产由生成式模型产出后统一登记到 `manifest.json` 按需调度，Playwright 的桌面与移动端 e2e 用例把「能否跑起来、能否玩下去」变成每次迭代的自动回归。
+- **LoveEmulator**（作者）[![Stars](https://img.shields.io/github/stars/pzy2000/LoveEmulator?style=flat&logo=github&label=stars&color=orange)](https://github.com/pzy2000/LoveEmulator) 
+  AI 驱动的模拟经营游戏，把程序化内容生成拆成可控的四层：引擎采样情境骨架，LLM 生成叙事与玩家选项，校验层检查 JSON 结构、安全边界与逻辑一致性，最后由引擎依据选项的 intent 标签、关系状态与 RNG 种子确定性结算。生成内容因此既有 LLM 的多样性，又保持可复现与数值可控。
 - **YimMenu**（贡献者）[![Stars](https://img.shields.io/github/stars/YimMenu/YimMenu?style=flat&logo=github&label=stars&color=orange)](https://github.com/YimMenu/YimMenu) 
   我实现了基于规则的 Auto Drive 模块：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。
 <!-- - **MindSpore Contributor**（华为国产深度学习框架）- [项目链接](https://gitee.com/mindspore/models) -->

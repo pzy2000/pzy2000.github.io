@@ -22,10 +22,10 @@ body {
 
 .sheet {
   width: 210mm;
-  padding: 9mm 12mm 7mm;
+  padding: 8mm 11mm 6mm;
   font-family: "Songti SC", "STSong", "SimSun", serif;
   font-size: var(--base);
-  line-height: 1.42;
+  line-height: 1.36;
   color: #1a1a1a;
 }
 
@@ -96,7 +96,7 @@ em {
 /* ---------- 章节标题 ---------- */
 
 .sec {
-  margin: 5pt 0 3.5pt;
+  margin: 4pt 0 3pt;
   padding: 1.6pt 7pt;
   background: linear-gradient(to right, #f6eded, #fbf7f7 65%, #fff);
   border-left: 2.6pt solid #c00000;
@@ -123,7 +123,7 @@ section > *:last-child {
 .tri > li {
   position: relative;
   padding-left: 10pt;
-  margin-bottom: 1.6pt;
+  margin-bottom: 1pt;
   text-align: justify;
 }
 
@@ -203,7 +203,7 @@ a.link {
 /* ---------- 工作经历 ---------- */
 
 .exp {
-  margin-bottom: 3pt;
+  margin-bottom: 2pt;
 }
 
 .exp-hd {
@@ -282,7 +282,7 @@ a.link {
 .rq-row {
   display: flex;
   align-items: center;
-  margin-bottom: 3pt;
+  margin-bottom: 2pt;
 }
 
 .rq-row:last-child {
@@ -425,7 +425,7 @@ a.link {
 /* ---------- 科研成果：矩阵下方的论文详细条目 ---------- */
 
 .pub > li {
-  margin-bottom: 2.5pt;
+  margin-bottom: 1.8pt;
 }
 
 .pub > li:last-child {

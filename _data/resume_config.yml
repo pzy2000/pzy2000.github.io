@@ -54,17 +54,20 @@ section_titles:
 
 # 简要介绍：主页首段偏叙事，简历需要更紧凑的版本。留空则回退到主页首段。
 summary: >-
-  我是上海交通大学计算机科学学院博士 3 年级学生。我很荣幸曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）
-  实习。我的研究兴趣包括 **LLM 智能体**、**Agentic Coding** 以及**多智能体系统**。我构建的智能体能够在真实的执行环境中进行规划、调用工具并采取行动，其范围涵盖从能够发布可运行代码库的单个 Coding Agent
-  （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable) /
-  [RepoGenesis](https://arxiv.org/abs/2601.13943)），到由基于角色的智能体组成的受控智能体集群
-  （[OpenHire](https://github.com/pzy2000/OpenHire)）。我的多篇论文已在 ACL、EMNLP、FSE 和 ASE 等顶级国际会议上发表。
+  我是上海交通大学计算机科学学院博士 3 年级学生，曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）实习，
+  研究兴趣是 **LLM 智能体**、**Agentic Coding** 与**多智能体系统**：让智能体在真实执行环境中规划、调用工具并采取行动，
+  从交付可运行仓库的 Coding Agent（[RepoGenesis](https://arxiv.org/abs/2601.13943)）到角色化智能体集群
+  （[OpenHire](https://github.com/pzy2000/OpenHire)）。在游戏方向上，我既做**可玩性的自动判定**
+  （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)），
+  也用 Agent **从零到一开发可运行的游戏**（[GOF2_remake](https://github.com/pzy2000/GOF2_remake) /
+  [LoveEmulator](https://github.com/pzy2000/LoveEmulator)）。多篇一作论文发表于 ACL、EMNLP、FSE、ASE。
 
-# 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub}，由解析结果自动填数。
+# 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub} {stars_total}，由解析结果自动填数。
+# {stars_total} 是构建时实时拉取的各开源项目 star 之和。
 highlights:
   - "{n_pub} 篇一作 CCF-A / TH-CPL-A"
   - "122 谷歌学术引用"
-  - "开源项目累计 1.8K stars"
+  - "开源项目累计 {stars_total} stars"
 
 # 教育经历补充（按学校名匹配主页 `# 📖 教育经历` 中的条目）
 education_extra:
@@ -88,28 +91,24 @@ experience_extra:
   腾讯:
     date: ""                # TODO 填写起止时间，例如 2025.03-2025.09
     bullets:
-      - "设计感知-决策-控制闭环的 GUI Agent，像真实玩家一样操作运行中的游戏客户端，把「可玩性」从静态代码检查变为交互式判定。"
+      - "设计感知-决策-控制闭环的 GUI Agent，像真实玩家一样操作运行中的游戏客户端，把「可玩性」从静态代码检查变为交互式判定（PlayCoder，FSE'26）。"
   微软亚洲研究院:
     date: ""                # TODO 填写起止时间，例如 2024.09-2025.02
     bullets:
       - "在沙箱中真实构建、启动并调用生成的多语言 Web 微服务，覆盖 11 个框架与 18 个应用领域，形成端到端可验证的仓库生成基准。"
 
-# Agent 项目展示顺序（未列出的按主页顺序排在后面）
-project_order: ["OpenHire", "YimMenu", "SoulBanner", "RepoGenesis"]
-
-# Star 数，只给数字好看的项目标注；留空则不显示
-project_stars:
-  YimMenu: "1.5K"
-  SoulBanner: "109"
-  RepoGenesis: "101"
+# 开源项目按 star 降序排列，star 数由 scripts/build_resume.py 在构建时实时拉取，
+# 所以这里不再维护展示顺序和 star 数值。
 
 # Agent 项目在简历中的一句话版本（留空则自动取主页描述的第一句）
 # 写法原则：不列功能清单，只说规模、验证方式和它支撑了什么可验证的结果。
 project_summaries:
-  OpenHire: "多智能体执行与评测基础设施：control agent 拆解任务后并行分发到容器化 worker，每个 worker 独立沙箱与权限边界，支持批量 rollout 与执行轨迹全量留存；轨迹经筛选沉淀为可复用 skill 与长期记忆，构成自进化的数据闭环。适配层可接入任意镜像化 agent。"
-  YimMenu: "长程自动驾驶模块：基于规则的感知-决策-控制闭环，沿道路导航至地图路径点、无目标时自主漫游，含控制冲突检测与人工接管让行，经约 2,000 公里连续驾驶验证。"
+  OpenHire: "多智能体执行基础设施：control agent 拆解任务并分发到容器化 worker，各自独立沙箱与权限边界，支持批量 rollout、轨迹留存与 skill / 长期记忆沉淀。"
+  YimMenu: "游戏内长程驾驶 Agent：感知-决策-控制闭环，自主导航与漫游，含控制冲突检测与人工接管让行，经约 2,000 公里连续驾驶验证。"
   SoulBanner: "Agent Skill 库：把表达风格与判断框架蒸馏为可调用、可组合的 skill 模块，6 分类路由入口，已接入 OpenHire 的 Skill Catalog。"
-  RepoGenesis: "ACL'26 基准的开源实现：README → 可部署多语言微服务仓库，在 Docker 沙箱内以构建、启动、调用三步自动判定成败，覆盖 11 框架 / 18 领域。"
+  RepoGenesis: "ACL'26 基准的开源实现：README → 可部署多语言微服务仓库，在 Docker 沙箱内以构建、启动、调用三步自动判定，覆盖 11 框架 / 18 领域。"
+  GOF2_remake: "Agent 从零到一自动开发的可运行 WebGL 游戏：136 次提交长程迭代，交付 6 星系 / 9 舰船 / 13 章主线与经济服务端；生成式资产经 manifest 统一调度，Playwright e2e 把可玩性变成每轮迭代的自动回归。"
+  LoveEmulator: "可控的程序化游戏内容生成：引擎采样情境骨架 → LLM 生成叙事与选项 → 校验层查结构、安全与一致性 → 引擎按 intent 标签和 RNG 种子确定性结算，兼顾多样性与可复现。"
 
 # 科研成果矩阵：树状总览。每行一个研究问题（Q1/Q2/Q3），向右分出若干子方向（branches），
 # 每个子方向后横排若干 chip（items）。item 先按论文 key 匹配主页论文列表，匹配不到再按
@@ -139,6 +138,8 @@ research_matrix:
     branches:
       - label: "编排与执行"
         items: ["OpenHire", "YimMenu"]
+      - label: "游戏生成与长程迭代"
+        items: ["GOF2_remake", "LoveEmulator"]
       - label: "技能与记忆"
         items: ["SoulBanner"]
 
@@ -147,10 +148,10 @@ project_source_label: "GitHub"
 
 # 每篇论文的核心实验结果，显示在标题行下方。按论文 key 匹配。
 paper_results:
-  RepoGenesis: "106 个多语言微服务仓库的 Benchmark。覆盖 11 框架 18 领域、2,335 测试用例；SOTA 系统 DSR 达 100% 但 Pass@1 仅 23.7%。"
-  PlayCoder: "覆盖 43 个 GUI 应用，提出 Play@k 与自动判定 agent；10 个 SOTA 模型 Play@3 全为个位数，多智能体生成-评测-修复达 20.3% Play@3。"
-  SolEval: "首个 Solidity Coding 基准，1,507 任务 / 28 仓库；在 16 个模型上最佳仅 26.3% Pass@10，SFT 后 Pass@5 由 16.7% 升至 58.3%。"
-  PrefGen: "将 Gas 与安全设计为可量化奖励扩展 DPO；Qwen2.5-7B 上 Pass@5 16.7%→66.7%、Gas@5 0%→58.9%、Secure@5 11.8%→62.5%。"
+  RepoGenesis: "106 个多语言微服务仓库，11 框架 / 18 领域、2,335 测试用例；SOTA 系统 Pass@1 仅 23.7%。"
+  PlayCoder: "43 个 GUI 游戏应用，提出 Play@k 与自动判定 agent；10 个 SOTA 模型 Play@3 均为个位数，生成-评测-修复流程达 20.3%。"
+  SolEval: "首个 Solidity 代码基准，1,507 任务 / 28 仓库；16 个模型最佳仅 26.3% Pass@10，SFT 后 Pass@5 16.7%→58.3%。"
+  PrefGen: "把 Gas 与安全设为可量化奖励扩展 DPO；Qwen2.5-7B 上 Pass@5 16.7%→66.7%、Secure@5 11.8%→62.5%。"
 
 # 论文的额外标注（会议档次、录用率、奖项），显示在会议/等级标签之后。按论文 key 匹配。
 paper_badges:
@@ -160,10 +161,10 @@ paper_badges:
 # 技术栈：主页那份是平台工程的分类法，简历面向基模团队要换成环境/反馈/轨迹的语言。
 # 留空则回退到主页 `# 🛠 技术栈` 的原文。
 stack_override:
-  - ["Benchmark 构建", "任务与执行环境设计、自动化正确性判定（构建-启动-调用/编译-链上测试）、评测指标设计（Pass@k、Gas@k、Vul@k、Play@k）、多语言多领域基准构造", "RepoGenesis、SolEval、PlayCoder"]
-  - ["智能体", "规划与工具调用（tool use / function calling）、GUI 交互、多智能体并行协作与交叉校验", "PlayCoder、OpenHire"]
-  - ["数据与记忆", "执行轨迹采集与筛选、skill 抽取复用、长期记忆合并及 diff 与安全回滚", "RepoGenesis、SolEval、PlayCoder、SoulBanner"]
-  - ["工程", "容器化隔离与权限边界、批量 rollout 调度、轨迹留存与执行链路审查", "OpenHire、RepoGenesis"]
+  - ["游戏", "从零到一生成与长程迭代、程序化内容与资产调度、WebGL 运行时与 e2e 回归、可玩性自动判定", "GOF2_remake、PlayCoder"]
+  - ["Benchmark 构建", "执行环境设计、自动化正确性判定（构建-启动-调用）、指标设计（Pass@k / Play@k / Gas@k）", "RepoGenesis、SolEval"]
+  - ["智能体", "规划与工具调用（tool use）、GUI 交互、多智能体协作与交叉校验、容器化隔离与批量 rollout", "PlayCoder、OpenHire"]
+  - ["数据与记忆", "执行轨迹采集留存与筛选、skill 抽取复用、长期记忆合并与安全回滚", "RepoGenesis、SoulBanner"]
 
 # 会议名简写（用于论文条目的会议标注）
 venue_aliases:
