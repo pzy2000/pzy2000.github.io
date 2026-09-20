@@ -14,7 +14,7 @@ orcid: 0009-0003-6560-733X
 
 short_bio_text_justify: false
 short_bio: >-
-  <p>Hi 👋 I am <strong>Zhiyuan Peng</strong> (彭志远, Lucius Peng), a second-year Ph.D. student at the School of Computer Science, <a href="https://en.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a>. Previously, I was fortunate to intern at Tencent LIGHTSPEED Studios (Qingyun Program) and Microsoft Research Asia (MSRA).</p>
+  <p>Hi 👋 I am <strong>Zhiyuan Peng</strong> (彭志远, Lucius Peng), a second-year Ph.D. student at the School of Computer Science, <a href="https://en.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a>. Previously, I was fortunate to intern at Tencent LIGHTSPEED Studios (<strong>Qingyun Program</strong>) and Microsoft Research Asia (MSRA).</p>
   <p>My research interests include <strong>LLM Agents</strong>, <strong>Agentic Coding</strong>, and <strong>Multi-Agent Systems</strong>. I build agents that plan, call tools, and act inside real execution environments, from a single coding agent that ships a runnable repository to a governed fleet of role-based agents. I have published papers at top international conferences such as <strong>ACL</strong>, <strong>EMNLP</strong>, <strong>FSE</strong>, and <strong>ASE</strong>.</p>
   <p>In 2026, I am leading or participating in the following research topics:</p>
   <ul>
@@ -41,8 +41,8 @@ education:
 
 experience:
 - name: Tencent LIGHTSPEED Studios
-  logo: /images/logo-tencent.svg
-  position: Research Intern, Qingyun Program
+  logo: /assets/images/badges/tencent.png
+  position: Research Intern, <strong>Qingyun Program</strong>
   desc: Built GUI agents that drive live game clients to verify generated code, producing PlayCoder (FSE'26, CCF-A).
 - name: Microsoft Research Asia
   logo: /assets/images/badges/msra.png

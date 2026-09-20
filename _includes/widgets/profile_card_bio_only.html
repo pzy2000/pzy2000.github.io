@@ -14,9 +14,6 @@
                         <div class="text-profile-bio mt-0" {% if profile.short_bio_text_justify %}style="text-align: justify;"{% endif %}>
                             {{ profile.short_bio }}
                         </div>
-                        {% if profile.cv_link %}
-                            <a target="_blank" href="{{ profile.cv_link | relative_url }}"><i class="fas fa-file-alt"></i> {% if page.lang == 'zh' %}简历 / Curriculum Vitae{% else %}Curriculum Vitae{% endif %}</a> <br/>
-                        {% endif %}
                     </div>
 
                 </div>

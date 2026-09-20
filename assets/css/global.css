@@ -151,6 +151,15 @@ div.lazy {
     }
 }
 
+/* Education / experience logos: uniform slot so wide and square marks read at the
+   same size and every entry's text starts at the same left edge. */
+.org-logo {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 18px;
+    object-fit: contain;
+}
+
 /* Floating resume link, bottom-left corner */
 .resume-link {
     position: fixed;

@@ -14,7 +14,7 @@ orcid: 0009-0003-6560-733X
 
 short_bio_text_justify: false
 short_bio: >-
-  <p>Hi 👋 我是<strong>彭志远</strong>（Zhiyuan Peng / Lucius Peng），<a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大学</a>计算机学院二年级博士研究生。我曾有幸在腾讯光子工作室群（青云计划）和微软亚洲研究院（MSRA）实习。</p>
+  <p>Hi 👋 我是<strong>彭志远</strong>（Zhiyuan Peng / Lucius Peng），<a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大学</a>计算机学院二年级博士研究生。我曾有幸在腾讯光子工作室群（<strong>青云计划</strong>）和微软亚洲研究院（MSRA）实习。</p>
   <p>我的研究兴趣包括<strong>大模型智能体（LLM Agents）</strong>、<strong>Agentic Coding</strong> 与<strong>多智能体系统</strong>。我的工作围绕能在真实执行环境中规划、调用工具并采取行动的 Agent 展开：从单个交付可运行仓库的 Coding Agent，到可治理的角色化 Agent 团队。我已在 <strong>ACL</strong>、<strong>EMNLP</strong>、<strong>FSE</strong>、<strong>ASE</strong> 等国际顶级会议发表多篇论文。</p>
   <p>2026 年，我将主持或参与以下研究方向：</p>
   <ul>
@@ -41,8 +41,8 @@ education:
 
 experience:
 - name: 腾讯 光子工作室群
-  logo: /images/logo-tencent.svg
-  position: 研究实习生（青云计划）
+  logo: /assets/images/badges/tencent.png
+  position: 研究实习生（<strong>青云计划</strong>）
   desc: 构建可操作真实游戏客户端、以交互验证生成代码的 GUI Agent，产出 PlayCoder（FSE'26，CCF-A）。
 - name: 微软亚洲研究院（MSRA）
   logo: /assets/images/badges/msra.png
