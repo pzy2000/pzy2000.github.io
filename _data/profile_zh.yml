@@ -1,6 +1,6 @@
 primary_name: "彭志远"
 secondary_name: "Zhiyuan Peng"
-navbar_name: "彭志远"
+navbar_name: "彭志远 @ SJTU"
 
 positions:
 - name: 博士研究生
@@ -41,7 +41,7 @@ education:
 
 experience:
 - name: 腾讯 光子工作室群
-  logo: /assets/images/badges/tencent.png
+  logo: /images/logo-tencent.svg
   position: 研究实习生（青云计划）
   desc: 构建可操作真实游戏客户端、以交互验证生成代码的 GUI Agent，产出 PlayCoder（FSE'26，CCF-A）。
 - name: 微软亚洲研究院（MSRA）

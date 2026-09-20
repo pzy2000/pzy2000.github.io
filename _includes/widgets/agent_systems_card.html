@@ -1,6 +1,6 @@
 <div class="my-3 p-0 bg-white shadow-sm rounded-xl">
     <h6 class="border-bottom border-gray p-3 mb-0">
-        <i class="fas fa-robot"></i> {% if page.lang == 'zh' %}智能体系统{% else %}Agent Systems{% endif %}
+        <i class="fab fa-github"></i> {% if page.lang == 'zh' %}开源项目{% else %}Open Source Projects{% endif %}
     </h6>
     {% for item in site.data.agent_systems.projects %}
     <div class="px-3 py-2 {% unless forloop.last %}border-bottom border-gray{% endunless %}">

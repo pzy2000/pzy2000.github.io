@@ -1,6 +1,6 @@
 primary_name: "Zhiyuan Peng"
 secondary_name: "彭志远"
-navbar_name: "Zhiyuan Peng"
+navbar_name: "Zhiyuan Peng @ SJTU"
 
 positions:
 - name: Ph.D. Student
@@ -41,7 +41,7 @@ education:
 
 experience:
 - name: Tencent LIGHTSPEED Studios
-  logo: /assets/images/badges/tencent.png
+  logo: /images/logo-tencent.svg
   position: Research Intern, Qingyun Program
   desc: Built GUI agents that drive live game clients to verify generated code, producing PlayCoder (FSE'26, CCF-A).
 - name: Microsoft Research Asia

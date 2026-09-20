@@ -1,13 +1,13 @@
 # Agent 系统项目。repo 用于生成 GitHub stars badge 与链接；role: Author/Contributor。
 projects:
-- name: OpenHire
-  repo: pzy2000/OpenHire
-  role: Author
-  role_zh: 作者
+- name: YimMenu
+  repo: YimMenu/YimMenu
+  role: Contributor
+  role_zh: 贡献者
   desc: >-
-    A digital-employee orchestration platform. One control agent decomposes a fuzzy goal and fans it out to multiple role-based worker agents, each running in its own Docker container with an isolated workspace and permission scope. A pluggable worker adapter admits any image-packaged agent (openclaw, hermes, and nanobot are supported today), and the platform is reachable via CLI, an OpenAI-compatible API, or IM channels such as Feishu, with an Admin console for sessions, transcripts, and runtime state. A governance loop closes the system: successful runs are distilled into reusable skills, case packages, and consolidated long-term memory, so the next run starts stronger.
+    I built the Auto Drive agent: a perception-decision-control loop that navigates along roads to a map waypoint, roams autonomously when no goal is set, detects control conflicts, and yields on manual takeover, with HUD telemetry for its internal state. Validated across roughly 2,000 km of long-horizon in-game driving.
   desc_zh: >-
-    数字员工编排平台。一个 control agent 负责拆解模糊目标，并分发给多个角色化的 worker agent，每个 agent 运行在独立的 Docker 容器中，拥有隔离的工作区与权限边界。可插拔的 worker adapter 支持任何以镜像形式打包的 agent（目前已支持 openclaw、hermes、nanobot）；平台可通过 CLI、OpenAI 兼容 API 或飞书等 IM 渠道接入，并提供 Admin 控制台查看会话、执行轨迹与运行时状态。治理闭环让系统持续变强：成功的运行会被沉淀为可复用 skill、case 包与统一的长期记忆，供后续任务复用。
+    我实现了基于规则的 Auto Drive 模块：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。
 - name: SoulBanner
   repo: pzy2000/SoulBanner
   role: Author
@@ -40,11 +40,11 @@ projects:
     An AI-driven life simulation game that splits procedural content generation into four controllable layers: the engine samples a situation skeleton, an LLM writes the narrative and player choices, a validation layer checks JSON structure, safety boundaries, and logical consistency, and the engine resolves outcomes deterministically from intent tags, relationship state, and an RNG seed. Generated content keeps LLM variety while staying reproducible and numerically bounded.
   desc_zh: >-
     AI 驱动的模拟经营游戏，把程序化内容生成拆成可控的四层：引擎采样情境骨架，LLM 生成叙事与玩家选项，校验层检查 JSON 结构、安全边界与逻辑一致性，最后由引擎依据选项的 intent 标签、关系状态与 RNG 种子确定性结算。生成内容因此既有 LLM 的多样性，又保持可复现与数值可控。
-- name: YimMenu
-  repo: YimMenu/YimMenu
-  role: Contributor
-  role_zh: 贡献者
+- name: OpenHire
+  repo: pzy2000/OpenHire
+  role: Author
+  role_zh: 作者
   desc: >-
-    I built the Auto Drive agent: a perception-decision-control loop that navigates along roads to a map waypoint, roams autonomously when no goal is set, detects control conflicts, and yields on manual takeover, with HUD telemetry for its internal state. Validated across roughly 2,000 km of long-horizon in-game driving.
+    A digital-employee orchestration platform. One control agent decomposes a fuzzy goal and fans it out to multiple role-based worker agents, each running in its own Docker container with an isolated workspace and permission scope. A pluggable worker adapter admits any image-packaged agent (openclaw, hermes, and nanobot are supported today), and the platform is reachable via CLI, an OpenAI-compatible API, or IM channels such as Feishu, with an Admin console for sessions, transcripts, and runtime state. A governance loop closes the system: successful runs are distilled into reusable skills, case packages, and consolidated long-term memory, so the next run starts stronger.
   desc_zh: >-
-    我实现了基于规则的 Auto Drive 模块：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。
+    数字员工编排平台。一个 control agent 负责拆解模糊目标，并分发给多个角色化的 worker agent，每个 agent 运行在独立的 Docker 容器中，拥有隔离的工作区与权限边界。可插拔的 worker adapter 支持任何以镜像形式打包的 agent（目前已支持 openclaw、hermes、nanobot）；平台可通过 CLI、OpenAI 兼容 API 或飞书等 IM 渠道接入，并提供 Admin 控制台查看会话、执行轨迹与运行时状态。治理闭环让系统持续变强：成功的运行会被沉淀为可复用 skill、case 包与统一的长期记忆，供后续任务复用。

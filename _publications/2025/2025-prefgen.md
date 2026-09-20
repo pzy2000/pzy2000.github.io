@@ -5,6 +5,7 @@ selected:       true
 pub:            "IEEE/ACM Automated Software Engineering Conference"
 pub_last:       ' <span class="badge badge-pill badge-publication badge-info">ASE 2025</span> <span class="badge badge-pill badge-publication badge-success">CCF-A</span>'
 pub_date:       "2025"
+semantic_scholar_id: ARXIV:2506.03006
 abstract: >-
   A preference-driven generate-and-feedback loop that steers the model toward code satisfying two competing objectives at once: security and gas efficiency.
 abstract_zh: >-
