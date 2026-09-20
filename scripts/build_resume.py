@@ -3,7 +3,7 @@
 
 内容主要解析自 _pages/about-zh.md，简历专属字段（联系方式、导师、实习时间、
 科研成果矩阵等）来自 _data/resume_config.yml。开源项目的 star 数每次构建都从
-GitHub API 实时拉取，并据此降序排列。
+GitHub API 实时拉取并据此降序排列，谷歌学术引用数同样实时抓取。
 
     python3 scripts/build_resume.py            # PDF + 网页版 resume/index.html
     python3 scripts/build_resume.py --web-only # 只更新网页版
@@ -146,6 +146,7 @@ class Homepage:
     educations: list[Education] = field(default_factory=list)
     honors: list[str] = field(default_factory=list)
     stars_total: str = ""
+    citations: int = 0
 
 
 # --------------------------------------------------------------------------
@@ -365,16 +366,26 @@ def merge_extras(page: Homepage, cfg: dict, warn) -> None:
 
 
 GITHUB_REPO_RE = re.compile(r"github\.com/([^/\s]+)/([^/\s#?]+)")
+SCHOLAR_PROFILE = "https://scholar.google.com/citations?hl=en&user={sid}"
+SCHOLAR_CITED_RE = re.compile(r'class="gsc_rsb_std">(\d+)<')
+BROWSER_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
 
-STARS_HINT = """无法从 GitHub 取到 {repo} 的 star 数：{error}
+NET_HINT = """无法取到{what}：{error}
 
-star 数每次构建都实时拉取，没有本地缓存。网络不通时可以：
+star 数与引用数每次构建都实时拉取，没有本地缓存。网络不通时可以：
 
-    python3 scripts/build_resume.py --no-stars   # 不显示 star，沿用主页顺序
+    python3 scripts/build_resume.py --offline   # 不显示 star 与引用数，项目沿用主页顺序
 
-触发限流（60 次/小时）时设置 token 即可：
+GitHub 触发限流（未登录 60 次/小时）时设置 token 即可：
 
     GITHUB_TOKEN=ghp_xxx python3 scripts/build_resume.py"""
+
+
+def http_get(url: str, headers: dict[str, str] | None = None, timeout: int = 20) -> bytes:
+    request = urllib.request.Request(url, headers={"User-Agent": BROWSER_UA, **(headers or {})})
+    with urllib.request.urlopen(request, timeout=timeout) as resp:
+        return resp.read()
 
 
 def format_stars(count: int) -> str:
@@ -383,7 +394,7 @@ def format_stars(count: int) -> str:
 
 def fetch_stars(page: Homepage) -> None:
     """实时拉取各开源项目的 star 数，并按 star 降序排列。"""
-    headers = {"Accept": "application/vnd.github+json", "User-Agent": "build_resume"}
+    headers = {"Accept": "application/vnd.github+json"}
     token = os.environ.get("GITHUB_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
@@ -392,20 +403,51 @@ def fetch_stars(page: Homepage) -> None:
     for proj in page.projects:
         m = GITHUB_REPO_RE.search(proj.url)
         if not m:
-            raise SystemExit(STARS_HINT.format(repo=proj.name, error="链接里没有 GitHub 仓库地址"))
+            raise SystemExit(NET_HINT.format(what=f"{proj.name} 的 star 数",
+                                             error="链接里没有 GitHub 仓库地址"))
         repo = f"{m.group(1)}/{m.group(2).removesuffix('.git')}"
-        request = urllib.request.Request(f"https://api.github.com/repos/{repo}", headers=headers)
         try:
-            with urllib.request.urlopen(request, timeout=15) as resp:
-                count = int(json.load(resp)["stargazers_count"])
+            count = int(json.loads(http_get(f"https://api.github.com/repos/{repo}", headers,
+                                            timeout=15))["stargazers_count"])
         except (urllib.error.URLError, OSError, ValueError, KeyError) as exc:
-            raise SystemExit(STARS_HINT.format(repo=repo, error=exc))
+            raise SystemExit(NET_HINT.format(what=f"{repo} 的 star 数", error=exc))
         proj.star_count = count
         proj.stars = format_stars(count)
         total += count
 
     page.stars_total = format_stars(total)
     page.projects.sort(key=lambda p: -p.star_count)
+
+
+def fetch_citations(cfg: dict, warn) -> int:
+    """实时取谷歌学术总引用数。
+
+    先直接读个人主页，读不到再退回 GitHub Action 每天更新的 google-scholar-stats
+    分支——两者都是 Scholar 的数据，前者更新，后者在 Scholar 被墙或被拦时仍可用。
+    """
+    scholar = cfg.get("scholar") or {}
+    errors = []
+
+    if scholar.get("id"):
+        try:
+            page = http_get(SCHOLAR_PROFILE.format(sid=scholar["id"])).decode("utf-8", "ignore")
+            hits = SCHOLAR_CITED_RE.findall(page)
+            if hits:
+                return int(hits[0])
+            errors.append("个人主页：没解析到统计表格，可能被 Google 拦截")
+        except (urllib.error.URLError, OSError, ValueError) as exc:
+            errors.append(f"个人主页：{exc}")
+
+    if scholar.get("stats_json"):
+        try:
+            count = int(json.loads(http_get(scholar["stats_json"]))["citedby"])
+            reason = f"：{'；'.join(errors)}" if errors else ""
+            warn(f"直接抓 Scholar 失败，改用 CI 每日快照的引用数 {count}{reason}")
+            return count
+        except (urllib.error.URLError, OSError, ValueError, KeyError) as exc:
+            errors.append(f"CI 快照：{exc}")
+
+    raise SystemExit(NET_HINT.format(what="谷歌学术引用数", error="；".join(errors) or "未配置 scholar"))
 
 
 def count_tiers(pubs: list[Publication]) -> dict[str, int]:
@@ -499,8 +541,9 @@ def render_summary(page: Homepage, cfg: dict) -> str:
         "thcpl": counts.get("TH-CPL-A", 0),
         "jcrq1": counts.get("JCR-Q1", 0),
         "n_pub": sum(counts.values()),
-        # --no-stars 时留空，靠下面的「含 0 就跳过」规则把这条亮点一并去掉
+        # --offline 时留空，靠下面的「含 0 就跳过」规则把这两条亮点一并去掉
         "stars_total": page.stars_total or "0",
+        "citations": page.citations or 0,
     }
     bullets = []
     for raw in cfg.get("highlights") or []:
@@ -818,8 +861,8 @@ def main() -> int:
     ap.add_argument("--web-only", action="store_true", help="只更新站点上的网页版简历")
     ap.add_argument("--no-web", action="store_true", help="跳过站点上的网页版简历")
     ap.add_argument("--no-fit", action="store_true", help="关闭单页字号自适应")
-    ap.add_argument("--no-stars", action="store_true",
-                    help="不联网拉 star：项目沿用主页顺序且不显示 star 数")
+    ap.add_argument("--offline", action="store_true",
+                    help="不联网：项目沿用主页顺序，不显示 star 数与引用数")
     args = ap.parse_args()
 
     warnings: list[str] = []
@@ -830,8 +873,9 @@ def main() -> int:
     cfg = yaml.safe_load(RESUME_YML.read_text(encoding="utf-8")) or {}
     page = parse_homepage(cfg)
     merge_extras(page, cfg, warn)
-    if not args.no_stars:
+    if not args.offline:
         fetch_stars(page)
+        page.citations = fetch_citations(cfg, warn)
 
     out_pdf = Path(args.out) if args.out else ROOT / cfg.get("output", "resume.pdf")
     if not out_pdf.is_absolute():

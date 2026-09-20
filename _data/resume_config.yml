@@ -62,12 +62,18 @@ summary: >-
   也用 Agent **从零到一开发可运行的游戏**（[GOF2_remake](https://github.com/pzy2000/GOF2_remake) /
   [LoveEmulator](https://github.com/pzy2000/LoveEmulator)）。多篇一作论文发表于 ACL、EMNLP、FSE、ASE。
 
-# 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub} {stars_total}，由解析结果自动填数。
-# {stars_total} 是构建时实时拉取的各开源项目 star 之和。
+# 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub} {stars_total} {citations}，由解析结果自动填数。
+# {stars_total} 是构建时实时拉取的各开源项目 star 之和，{citations} 是谷歌学术总引用数。
 highlights:
   - "{n_pub} 篇一作 CCF-A / TH-CPL-A"
-  - "122 谷歌学术引用"
+  - "{citations} 谷歌学术引用"
   - "开源项目累计 {stars_total} stars"
+
+# 谷歌学术引用数：构建时先直接抓个人主页，抓不到再退回 GitHub Action 每天更新的
+# google-scholar-stats 分支快照（.github/workflows/google_scholar_crawler.yaml）。
+scholar:
+  id: "kfiyUgIAAAAJ"
+  stats_json: "https://cdn.jsdelivr.net/gh/pzy2000/pzy2000.github.io@google-scholar-stats/gs_data.json"
 
 # 教育经历补充（按学校名匹配主页 `# 📖 教育经历` 中的条目）
 education_extra:
