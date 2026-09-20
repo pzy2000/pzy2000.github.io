@@ -1,4 +1,7 @@
 ---
+# 注意：本文件已不再用于构建网站（_pages 已在 _config.yml 中排除，
+# 主页中文内容见 zh.html 与 _data/ 下的数据文件），
+# 目前仅作为 scripts/build_resume.py 生成简历的内容源，请继续维护本文件。
 permalink: /zh/
 title: "彭志远（Zhiyuan Peng）"
 seo_title: "彭志远（Zhiyuan Peng）| 大模型智能体与 Agentic Coding，上海交通大学"

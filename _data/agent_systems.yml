@@ -1,0 +1,50 @@
+# Agent 系统项目。repo 用于生成 GitHub stars badge 与链接；role: Author/Contributor。
+projects:
+- name: OpenHire
+  repo: pzy2000/OpenHire
+  role: Author
+  role_zh: 作者
+  desc: >-
+    A digital-employee orchestration platform. One control agent decomposes a fuzzy goal and fans it out to multiple role-based worker agents, each running in its own Docker container with an isolated workspace and permission scope. A pluggable worker adapter admits any image-packaged agent (openclaw, hermes, and nanobot are supported today), and the platform is reachable via CLI, an OpenAI-compatible API, or IM channels such as Feishu, with an Admin console for sessions, transcripts, and runtime state. A governance loop closes the system: successful runs are distilled into reusable skills, case packages, and consolidated long-term memory, so the next run starts stronger.
+  desc_zh: >-
+    数字员工编排平台。一个 control agent 负责拆解模糊目标，并分发给多个角色化的 worker agent，每个 agent 运行在独立的 Docker 容器中，拥有隔离的工作区与权限边界。可插拔的 worker adapter 支持任何以镜像形式打包的 agent（目前已支持 openclaw、hermes、nanobot）；平台可通过 CLI、OpenAI 兼容 API 或飞书等 IM 渠道接入，并提供 Admin 控制台查看会话、执行轨迹与运行时状态。治理闭环让系统持续变强：成功的运行会被沉淀为可复用 skill、case 包与统一的长期记忆，供后续任务复用。
+- name: SoulBanner
+  repo: pzy2000/SoulBanner
+  role: Author
+  role_zh: 作者
+  desc: >-
+    A multi-persona .skill monorepo that distills stable expression styles and judgment frameworks into callable, composable agent skill modules, shipped with a router entry skill over 6 categories and a unified authoring template so the community can extend it via PRs. The catalog is consumed directly by OpenHire's Skill Catalog, so the skills I publish are the skills my agents run.
+  desc_zh: >-
+    一个多人格 .skill monorepo（万魂幡.Skill），把稳定的表达风格与判断框架蒸馏为可调用、可组合的 agent skill 模块，提供覆盖 6 个分类的路由入口 skill 与统一编写模板，便于社区持续提 PR 扩充。该 skill 库已被 OpenHire 的 Skill Catalog 直接接入——我发布的 skill 就是我的 agent 实际调用的 skill。
+- name: RepoGenesis
+  repo: pzy2000/RepoGenesis
+  role: Author
+  role_zh: 作者
+  desc: >-
+    A benchmark that turns a README into a deployable multi-language web microservice repository, and then proves it by building, launching, and calling the service inside a Docker sandbox. Covers 11 frameworks and 18 application domains. Accepted by ACL 2026 Main (top 15% of accepted papers).
+  desc_zh: >-
+    端到端的基准：从一份 README 出发生成可部署的多语言 Web 微服务仓库，并在 Docker 沙箱中真实构建、启动并调用该服务以验证其可运行性，覆盖 11 个框架与 18 个应用领域。论文被 ACL 2026 Main 接收（录用论文前 15%）。
+- name: GOF2_remake
+  repo: pzy2000/GOF2_remake
+  role: Author
+  role_zh: 作者
+  desc: >-
+    A playable WebGL space combat/trading game built from scratch by agents over 136 commits of long-horizon iteration: six frontier systems plus the PTD Home base, nine flyable hulls, a 13-chapter story chain, and an authoritative economy backend over REST + SSE. Art and audio assets are generated, registered in manifest.json, and scheduled on demand, while Playwright desktop and mobile e2e suites turn "does it boot and stay playable" into an automatic regression on every iteration.
+  desc_zh: >-
+    由 Agent 从零到一自动开发的可运行 WebGL 太空战斗/交易游戏，经 136 次提交的多轮长程迭代成型：六大星系加 PTD 母港、九款可玩舰船、13 章主线任务链，以及带 REST + SSE 的权威经济服务端。美术与音频资产由生成式模型产出后统一登记到 manifest.json 按需调度，Playwright 的桌面与移动端 e2e 用例把「能否跑起来、能否玩下去」变成每次迭代的自动回归。
+- name: LoveEmulator
+  repo: pzy2000/LoveEmulator
+  role: Author
+  role_zh: 作者
+  desc: >-
+    An AI-driven life simulation game that splits procedural content generation into four controllable layers: the engine samples a situation skeleton, an LLM writes the narrative and player choices, a validation layer checks JSON structure, safety boundaries, and logical consistency, and the engine resolves outcomes deterministically from intent tags, relationship state, and an RNG seed. Generated content keeps LLM variety while staying reproducible and numerically bounded.
+  desc_zh: >-
+    AI 驱动的模拟经营游戏，把程序化内容生成拆成可控的四层：引擎采样情境骨架，LLM 生成叙事与玩家选项，校验层检查 JSON 结构、安全边界与逻辑一致性，最后由引擎依据选项的 intent 标签、关系状态与 RNG 种子确定性结算。生成内容因此既有 LLM 的多样性，又保持可复现与数值可控。
+- name: YimMenu
+  repo: YimMenu/YimMenu
+  role: Contributor
+  role_zh: 贡献者
+  desc: >-
+    I built the Auto Drive agent: a perception-decision-control loop that navigates along roads to a map waypoint, roams autonomously when no goal is set, detects control conflicts, and yields on manual takeover, with HUD telemetry for its internal state. Validated across roughly 2,000 km of long-horizon in-game driving.
+  desc_zh: >-
+    我实现了基于规则的 Auto Drive 模块：一个感知-决策-控制闭环，可沿道路导航至地图路径点，无目标时自主漫游，并支持控制冲突检测与人工接管让行，配合 HUD 展示其内部状态。已通过约 2,000 公里的长程游戏内驾驶验证。

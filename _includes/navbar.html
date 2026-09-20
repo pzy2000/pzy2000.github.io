@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-light fixed-top mb-5 shadow-sm">
+    <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
+        <a class="navbar-brand" href="{{ '/' | relative_url }}"><strong>{% if page.lang == 'zh' %}{{ site.data.profile_zh.navbar_name }}{% else %}{{ site.data.profile.navbar_name }}{% endif %}</strong></a>
+        <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-map"></i> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% for item in site.data.navigation.pages %}
+                <li class="nav-item {% if item.name == page.navbar_title or include.active_page == item.name %}active{% endif %}">
+                    <a class="nav-link" href="{{ item.url | relative_url }}">{% if page.lang == 'zh' and item.name_zh %}{{ item.name_zh }}{% else %}{{ item.name }}{% endif %}</a>
+                </li>
+                {% endfor %}
+                <li class="nav-item">
+                    {% if page.lang == 'zh' %}
+                    <a class="nav-link" href="{{ page.alt_url | default: '/' | relative_url }}"><i class="fas fa-language"></i> English</a>
+                    {% else %}
+                    <a class="nav-link" href="{{ page.alt_url | default: '/zh/' | relative_url }}"><i class="fas fa-language"></i> 中文</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

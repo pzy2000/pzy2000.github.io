@@ -1,0 +1,15 @@
+<div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+    <h6 class="border-bottom border-gray p-3 mb-0">
+        <i class="fas fa-robot"></i> {% if page.lang == 'zh' %}智能体系统{% else %}Agent Systems{% endif %}
+    </h6>
+    {% for item in site.data.agent_systems.projects %}
+    <div class="px-3 py-2 {% unless forloop.last %}border-bottom border-gray{% endunless %}">
+        <div class="d-flex flex-wrap align-items-center">
+            <a class="text-body font-weight-bold mr-2" href="https://github.com/{{ item.repo }}" target="_blank">{{ item.name }}</a>
+            <span class="badge badge-pill badge-light border mr-1">{% if page.lang == 'zh' %}{{ item.role_zh }}{% else %}{{ item.role }}{% endif %}</span>
+            <a href="https://github.com/{{ item.repo }}" target="_blank"><img class="inline-badge" src="https://img.shields.io/github/stars/{{ item.repo }}?style=flat&logo=github&label=stars&color=orange" alt="GitHub stars"></a>
+        </div>
+        <div class="small text-muted mt-1">{% if page.lang == 'zh' %}{{ item.desc_zh }}{% else %}{{ item.desc }}{% endif %}</div>
+    </div>
+    {% endfor %}
+</div>

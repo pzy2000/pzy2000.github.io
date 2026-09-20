@@ -1,0 +1,13 @@
+<div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+    <h6 class="border-bottom border-gray p-3 mb-0">
+        <i class="fas fa-tools"></i> {% if page.lang == 'zh' %}技术栈{% else %}Agent Stack{% endif %}
+    </h6>
+    <ul class="list small pl-3 pr-3 py-2 mb-0">
+        {% for item in site.data.agent_stack.items %}
+        <li class="py-1">
+            <strong>{% if page.lang == 'zh' %}{{ item.name_zh }}{% else %}{{ item.name }}{% endif %}</strong>:
+            <span class="text-muted">{% if page.lang == 'zh' %}{{ item.desc_zh }}{% else %}{{ item.desc }}{% endif %}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,10 +1,3 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
 # Site Settings
 url                      : "https://pzy2000.github.io"
 baseurl                  : ""
@@ -15,73 +8,55 @@ description              : "Zhiyuan Peng (彭志远), Ph.D. student at the Schoo
 description_zh           : "彭志远（Zhiyuan Peng），上海交通大学计算机学院博士研究生，研究方向为大模型智能体（Agent）、Agentic Coding 与多智能体系统，在 ACL、EMNLP、FSE、ASE 等国际顶级会议发表论文。"
 keywords                 : "Zhiyuan Peng, Lucius Peng, Shanghai Jiao Tong University, SJTU, LLM agent, agentic coding, multi-agent orchestration, GUI agent, tool use, agent memory, code generation"
 keywords_zh              : "彭志远, 上海交通大学, 上海交通大学计算机学院, 上海交大, SJTU, 博士研究生, 大模型智能体, Agent, Agentic Coding, 多智能体系统, 智能体编排, GUI Agent, 工具调用, 智能体记忆, 代码生成, 个人主页"
-# short blurb shown in the sidebar (kept separate from the SEO description)
-tagline                  : "Ph.D. student at Shanghai Jiao Tong University, building LLM agents."
-tagline_zh               : "博士研究生，研究方向为大模型智能体、Agentic Coding 与多智能体系统。"
 repository               : "pzy2000/pzy2000.github.io"
-google_scholar_stats_use_cdn : true
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
 
-# SEO Related
-# Google ownership is verified with the file /google493962243089a10e.html, so no meta tag is needed here.
-google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # Bing is imported from Search Console, so no token is needed
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
+# Build settings
+markdown: kramdown
+highlighter: rouge
 
-# Site Author
-author:
-  name             : "Zhiyuan Peng"
-  name_zh          : "彭志远"
-  avatar           : "images/android-chrome-192x192.png"
-  bio              : "Shanghai Jiao Tong University"
-  bio_zh           : "上海交通大学 计算机学院"
-  location         : "Shanghai, China"
-  location_zh      : "中国 上海"
-  employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=kfiyUgIAAAAJ"
-  email            : "pzy2000@sjtu.edu.cn"
-  phone            : "+86 189 1571 8136"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
-  github           : # e.g., "github username"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           :
-  linkedin         : # e.g., "linkedin username"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : "https://orcid.org/0009-0003-6560-733X"
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
 
+timezone: Asia/Shanghai
+
+collections:
+  publications:
+    output: false
+  news:
+    output: false
+
+# Plugins (GitHub Pages whitelisted only)
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-paginate
+  - jekyll-gist
+  - jemoji
+
+# Defaults
+defaults:
+  # keep the Search Console ownership file out of the sitemap
+  - scope:
+      path: "google493962243089a10e.html"
+    values:
+      sitemap: false
 
 # Reading Files
-include:
-  - .htaccess
-  - _pages
-  - files
 exclude:
   - docs
   - google_scholar_crawler
+  - scripts
+  - _pages
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
@@ -92,13 +67,11 @@ exclude:
   - CHANGELOG
   - Capfile
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - LICENSE
-  - README
+  - README.md
   - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
   - config
   - gulpfile.js
   - log
@@ -106,78 +79,9 @@ exclude:
   - package.json
   - tmp
   - vendor
+  - run_server.sh
 keep_files:
   - .git
   - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-
-# Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-# Defaults
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
-      author_profile: true
-  # keep the Search Console ownership file out of the sitemap
-  - scope:
-      path: "google493962243089a10e.html"
-    values:
-      sitemap: false
-
-
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-
-# Outputting
-permalink: /:categories/:title/
-timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
-# Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-redirect-from
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-
-
-# HTML Compression
-# - http://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development

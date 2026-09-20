@@ -1,0 +1,22 @@
+# Agent 技术栈
+items:
+- name: Orchestration
+  name_zh: 编排
+  desc: goal decomposition by a control agent, role-based routing, parallel multi-agent collaboration and cross-checking
+  desc_zh: control agent 目标拆解、角色化路由、多智能体并行协作与交叉校验
+- name: Execution
+  name_zh: 执行
+  desc: containerized worker lifecycle, per-agent isolated workspaces, permission scoping, sandboxed build-run-verify loops
+  desc_zh: 容器化 worker 生命周期管理、单 agent 隔离工作区、权限边界、沙箱内构建-运行-验证闭环
+- name: Tools & Interfaces
+  name_zh: 工具与接口
+  desc: tool use / function calling, OpenAI-compatible API, CLI and IM (Feishu) channels, GUI interaction
+  desc_zh: 工具调用（tool use / function calling）、OpenAI 兼容 API、CLI 与 IM（飞书）渠道、GUI 交互
+- name: Memory & Skills
+  name_zh: 记忆与技能
+  desc: skill extraction and reuse, reusable case packages, long-term memory consolidation with diffs and safe rollback
+  desc_zh: skill 抽取与复用、可复用 case 包、长期记忆合并及其 diff 与安全回滚
+- name: Observability
+  name_zh: 可观测性
+  desc: session transcripts, trace review, workspace and runtime inspection
+  desc_zh: 会话轨迹留存、执行链路审查、工作区与运行时检查
