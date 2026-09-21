@@ -90,6 +90,8 @@
     </script>
     <script src="{{ '/assets/js/common.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
+    {% if site.data.display.publications.show_citation_count %}
     <script src="{{ '/assets/js/semantic_scholar_citation_count.js' | relative_url }}"></script>
+    {% endif %}
 </body>
 </html>

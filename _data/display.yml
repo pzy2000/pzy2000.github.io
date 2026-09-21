@@ -7,6 +7,9 @@ homepage:
   show_services: true
   num_news: 10
 
+publications:
+  show_citation_count: false
+
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it
 # if you keep the link to the template so that more people can benefit from it. Thanks!
 footer_text: >-
