@@ -6,37 +6,34 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
-      - name: Debug endpoint
+      - name: Self-test ScraperAPI variants
         run: |
-          curl -sS -m 30 -H "Origin: https://pzy2000.github.io" \
-            "https://scholar-proxy.pzy2000.workers.dev/?debug=1" | python3 -m json.tool
+          set -uo pipefail
+          for i in 1 2 3 4; do
+            echo "=== selftest $i ==="
+            curl -sS -m 180 "https://scholar-proxy.pzy2000.workers.dev/?selftest=$i&cb=$RANDOM" \
+              | python3 -m json.tool || echo "(request failed)"
+            echo
+          done
 
-      - name: Force fresh scrape and show errors
+      - name: Force fresh scrape
         run: |
-          set -euo pipefail
-          code=$(curl -sS -m 90 -o /tmp/w3.json -w "%{http_code}" \
+          set -uo pipefail
+          curl -sS -m 180 -o /tmp/w.json \
             -H "Origin: https://pzy2000.github.io" \
-            "https://scholar-proxy.pzy2000.workers.dev/?fresh=1")
-          echo "HTTP $code"
+            "https://scholar-proxy.pzy2000.workers.dev/?fresh=1"
           python3 - <<'PY'
           import json
-          d=json.load(open("/tmp/w3.json"))
-          print(json.dumps({k:d.get(k) for k in
-            ["citedby","hindex","cached","stale","throttled","error","error_message","updated","source"]},
-            ensure_ascii=False, indent=2))
+          d=json.load(open("/tmp/w.json"))
           pubs=d.get("publications") or []
+          print(json.dumps({k:d.get(k) for k in
+            ["citedby","hindex","cached","stale","error","error_message","updated","source"]},
+            ensure_ascii=False, indent=2))
           print("pubs", len(pubs))
           if pubs and pubs[0].get("authors"):
-              print("live scrape OK — authors present:", pubs[0]["authors"][:80])
-          elif d.get("error") or d.get("error_message"):
-              print("SCRAPE FAILED:", d.get("error") or d.get("error_message"))
+              print("LIVE OK:", pubs[0]["authors"][:80])
           else:
-              print("still on snapshot (no authors field)")
+              print("NOT LIVE")
           PY
-
-      - name: Debug after fresh
-        run: |
-          curl -sS -m 30 -H "Origin: https://pzy2000.github.io" \
-            "https://scholar-proxy.pzy2000.workers.dev/?debug=1" | python3 -m json.tool
