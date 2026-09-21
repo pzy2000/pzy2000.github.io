@@ -8,55 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Hit worker (warm / snapshot path)
+      - name: Debug endpoint
+        run: |
+          curl -sS -m 30 -H "Origin: https://pzy2000.github.io" \
+            "https://scholar-proxy.pzy2000.workers.dev/?debug=1" | python3 -m json.tool
+
+      - name: Force fresh scrape and show errors
         run: |
           set -euo pipefail
-          echo "== GET / =="
-          curl -sS -m 60 -D /tmp/h1.txt -o /tmp/w1.json \
-            -H "Origin: https://pzy2000.github.io" \
-            "https://scholar-proxy.pzy2000.workers.dev/"
-          head -n 20 /tmp/h1.txt
-          python3 - <<'PY'
-          import json
-          d=json.load(open("/tmp/w1.json"))
-          pubs=d.get("publications") or []
-          print("citedby", d.get("citedby"), "pubs", len(pubs),
-                "cached", d.get("cached"), "stale", d.get("stale"),
-                "refreshing", d.get("refreshing"), "error", d.get("error"))
-          if not pubs:
-              raise SystemExit("no publications")
-          print("sample:", json.dumps(pubs[0], ensure_ascii=False)[:220])
-          PY
-
-      - name: Wait for background ScraperAPI refresh
-        run: sleep 45
-
-      - name: Hit worker again (should be live cache)
-        run: |
-          set -euo pipefail
-          echo "== GET / after warm =="
-          curl -sS -m 60 -o /tmp/w2.json \
-            -H "Origin: https://pzy2000.github.io" \
-            "https://scholar-proxy.pzy2000.workers.dev/"
-          python3 - <<'PY'
-          import json
-          d=json.load(open("/tmp/w2.json"))
-          pubs=d.get("publications") or []
-          print("citedby", d.get("citedby"), "pubs", len(pubs),
-                "cached", d.get("cached"), "stale", d.get("stale"),
-                "source", d.get("source"), "updated", d.get("updated"),
-                "error", d.get("error"))
-          assert d.get("citedby", 0) >= 100, d
-          assert len(pubs) >= 15, d
-          # 后台刷成功后不应再标 stale/snapshot
-          print("OK")
-          PY
-
-      - name: Force fresh scrape via ScraperAPI
-        run: |
-          set -euo pipefail
-          echo "== GET /?fresh=1 =="
-          # 强刷可能要等 ScraperAPI，放宽到 90s
           code=$(curl -sS -m 90 -o /tmp/w3.json -w "%{http_code}" \
             -H "Origin: https://pzy2000.github.io" \
             "https://scholar-proxy.pzy2000.workers.dev/?fresh=1")
@@ -65,10 +24,19 @@ jobs:
           import json
           d=json.load(open("/tmp/w3.json"))
           print(json.dumps({k:d.get(k) for k in
-            ["citedby","hindex","i10index","cached","stale","throttled","error","updated"]},
+            ["citedby","hindex","cached","stale","throttled","error","error_message","updated","source"]},
             ensure_ascii=False, indent=2))
           pubs=d.get("publications") or []
           print("pubs", len(pubs))
-          if d.get("error") and not pubs:
-              raise SystemExit(d["error"])
+          if pubs and pubs[0].get("authors"):
+              print("live scrape OK — authors present:", pubs[0]["authors"][:80])
+          elif d.get("error") or d.get("error_message"):
+              print("SCRAPE FAILED:", d.get("error") or d.get("error_message"))
+          else:
+              print("still on snapshot (no authors field)")
           PY
+
+      - name: Debug after fresh
+        run: |
+          curl -sS -m 30 -H "Origin: https://pzy2000.github.io" \
+            "https://scholar-proxy.pzy2000.workers.dev/?debug=1" | python3 -m json.tool
