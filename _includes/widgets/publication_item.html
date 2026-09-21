@@ -1,5 +1,10 @@
 {% assign item = include.item %}
 {% if page.lang == 'zh' and item.abstract_zh %}{% assign abstract = item.abstract_zh %}{% else %}{% assign abstract = item.abstract %}{% endif %}
+{% if site.data.display.publications.citation_source == 'google_scholar' %}
+{% capture citation_attrs %}data-scholar-pub-id="{{ item.scholar_id }}" data-scholar-title="{{ item.title | escape }}"{% endcapture %}
+{% else %}
+{% capture citation_attrs %}data-semantic-scholar-id="{{ item.semantic_scholar_id }}"{% endcapture %}
+{% endif %}
 <div class="d-none d-md-block">
     <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
         <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
@@ -12,7 +17,7 @@
         <div class="col-md-9 col-xl-10 p-3 pl-md-0">
             <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
             <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if site.data.display.publications.show_citation_count %} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span>{% endif %}</p>
+            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if site.data.display.publications.show_citation_count %} <span {{ citation_attrs }}></span>{% endif %}</p>
             <p class="mt-0 mb-0 small text-muted">{{ abstract }}</p>
             
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
@@ -36,7 +41,7 @@
             <div>
                 <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
                 <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if site.data.display.publications.show_citation_count %} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span>{% endif %}</p>
+                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if site.data.display.publications.show_citation_count %} <span {{ citation_attrs }}></span>{% endif %}</p>
                 <p class="mt-0 mb-0 small text-muted">{{ abstract }}</p>
                 
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">

@@ -22,6 +22,9 @@ jobs:
         env:
           # Secret 缺失时退回公开的 Scholar ID，避免整个任务因配置丢失而失败
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID || 'kfiyUgIAAAAJ' }}
+          # Google 对 Actions 的机房 IP 一律 403，必须经 cloudflare-worker/ 的代理取数。
+          # 在 Settings → Variables 里配置 SCHOLAR_PROXY_URL 为 Worker 地址。
+          SCHOLAR_PROXY_URL: ${{ vars.SCHOLAR_PROXY_URL }}
         run: python3 main.py
       - name: Push to google-scholar-stats branch
         working-directory: ./google_scholar_crawler/results

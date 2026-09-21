@@ -6,6 +6,7 @@ pub:            "Annual Meeting of the Association for Computational Linguistics
 pub_last:       ' <span class="badge badge-pill badge-publication badge-info">ACL 2026 Main</span> <span class="badge badge-pill badge-publication badge-success">CCF-A</span>'
 pub_date:       "2026"
 semantic_scholar_id: ARXIV:2601.13943
+scholar_id:     "kfiyUgIAAAAJ:8k81kl-MbHgC"
 abstract: >-
   An agent reads a README and delivers a runnable multi-service repository, verified by building, launching, and calling the service inside an isolated sandbox.
 abstract_zh: >-

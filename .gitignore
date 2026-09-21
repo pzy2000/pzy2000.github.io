@@ -4,3 +4,10 @@ push.sh
 pzy2000-zh.pdf
 殷鑫.pdf
 彭志远-简历.pdf
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

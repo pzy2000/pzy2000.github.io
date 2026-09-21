@@ -91,7 +91,25 @@
     <script src="{{ '/assets/js/common.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     {% if site.data.display.publications.show_citation_count %}
+    {% if site.data.display.publications.citation_source == 'google_scholar' %}
+    {%- assign gscholar = site.data.profile.gscholar -%}
+    {%- if gscholar contains 'scholar.google' -%}
+    {%- assign gscholar_profile_url = gscholar -%}
+    {%- else -%}
+    {%- assign gscholar_profile_url = 'https://scholar.google.com/citations?user=' | append: gscholar -%}
+    {%- endif -%}
+    <script>
+        window.scholarCitations = {
+            workerUrl: {{ site.data.display.publications.scholar_worker_url | default: '' | jsonify }},
+            fallbackUrl: {{ site.data.display.publications.scholar_fallback_url | default: '' | jsonify }},
+            showAll: {{ site.data.display.publications.show_all_from_scholar | default: false }},
+            profileUrl: {{ gscholar_profile_url | jsonify }}
+        };
+    </script>
+    <script src="{{ '/assets/js/google_scholar_citations.js' | relative_url }}"></script>
+    {% else %}
     <script src="{{ '/assets/js/semantic_scholar_citation_count.js' | relative_url }}"></script>
+    {% endif %}
     {% endif %}
 </body>
 </html>

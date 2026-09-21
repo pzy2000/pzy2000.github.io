@@ -1,0 +1,19 @@
+name = "scholar-proxy"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+[vars]
+GOOGLE_SCHOLAR_ID = "kfiyUgIAAAAJ"
+ALLOWED_ORIGINS = "https://pzy2000.github.io,http://localhost:4000,http://127.0.0.1:4000"
+
+# workers.dev 子域上 Cache API 不生效，KV 才能让缓存跨请求存活，否则每次访问都会回源 Google。
+# 命名空间由 npx wrangler kv namespace create SCHOLAR_CACHE 创建
+[[kv_namespaces]]
+binding = "SCHOLAR_CACHE"
+id = "cfa0475e3e2d4bd78186762e8afe1116"
+
+# 定时预热，让 ScraperAPI 的慢请求发生在后台而不是用户首屏
+[triggers]
+crons = ["0,30 * * * *"]
+

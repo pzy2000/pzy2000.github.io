@@ -6,6 +6,7 @@ pub:            "ACM Joint European Software Engineering Conference and Symposiu
 pub_last:       ' <span class="badge badge-pill badge-publication badge-info">FSE 2026</span> <span class="badge badge-pill badge-publication badge-success">CCF-A</span>'
 pub_date:       "2026"
 semantic_scholar_id: ARXIV:2604.19742
+scholar_id:     "kfiyUgIAAAAJ:4TOpqqG69KYC"
 abstract: >-
   A GUI agent plays the generated game the way a user would, so playability is judged by interacting with the live program instead of by inspecting static code.
 abstract_zh: >-

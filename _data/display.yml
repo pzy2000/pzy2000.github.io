@@ -8,7 +8,15 @@ homepage:
   num_news: 10
 
 publications:
-  show_citation_count: false
+  show_citation_count: true
+  # google_scholar 走自建的 Cloudflare Worker 代理；semantic_scholar 是模板自带的旧数据源
+  citation_source: google_scholar
+  # Cloudflare Worker；国内 DNS 污染 workers.dev 时会自动落到下面的 fallback
+  scholar_worker_url: "https://scholar-proxy.pzy2000.workers.dev/"
+  # Worker 不可达时的兜底：GitHub Action 每天推到 google-scholar-stats 分支的快照
+  scholar_fallback_url: "https://raw.githubusercontent.com/pzy2000/pzy2000.github.io/google-scholar-stats/gs_data.json"
+  # 把 Scholar 上有、但站内没有独立条目的论文自动补进 Publications 页
+  show_all_from_scholar: true
 
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it
 # if you keep the link to the template so that more people can benefit from it. Thanks!

@@ -54,6 +54,7 @@ defaults:
 # Reading Files
 exclude:
   - docs
+  - cloudflare-worker
   - google_scholar_crawler
   - scripts
   - _pages
