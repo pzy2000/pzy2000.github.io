@@ -4,8 +4,8 @@
 # 目前仅作为 scripts/build_resume.py 生成简历的内容源，请继续维护本文件。
 permalink: /zh/
 title: "彭志远（Zhiyuan Peng）"
-seo_title: "彭志远（Zhiyuan Peng）| 大模型智能体与 Agentic Coding，上海交通大学"
-description: "彭志远（Zhiyuan Peng），上海交通大学计算机学院博士研究生，研究方向为大模型智能体（Agent）、Agentic Coding 与多智能体系统，在 ACL、EMNLP、FSE、ASE 等国际顶级会议发表论文。"
+seo_title: "彭志远（Zhiyuan Peng）| Agentic Coding，上海交通大学"
+description: "彭志远（Zhiyuan Peng），上海交通大学计算机学院博士研究生，研究方向为 Agentic Coding，在 ACL、EMNLP、FSE、ASE 等国际顶级会议发表论文。"
 excerpt: ""
 author_profile: true
 lang: zh-CN
@@ -20,9 +20,9 @@ lang: zh-CN
 # 彭志远（Zhiyuan Peng）
 {: .site-headline}
 
-<div class="site-tagline">上海交通大学 计算机学院 · 博士研究生 · 大模型智能体与 Agentic Coding</div>
+<div class="site-tagline">上海交通大学 计算机学院 · 博士研究生 · Agentic Coding</div>
 
-**彭志远（Lucius Peng）** 是[上海交通大学](https://www.sjtu.edu.cn/)计算机学院二年级博士研究生。我曾有幸在腾讯光子工作室群（青云计划）和微软亚洲研究院（MSRA）实习。我的研究兴趣包括*大模型智能体（Agent）、Agentic Coding、多智能体系统*。我的工作围绕能在真实执行环境中规划、调用工具并采取行动的 Agent 展开，从单个交付可运行仓库的 Coding Agent，到可治理的角色化 Agent 团队。我已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并开发了一些有代表性的工作：
+**彭志远（Lucius Peng）** 是[上海交通大学](https://www.sjtu.edu.cn/)计算机学院二年级博士研究生。我曾有幸在腾讯光子工作室群（青云计划）和微软亚洲研究院（MSRA）实习。我的研究兴趣是 *Agentic Coding*。我的工作围绕能在真实执行环境中规划、调用工具并采取行动的 Agent 展开，从单个交付可运行仓库的 Coding Agent，到可治理的角色化 Agent 团队。我已在 **ACL**、**EMNLP**、**FSE**、**ASE** 等国际顶级会议发表多篇论文，并开发了一些有代表性的工作：
 - [OpenHire](https://github.com/pzy2000/OpenHire)：多智能体编排平台
 - [PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)：面向可玩游戏代码的 GUI Agent
 - [RepoGenesis](https://arxiv.org/abs/2601.13943)：从零到一构建代码仓库

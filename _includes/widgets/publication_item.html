@@ -9,7 +9,8 @@
 {%- capture cite_authors_joined -%}{%- for author in item.authors -%}{{ author | replace: '*', '' | replace: '#', '' | strip }}{%- unless forloop.last -%}|{%- endunless -%}{%- endfor -%}{%- endcapture -%}
 {%- assign cite_authors = cite_authors_joined | split: '|' -%}
 {%- if item.pub_date -%}{%- assign cite_year = item.pub_date -%}{%- else -%}{%- assign cite_year = item.date | date: '%Y' -%}{%- endif -%}
-{%- if cite.month -%}{%- assign cite_month = cite.month -%}{%- else -%}{%- assign cite_month = item.date | date: '%m' -%}{%- endif -%}
+{%- comment -%}date 是站内排序用的录用时间，不等于会议召开时间，所以 month 只认 citation.month{%- endcomment -%}
+{%- assign cite_month = cite.month -%}
 {%- assign cite_title_word = item.title | split: ' ' | first | downcase | replace: ':', '' | replace: ',', '' | replace: '.', '' | replace: '-', '' | replace: "'", '' -%}
 {%- assign cite_family_name = cite_authors | first | split: ' ' | last | downcase -%}
 {%- capture cite_default_key -%}{{ cite_family_name }}{{ cite_year }}{{ cite_title_word }}{%- endcapture -%}

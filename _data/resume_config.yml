@@ -23,7 +23,7 @@ output: "彭志远-简历.pdf"
 web:
   output: "resume/index.html"
   title: "彭志远 简历｜上海交通大学计算机学院博士研究生"
-  description: "彭志远（Zhiyuan Peng）的简历：上海交通大学计算机学院博士研究生，研究方向为大模型智能体、Agentic Coding 与多智能体系统。"
+  description: "彭志远（Zhiyuan Peng）的简历：上海交通大学计算机学院博士研究生，研究方向为 Agentic Coding。"
   # 网页版不需要压进一页，字号可以比 PDF 大一点
   font_pt: 10.4
   # 证件照默认不发布到网站（_data/portrait.jpg 只参与 PDF 生成），改成 true 即可显示
@@ -55,7 +55,7 @@ section_titles:
 # 简要介绍：主页首段偏叙事，简历需要更紧凑的版本。留空则回退到主页首段。
 summary: >-
   我是上海交通大学计算机科学学院博士 3 年级学生，曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）实习，
-  研究兴趣是 **LLM 智能体**、**Agentic Coding** 与**多智能体系统**：让智能体在真实执行环境中规划、调用工具并采取行动，
+  研究兴趣是 **Agentic Coding**：让智能体在真实执行环境中规划、调用工具并采取行动，
   从交付可运行仓库的 Coding Agent（[RepoGenesis](https://arxiv.org/abs/2601.13943)）到角色化智能体集群
   （[OpenHire](https://github.com/pzy2000/OpenHire)）。在游戏方向上，我既做**可玩性的自动判定**
   （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)），

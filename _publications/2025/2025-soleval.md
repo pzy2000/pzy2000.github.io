@@ -28,6 +28,8 @@ citation:
   key:        peng2025soleval
   booktitle:  "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing"
   publisher:  "Association for Computational Linguistics"
+  address:    "Suzhou, China"
+  month:      nov
   pages:      ""
   doi:        ""
 ---

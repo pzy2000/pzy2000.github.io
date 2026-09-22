@@ -29,8 +29,10 @@ links:
 citation:
   type:       inproceedings
   key:        peng2026repogenesis
-  booktitle:  "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics"
+  booktitle:  "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)"
   publisher:  "Association for Computational Linguistics"
+  address:    "San Diego, California, USA"
+  month:      jul
   pages:      ""
   doi:        ""
 ---

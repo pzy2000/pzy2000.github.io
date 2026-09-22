@@ -27,6 +27,8 @@ citation:
   key:        peng2025prefgen
   booktitle:  "Proceedings of the 40th IEEE/ACM International Conference on Automated Software Engineering"
   publisher:  "IEEE"
+  address:    "Seoul, South Korea"
+  month:      nov
   pages:      ""
   doi:        ""
 ---

@@ -27,6 +27,8 @@ citation:
   key:        peng2026playcoder
   booktitle:  "Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering"
   publisher:  "Association for Computing Machinery"
+  address:    "Montreal, Canada"
+  month:      jul
   pages:      ""
   doi:        ""
 ---

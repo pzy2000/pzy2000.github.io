@@ -144,13 +144,16 @@
             const cleaned = clean(value);
             if (cleaned) fields.push(`  ${key}={${cleaned}}`);
         };
-        push('title', data.title);
+        // 标题外再套一层花括号，避免 BibTeX 样式把 LLM、GUI 这类缩写转成小写
+        const title = clean(data.title);
+        if (title) fields.push(`  title={{${title}}}`);
         push('author', bibtexAuthors(names));
         push(type === 'article' ? 'journal' : 'booktitle', data.booktitle);
         push('pages', pagesBibtex(data.pages));
         push('year', data.year);
+        // month 用 BibTeX 内置宏（不加花括号），样式表才能按需要渲染成 July / Jul.
         const monthIndex = parseMonth(data.month);
-        if (monthIndex >= 0) fields.push(`  month={${MONTH_ABBR[monthIndex]}}`);
+        if (monthIndex >= 0) fields.push(`  month=${MONTH_ABBR[monthIndex]}`);
         push('publisher', data.publisher);
         push('address', data.address);
         push('doi', data.doi);
