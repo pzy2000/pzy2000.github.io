@@ -26,4 +26,11 @@ authors:
 links:
   Paper: https://arxiv.org/abs/2601.13943
   Code: https://github.com/pzy2000/RepoGenesis
+citation:
+  type:       inproceedings
+  key:        peng2026repogenesis
+  booktitle:  "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics"
+  publisher:  "Association for Computational Linguistics"
+  pages:      ""
+  doi:        ""
 ---

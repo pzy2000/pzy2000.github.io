@@ -22,4 +22,11 @@ authors:
 links:
   Paper: https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable
   Code: https://github.com/Tencent/PlayCoder
+citation:
+  type:       inproceedings
+  key:        peng2026playcoder
+  booktitle:  "Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering"
+  publisher:  "Association for Computing Machinery"
+  pages:      ""
+  doi:        ""
 ---

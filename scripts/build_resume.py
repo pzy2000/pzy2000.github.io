@@ -580,8 +580,11 @@ def render_experience(page: Homepage, cfg: dict) -> str:
 
 
 def render_projects(page: Homepage, cfg: dict) -> str:
+    include = cfg.get("agents_include")
     rows = []
     for proj in page.projects:
+        if include and not any(str(k).lower() in proj.name.lower() for k in include):
+            continue
         role = f'<span class="role">{html.escape(proj.role)}</span>' if proj.role else ""
         star = f'<span class="stars">{html.escape(proj.stars)}\u2605</span>' if proj.stars else ""
         link = ""
@@ -676,6 +679,21 @@ def render_research(page: Homepage, cfg: dict) -> str:
     return matrix + pubs
 
 
+def render_stack_refs(refs: str, page: Homepage, cfg: dict) -> str:
+    """技术栈括号里的项目名挂上 GitHub 链接：先查 stack_ref_links，再回退到开源项目的仓库地址。"""
+    extra = cfg.get("stack_ref_links") or {}
+    out = []
+    for token in re.split(r"([、，,/])", refs):
+        name = token.strip()
+        proj = find_project(name, page) if name else None
+        url = extra.get(name) or (proj.url if proj else "")
+        if url:
+            out.append(f'<a class="link" href="{html.escape(url, quote=True)}">{html.escape(name)}</a>')
+        else:
+            out.append(html.escape(token))
+    return "".join(out)
+
+
 def render_stack(page: Homepage, cfg: dict) -> str:
     override = cfg.get("stack_override") or []
     if override:
@@ -683,7 +701,10 @@ def render_stack(page: Homepage, cfg: dict) -> str:
         for item in override:
             label, value = item[0], item[1]
             refs = item[2] if len(item) > 2 else ""
-            ref_html = f'<span class="stack-ref">（{html.escape(refs)}）</span>' if refs else ""
+            ref_html = (
+                f'<span class="stack-ref">（{render_stack_refs(refs, page, cfg)}）</span>'
+                if refs else ""
+            )
             rows.append(f'<li><b>{html.escape(label)}</b>{ref_html}：{md_inline(value)}</li>')
     else:
         rows = [

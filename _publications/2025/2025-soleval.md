@@ -23,4 +23,11 @@ authors:
 links:
   Paper: https://arxiv.org/abs/2502.18793
   Code: https://github.com/pzy2000/SolEval
+citation:
+  type:       inproceedings
+  key:        peng2025soleval
+  booktitle:  "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing"
+  publisher:  "Association for Computational Linguistics"
+  pages:      ""
+  doi:        ""
 ---

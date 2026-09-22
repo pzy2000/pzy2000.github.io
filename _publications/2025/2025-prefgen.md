@@ -22,4 +22,11 @@ authors:
 links:
   Paper: https://arxiv.org/abs/2506.03006
   Code: https://github.com/pzy2000/PrefGen
+citation:
+  type:       inproceedings
+  key:        peng2025prefgen
+  booktitle:  "Proceedings of the 40th IEEE/ACM International Conference on Automated Software Engineering"
+  publisher:  "IEEE"
+  pages:      ""
+  doi:        ""
 ---

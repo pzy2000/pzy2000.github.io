@@ -106,6 +106,12 @@ experience_extra:
 # 开源项目按 star 降序排列，star 数由 scripts/build_resume.py 在构建时实时拉取，
 # 所以这里不再维护展示顺序和 star 数值。
 
+# 简历「开源项目」章节只展示这几个项目（按名称子串匹配）。其余项目仍参与 star 总数统计，
+# 也仍可作为科研成果矩阵里的 chip 出现。删掉整段即恢复展示全部项目。
+agents_include:
+  - YimMenu
+  - RepoGenesis
+
 # Agent 项目在简历中的一句话版本（留空则自动取主页描述的第一句）
 # 写法原则：不列功能清单，只说规模、验证方式和它支撑了什么可验证的结果。
 project_summaries:
@@ -171,6 +177,11 @@ stack_override:
   - ["Benchmark 构建", "执行环境设计、自动化正确性判定（构建-启动-调用）、指标设计（Pass@k / Play@k / Gas@k）", "RepoGenesis、SolEval"]
   - ["智能体", "规划与工具调用（tool use）、GUI 交互、多智能体协作与交叉校验、容器化隔离与批量 rollout", "PlayCoder、OpenHire"]
   - ["数据与记忆", "执行轨迹采集留存与筛选、skill 抽取复用、长期记忆合并与安全回滚", "RepoGenesis、SoulBanner"]
+
+# 技术栈括号里项目名的链接。开源项目会自动用主页里的仓库地址，这里只补论文类条目的代码仓库。
+stack_ref_links:
+  PlayCoder: "https://github.com/Tencent/PlayCoder"
+  SolEval: "https://github.com/pzy2000/SolEval"
 
 # 会议名简写（用于论文条目的会议标注）
 venue_aliases:

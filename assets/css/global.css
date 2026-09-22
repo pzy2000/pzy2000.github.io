@@ -227,3 +227,71 @@ div.lazy {
 .page-content {
     font-size: 0.92rem;
 }
+
+/* Cite this */
+.citation-modal .modal-header .close {
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+.citation-modal .citation-header-spacer {
+    width: 1rem;
+}
+
+.citation-row {
+    padding: 0.6rem 0.25rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.citation-row:hover,
+.citation-row:focus {
+    background-color: #f5f6f8;
+    outline: none;
+}
+
+.citation-style {
+    flex: 0 0 5.5rem;
+    padding-top: 0.15rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.citation-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.citation-copy-hint {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.citation-copy-hint.is-visible {
+    opacity: 1;
+}
+
+.citation-bibtex {
+    font-family: Source Code Pro, monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background-color: #f5f6f8;
+    border-radius: 0.4rem;
+    padding: 0.75rem;
+    max-height: 18rem;
+    overflow-y: auto;
+}
+
+@media (max-width: 575.98px) {
+    .citation-row {
+        display: block !important;
+    }
+
+    .citation-style {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 0.2rem;
+    }
+}

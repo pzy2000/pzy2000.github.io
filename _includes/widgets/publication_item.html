@@ -5,6 +5,30 @@
 {% else %}
 {% capture citation_attrs %}data-semantic-scholar-id="{{ item.semantic_scholar_id }}"{% endcapture %}
 {% endif %}
+{%- assign cite = item.citation -%}
+{%- capture cite_authors_joined -%}{%- for author in item.authors -%}{{ author | replace: '*', '' | replace: '#', '' | strip }}{%- unless forloop.last -%}|{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+{%- assign cite_authors = cite_authors_joined | split: '|' -%}
+{%- if item.pub_date -%}{%- assign cite_year = item.pub_date -%}{%- else -%}{%- assign cite_year = item.date | date: '%Y' -%}{%- endif -%}
+{%- if cite.month -%}{%- assign cite_month = cite.month -%}{%- else -%}{%- assign cite_month = item.date | date: '%m' -%}{%- endif -%}
+{%- assign cite_title_word = item.title | split: ' ' | first | downcase | replace: ':', '' | replace: ',', '' | replace: '.', '' | replace: '-', '' | replace: "'", '' -%}
+{%- assign cite_family_name = cite_authors | first | split: ' ' | last | downcase -%}
+{%- capture cite_default_key -%}{{ cite_family_name }}{{ cite_year }}{{ cite_title_word }}{%- endcapture -%}
+{%- capture cite_json -%}
+{"key": {{ cite.key | default: cite_default_key | jsonify }},
+ "type": {{ cite.type | default: 'inproceedings' | jsonify }},
+ "title": {{ item.title | jsonify }},
+ "authors": {{ cite_authors | jsonify }},
+ "booktitle": {{ cite.booktitle | default: item.pub | jsonify }},
+ "publisher": {{ cite.publisher | jsonify }},
+ "address": {{ cite.address | jsonify }},
+ "pages": {{ cite.pages | jsonify }},
+ "year": {{ cite_year | jsonify }},
+ "month": {{ cite_month | jsonify }},
+ "doi": {{ cite.doi | jsonify }},
+ "url": {{ cite.url | default: item.links.Paper | jsonify }}}
+{%- endcapture -%}
+{%- if page.lang == 'zh' -%}{%- assign cite_label = '引用' -%}{%- else -%}{%- assign cite_label = 'Cite' -%}{%- endif -%}
+{%- capture cite_link -%}<a href="#" class="cite-link" data-citation="{{ cite_json | escape }}">[{{ cite_label }}]</a>{%- endcapture -%}
 <div class="d-none d-md-block">
     <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
         <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
@@ -28,6 +52,7 @@
                 <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
                 {% endif %}
                 {% endfor %}
+                {{ cite_link }}
             </p>
 
         </div>
@@ -52,6 +77,7 @@
                     <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
                     {% endif %}
                     {% endfor %}
+                    {{ cite_link }}
                 </p>
             </div>
         </div>
