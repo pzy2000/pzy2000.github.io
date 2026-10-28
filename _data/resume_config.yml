@@ -48,7 +48,7 @@ section_titles:
   education: "教育背景"
   summary: "简要介绍"
   experience: "工作经历"
-  agents: "开源项目"
+  agents: "项目经历"
   research: "科研成果"
   stack: "技术栈"
 
@@ -57,10 +57,10 @@ summary: >-
   我是上海交通大学计算机科学学院博士 3 年级学生，曾在腾讯 LIGHTSPEED（**青云计划**）和微软研究院（MSRA）实习，
   研究兴趣是 **Agentic Coding**：让智能体在真实执行环境中规划、调用工具并采取行动，
   从交付可运行仓库的 Coding Agent（[RepoGenesis](https://arxiv.org/abs/2601.13943)）到角色化智能体集群
-  （[OpenHire](https://github.com/pzy2000/OpenHire)）。在游戏方向上，我既做**可玩性的自动判定**
+  （[OpenHire](https://github.com/pzy2000/OpenHire)）。在游戏方向上，我既研究**可玩性的自动判定**
   （[PlayCoder](https://conf.researchr.org/details/fse-2026/fse-2026-research-papers/4/PlayCoder-Making-LLM-Generated-GUI-Code-Playable)），
-  也用 Agent **从零到一开发可运行的游戏**（[GOF2_remake](https://github.com/pzy2000/GOF2_remake) /
-  [LoveEmulator](https://github.com/pzy2000/LoveEmulator)）。多篇一作论文发表于 ACL、EMNLP、FSE、ASE。
+  也基于 **Unity + Codex** 构建覆盖自动资产生成、自动测试与自动改良的**游戏迭代开发闭环**，
+  开发了太空 MMORPG 沙盒游戏[《星落远航》](https://www.taptap.cn/app/928107)。多篇一作论文发表于 ACL、EMNLP、FSE、ASE。
 
 # 亮点点阵。支持占位符 {ccfa} {thcpl} {jcrq1} {n_pub} {stars_total} {citations}，由解析结果自动填数。
 # {stars_total} 是构建时实时拉取的各开源项目 star 之和，{citations} 是谷歌学术总引用数。
@@ -106,7 +106,17 @@ experience_extra:
 # 开源项目按 star 降序排列，star 数由 scripts/build_resume.py 在构建时实时拉取，
 # 所以这里不再维护展示顺序和 star 数值。
 
-# 简历「开源项目」章节只展示这几个项目（按名称子串匹配）。其余项目仍参与 star 总数统计，
+# 置顶重点项目（展示在「项目经历」章节最前面，支持技术栈与多条子要点）
+featured_projects:
+  - name: "星落远航 ｜ 太空 MMORPG 沙盒游戏"
+    url: "https://www.taptap.cn/app/928107"
+    role: "联合创始人"
+    tech: "Unity + Codex"
+    bullets:
+      - "**游戏自动迭代开发：**基于 Unity + Codex 开发太空 MMORPG 沙盒游戏，串联**自动资产生成、自动测试与基于测试反馈的自动改良**，形成“生成 → 测试 → 改良 → 再测试”的游戏自动迭代开发闭环。"
+      - "**玩家规模与口碑：**TapTap 评分 **8.9/10**，广受玩家好评；发布 **30 天**，玩家总数 **6000+**，夜间峰值同时在线人数超过 **200 人**，收益 **3k/d**，累计收益 **5w 元**。"
+
+# 简历「项目经历」章节接着展示这几个开源项目（按名称子串匹配）。其余项目仍参与 star 总数统计，
 # 也仍可作为科研成果矩阵里的 chip 出现。删掉整段即恢复展示全部项目。
 agents_include:
   - YimMenu
@@ -173,13 +183,14 @@ paper_badges:
 # 技术栈：主页那份是平台工程的分类法，简历面向基模团队要换成环境/反馈/轨迹的语言。
 # 留空则回退到主页 `# 🛠 技术栈` 的原文。
 stack_override:
-  - ["游戏", "从零到一生成与长程迭代、程序化内容与资产调度、WebGL 运行时与 e2e 回归、可玩性自动判定", "GOF2_remake、PlayCoder"]
+  - ["游戏", "Unity 开发、Codex 辅助开发、自动资产生成、自动测试与反馈驱动改良、游戏自动迭代开发闭环、可玩性自动判定", "星落远航、PlayCoder"]
   - ["Benchmark 构建", "执行环境设计、自动化正确性判定（构建-启动-调用）、指标设计（Pass@k / Play@k / Gas@k）", "RepoGenesis、SolEval"]
   - ["智能体", "规划与工具调用（tool use）、GUI 交互、多智能体协作与交叉校验、容器化隔离与批量 rollout", "PlayCoder、OpenHire"]
   - ["数据与记忆", "执行轨迹采集留存与筛选、skill 抽取复用、长期记忆合并与安全回滚", "RepoGenesis、SoulBanner"]
 
 # 技术栈括号里项目名的链接。开源项目会自动用主页里的仓库地址，这里只补论文类条目的代码仓库。
 stack_ref_links:
+  星落远航: "https://www.taptap.cn/app/928107"
   PlayCoder: "https://github.com/Tencent/PlayCoder"
   SolEval: "https://github.com/pzy2000/SolEval"
 

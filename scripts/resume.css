@@ -237,6 +237,26 @@ a.link {
   color: #10336b;
 }
 
+.proj .proj-name a.link {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.proj .proj-tech {
+  color: #444;
+  font-size: 0.94em;
+}
+
+.proj .proj-bullets {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.proj .proj-bullets > li {
+  text-align: justify;
+}
+
 .proj .role {
   margin-left: 3pt;
   padding: 0 3pt;

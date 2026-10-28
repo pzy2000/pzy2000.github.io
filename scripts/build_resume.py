@@ -396,6 +396,14 @@ def fetch_stars(page: Homepage) -> None:
     """实时拉取各开源项目的 star 数，并按 star 降序排列。"""
     headers = {"Accept": "application/vnd.github+json"}
     token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        import subprocess
+        try:
+            res = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True, timeout=5)
+            if res.returncode == 0 and res.stdout.strip():
+                token = res.stdout.strip()
+        except Exception:
+            pass
     if token:
         headers["Authorization"] = f"Bearer {token}"
 
@@ -580,8 +588,20 @@ def render_experience(page: Homepage, cfg: dict) -> str:
 
 
 def render_projects(page: Homepage, cfg: dict) -> str:
-    include = cfg.get("agents_include")
     rows = []
+    for item in cfg.get("featured_projects") or []:
+        name_html = md_inline(str(item.get("name", "")))
+        if item.get("url"):
+            name_html = f'<a class="link" href="{html.escape(str(item["url"]), quote=True)}">{name_html}</a>'
+        role = f'<span class="role">{html.escape(str(item["role"]))}</span>' if item.get("role") else ""
+        tech = f'<div class="proj-tech">技术：{md_inline(str(item["tech"]))}</div>' if item.get("tech") else ""
+        bullets = "".join(f"<li>{md_inline(str(b))}</li>" for b in (item.get("bullets") or []))
+        bullets_html = f'<ul class="proj-bullets">{bullets}</ul>' if bullets else ""
+        rows.append(
+            f'<li><span class="proj-name">{name_html}</span>{role}{tech}{bullets_html}</li>'
+        )
+
+    include = cfg.get("agents_include")
     for proj in page.projects:
         if include and not any(str(k).lower() in proj.name.lower() for k in include):
             continue
@@ -831,8 +851,14 @@ def launch_browser(pw):
     """只用 Playwright 自带的 Chromium，避免系统浏览器的中文字体问题。"""
     from playwright.sync_api import Error as PlaywrightError
 
+    candidates: list[dict] = [{}, {"channel": "chromium"}]
+    ms_cache = Path.home() / "Library" / "Caches" / "ms-playwright"
+    for exe in sorted(ms_cache.glob("chromium_headless_shell-*/chrome-headless-shell-*/chrome-headless-shell"), reverse=True):
+        if exe.is_file():
+            candidates.append({"executable_path": str(exe)})
+
     last_error: Exception | None = None
-    for options in ({}, {"channel": "chromium"}):
+    for options in candidates:
         try:
             return pw.chromium.launch(**options)
         except PlaywrightError as exc:
